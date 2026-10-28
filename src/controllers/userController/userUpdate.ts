@@ -18,6 +18,8 @@ export default async function userUpdate(
 ) {
   const username = req.auth?.user?.username;
   const info = req.body.user;
+  // An empty image clears the avatar.
+  if (info.image === "") info.image = null;
   try {
     // Get current user
     const user = await userUpdatePrisma(username, info);

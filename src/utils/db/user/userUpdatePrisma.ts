@@ -4,7 +4,7 @@ interface UpdateFields {
   email?: string;
   username?: string;
   password?: string;
-  image?: string;
+  image?: string | null;
   bio?: string;
 }
 

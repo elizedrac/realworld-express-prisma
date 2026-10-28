@@ -10,7 +10,8 @@ import tagViewer from "../../view/tagViewer";
  */
 export default async function getTags(_req: Request, res: Response) {
   // Get all the tags
-  const tags = await prisma.tag.findMany();
+  // Only list tags that are still used by at least one article.
+  const tags = await prisma.tag.findMany({ where: { article: { some: {} } } });
 
   // Create the tags view
   const tagsView = tags.map((tag) => tagViewer(tag));

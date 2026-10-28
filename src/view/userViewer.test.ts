@@ -1,4 +1,4 @@
-import userViewer from "./userViewer";
+import userViewer, { DEFAULT_AVATAR } from "./userViewer";
 
 describe("userViewer", () => {
   test("Returns user object with token when provided valid user and token", () => {
@@ -44,7 +44,7 @@ describe("userViewer", () => {
         username: "jane-smith",
         token: mockToken,
         bio: null,
-        image: null,
+        image: DEFAULT_AVATAR,
       },
     });
   });

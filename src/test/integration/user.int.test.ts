@@ -11,7 +11,7 @@ describe("GET /api/user", () => {
         username: "alice",
         email: alice.email,
         bio: null,
-        image: null,
+        image: "https://static.productionready.io/images/smiley-cyrus.jpg",
         token: expect.any(String),
       },
     });

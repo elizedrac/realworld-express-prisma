@@ -1,5 +1,8 @@
 import { User } from "@prisma/client";
 
+export const DEFAULT_AVATAR =
+  "https://static.productionready.io/images/smiley-cyrus.jpg";
+
 export default function userViewer(user: User, token: string) {
   const userView = {
     user: {
@@ -7,7 +10,7 @@ export default function userViewer(user: User, token: string) {
       token: token,
       username: user.username,
       bio: user.bio,
-      image: user.image,
+      image: user.image ?? DEFAULT_AVATAR,
     },
   };
   return userView;

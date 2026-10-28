@@ -17,7 +17,7 @@ describe("POST /api/users (register)", () => {
         username: "alice",
         email: "alice@mail.com",
         bio: null,
-        image: null,
+        image: "https://static.productionready.io/images/smiley-cyrus.jpg",
         token: expect.any(String),
       },
     });

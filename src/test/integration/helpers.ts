@@ -1,7 +1,22 @@
+import http from "http";
 import supertest from "supertest";
 import app from "../../app";
 
-export const api = supertest(app);
+// One server per test file, bound to loopback. supertest(app) would start a
+// server on all interfaces for every request; when the OS hands out a port that
+// another program already holds on 127.0.0.1, the request reaches that program
+// and fails with a reset, a hang-up or a timeout.
+const server = http.createServer(app);
+
+beforeAll((done) => {
+  server.listen(0, "127.0.0.1", done);
+});
+
+afterAll((done) => {
+  server.close(done);
+});
+
+export const api = supertest(server);
 
 export interface TestUser {
   username: string;

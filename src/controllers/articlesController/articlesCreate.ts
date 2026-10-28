@@ -5,6 +5,7 @@ import articleCreatePrisma from "../../utils/db/article/articleCreatePrisma";
 import tagsCreatePrisma from "../../utils/db/tag/tagsCreatePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import { invalidateTagsCache } from "../tagsController/getTags";
 
 interface Article {
   title: string;
@@ -38,6 +39,7 @@ export default async function articlesCreate(
     let tags: Tag[] = [];
     if (tagList && tagList.length > 0) {
       tags = await tagsCreatePrisma(tagList);
+      invalidateTagsCache();
     }
 
     // Create the article

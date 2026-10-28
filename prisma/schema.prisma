@@ -35,6 +35,9 @@ model Article {
   comments       Comment[] @relation("Comments") /// List of comments of this article.
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @default(now())
+
+  @@index([authorUsername])
+  @@index([updatedAt])
 }
 
 model Comment {

@@ -4,6 +4,7 @@ import * as comments from "../../controllers/commentsController";
 import * as validator from "../../middleware/articlesValidator";
 import commentCreateValidator from "../../middleware/commentsValidator/commentCreateValidator";
 import * as auth from "../../middleware/auth/authenticator";
+import requireArticleAuthor from "../../middleware/auth/requireArticleAuthor";
 
 const router = Router();
 
@@ -37,7 +38,12 @@ router.put(
   articles.articlesUpdate
 );
 
-router.delete("/:slug", auth.authenticate, articles.articlesDelete);
+router.delete(
+  "/:slug",
+  auth.authenticate,
+  requireArticleAuthor,
+  articles.articlesDelete
+);
 
 router.post(
   "/:slug/comments",

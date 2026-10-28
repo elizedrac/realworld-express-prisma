@@ -17,7 +17,6 @@ export default async function articleUpdatePrisma(
     data: {
       ...info,
       slug: newSlug,
-      updatedAt: new Date(),
     },
     include: {
       author: { include: { followedBy: true } },

@@ -34,7 +34,7 @@ model Article {
   favoritedBy    User[]    @relation("Favorites") /// List of users that have favorited this article.
   comments       Comment[] @relation("Comments") /// List of comments of this article.
   createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now()) @updatedAt
 }
 
 model Comment {

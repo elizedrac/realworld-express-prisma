@@ -1,0 +1,15 @@
+{
+  "name": "realworld-express-prisma",
+  "setup": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error && npx prisma generate",
+  "setup_inputs": ["package-lock.json", "prisma/schema.prisma"],
+  "keep_between_checkouts": ["node_modules"],
+  "typecheck": "npx tsc --noEmit",
+  "test": "npx dotenv -e .env.test -- npx jest -c jest.all.config.ts -i --silent --forceExit --json --outputFile={report}",
+  "test_report": "jest-json",
+  "versions": "node -v && npx tsc -v",
+  "timeout_seconds": 300,
+  "oracle": {
+    "dir": "src/test/integration/__oracle__",
+    "command": "npx dotenv -e .env.test -- npx jest -c jest.integration.config.ts -i --silent --forceExit --json --outputFile={report} {dir}"
+  }
+}

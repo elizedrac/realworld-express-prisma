@@ -21,7 +21,6 @@ export default async function userLogin(
     if (!user) return res.sendStatus(404);
 
     // Compare the user password given with the one stored
-    console.log(password, user.password);
     if (!compareWithHash(password, user.password)) return res.sendStatus(403);
 
     // Create the user token for future authentication

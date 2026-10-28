@@ -37,6 +37,9 @@ export default async function articlesCreateValidator(
     }
   }
 
+  if (typeof title == "string" && title.length > 150)
+    errors.body.push("title must be at most 150 characters");
+
   // Checks if tagList is an array of strings in case it is not undefined.
   if (tagList && !Array.isArray(tagList))
     errors.body.push("tagList must be an array of non-empty strings");

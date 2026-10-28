@@ -8,7 +8,8 @@ import articleViewer from "../../view/articleViewer";
 function parseArticleListQuery(query: ParsedQs) {
   let { tag, author, favorited } = query;
   const { limit, offset } = query;
-  tag = tag ? (tag as string) : undefined;
+  // Tag filters are case-insensitive: "Dragons" finds articles tagged "dragons".
+  tag = tag ? (tag as string).trim().toLowerCase() : undefined;
   author = author ? (author as string) : undefined;
   favorited = favorited ? (favorited as string) : undefined;
   const limitNumber = limit ? parseInt(limit as string) : undefined;

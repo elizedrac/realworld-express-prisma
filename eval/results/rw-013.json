@@ -1,0 +1,221 @@
+{
+  "id": "rw-013",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:49:25.564Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-013-a",
+  "branch_b": "rw-013-b",
+  "oracle_applies_to": [
+    "base",
+    "a",
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "GET /api/articles/:slug leaves updatedAt and list order alone"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 4.2,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 3
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 1.2
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.6,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "a": {
+      "sha": "303f448701c9a156c50e17b5468b3f2adcbfb5ed",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.2,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.5,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "b": {
+      "sha": "9682952f2d7a96683acce6fc90b12a69e4fc4fda",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.6,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.6,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.2,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/readsDoNotReorder.int.test.ts",
+            "test": "GET /api/articles/:slug leaves updatedAt and list order alone",
+            "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Array [\n-   \"newer\",\n    \"older\","
+          }
+        ]
+      }
+    }
+  }
+}

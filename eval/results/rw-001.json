@@ -1,0 +1,140 @@
+{
+  "id": "rw-001",
+  "type": "test",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:31:22.141Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-001-a",
+  "branch_b": "rw-001-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "test_failure",
+    "manifests": [
+      "test_failure"
+    ],
+    "failing_tests": [
+      "src/utils/auth/passwordResetToken.test.ts > password reset tokens round-trips the email",
+      "src/utils/auth/passwordResetToken.test.ts > password reset tokens rejects a tampered token",
+      "src/utils/auth/passwordResetToken.test.ts > password reset tokens rejects a token issued for another purpose",
+      "src/utils/auth/passwordResetToken.test.ts > password reset tokens rejects an expired token"
+    ],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "c4381b64e90eb50d9d88740a71172eb04c54fc24",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.4,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "4430ab4edb2a87f2c4d8faf6618f6b8f111c6ef0",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.6,
+        "total": 244,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 16.3,
+        "total": 244,
+        "failed_count": 4,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/utils/auth/passwordResetToken.test.ts",
+            "test": "password reset tokens round-trips the email",
+            "message": "Error: JWT_SECRET missing in environment.\n    at createPasswordResetToken (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.ts:15:11)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.test.ts:9:43)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:222:10)\n    at _callCircusTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:248:40)\n    at async _runTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:184:3)"
+          },
+          {
+            "file": "src/utils/auth/passwordResetToken.test.ts",
+            "test": "password reset tokens rejects a tampered token",
+            "message": "Error: JWT_SECRET missing in environment.\n    at createPasswordResetToken (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.ts:15:11)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.test.ts:14:43)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:222:10)\n    at _callCircusTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:248:40)\n    at async _runTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:184:3)"
+          },
+          {
+            "file": "src/utils/auth/passwordResetToken.test.ts",
+            "test": "password reset tokens rejects a token issued for another purpose",
+            "message": "Error: secretOrPrivateKey must have a value\n    at Object.<anonymous>.module.exports [as sign] (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jsonwebtoken/sign.js:105:20)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.test.ts:19:28)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:222:10)\n    at _callCircusTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:248:40)\n    at async _runTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:184:3)"
+          },
+          {
+            "file": "src/utils/auth/passwordResetToken.test.ts",
+            "test": "password reset tokens rejects an expired token",
+            "message": "Error: secretOrPrivateKey must have a value\n    at Object.<anonymous>.module.exports [as sign] (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jsonwebtoken/sign.js:105:20)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/utils/auth/passwordResetToken.test.ts:27:25)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:222:10)\n    at _callCircusTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:248:40)\n    at async _runTest (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/run.js:184:3)"
+          }
+        ]
+      },
+      "ok": false
+    }
+  }
+}

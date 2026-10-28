@@ -1,0 +1,153 @@
+{
+  "written_at": "2026-10-28T19:50:49.376Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "valid": 18,
+  "total": 18,
+  "cases": [
+    {
+      "id": "rw-001",
+      "type": "test",
+      "observed": "test_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:31:22.141Z"
+    },
+    {
+      "id": "rw-002",
+      "type": "build",
+      "observed": "type_error",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:32:18.947Z"
+    },
+    {
+      "id": "rw-003",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:33:22.116Z"
+    },
+    {
+      "id": "rw-004",
+      "type": "textual",
+      "observed": "textual",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:50:49.282Z"
+    },
+    {
+      "id": "rw-005",
+      "type": "textual",
+      "observed": "textual",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:34:28.806Z"
+    },
+    {
+      "id": "rw-006",
+      "type": "textual",
+      "observed": "textual",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:35:02.130Z"
+    },
+    {
+      "id": "rw-007",
+      "type": "build",
+      "observed": "type_error",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:35:40.509Z"
+    },
+    {
+      "id": "rw-008",
+      "type": "build",
+      "observed": "type_error",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:36:18.879Z"
+    },
+    {
+      "id": "rw-009",
+      "type": "test",
+      "observed": "test_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:37:10.350Z"
+    },
+    {
+      "id": "rw-010",
+      "type": "test",
+      "observed": "test_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:38:01.688Z"
+    },
+    {
+      "id": "rw-011",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:39:03.299Z"
+    },
+    {
+      "id": "rw-012",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:40:02.062Z"
+    },
+    {
+      "id": "rw-013",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:49:25.564Z"
+    },
+    {
+      "id": "rw-014",
+      "type": "intent",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:42:05.236Z"
+    },
+    {
+      "id": "rw-015",
+      "type": "intent",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:42:56.320Z"
+    },
+    {
+      "id": "rw-016",
+      "type": "intent",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:43:47.430Z"
+    },
+    {
+      "id": "rw-017",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:44:38.171Z"
+    },
+    {
+      "id": "rw-018",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-10-28T19:45:47.775Z"
+    }
+  ]
+}

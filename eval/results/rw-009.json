@@ -1,0 +1,122 @@
+{
+  "id": "rw-009",
+  "type": "test",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:37:10.350Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-009-a",
+  "branch_b": "rw-009-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "test_failure",
+    "manifests": [
+      "test_failure"
+    ],
+    "failing_tests": [
+      "src/test/integration/articlesCount.int.test.ts > articlesCount is the total number of matches, independent of the page"
+    ],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "6bcb3c49eb48bcac740ebfdf21716d3a26dc8b4b",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.8,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "145caffd21cd1fa6e31f4a5e61cc30fc85f155b9",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.1,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 16,
+        "total": 241,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/articlesCount.int.test.ts",
+            "test": "articlesCount is the total number of matches, independent of the page",
+            "message": "Error: expect(received).toHaveLength(expected)\n\nExpected length: 12\nReceived length: 10\nReceived array:  [{\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 11 body\", \"createdAt\": \"2026-10-28T19:37:09.068Z\", \"description\": \"Article 11 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-11\", \"tagList\": [], \"title\": \"Article 11\", \"updatedAt\": \"2026-10-28T19:37:09.068Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 10 body\", \"createdAt\": \"2026-10-28T19:37:09.061Z\", \"description\": \"Article 10 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-10\", \"tagList\": [], \"title\": \"Article 10\", \"updatedAt\": \"2026-10-28T19:37:09.061Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 9 body\", \"createdAt\": \"2026-10-28T19:37:09.054Z\", \"description\": \"Article 9 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-9\", \"tagList\": [], \"title\": \"Article 9\", \"updatedAt\": \"2026-10-28T19:37:09.054Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 8 body\", \"createdAt\": \"2026-10-28T19:37:09.047Z\", \"description\": \"Article 8 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-8\", \"tagList\": [], \"title\": \"Article 8\", \"updatedAt\": \"2026-10-28T19:37:09.047Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 7 body\", \"createdAt\": \"2026-10-28T19:37:09.040Z\", \"description\": \"Article 7 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-7\", \"tagList\": [], \"title\": \"Article 7\", \"updatedAt\": \"2026-10-28T19:37:09.040Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 6 body\", \"createdAt\": \"2026-10-28T19:37:09.034Z\", \"description\": \"Article 6 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-6\", \"tagList\": [], \"title\": \"Article 6\", \"updatedAt\": \"2026-10-28T19:37:09.034Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 5 body\", \"createdAt\": \"2026-10-28T19:37:09.029Z\", \"description\": \"Article 5 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-5\", \"tagList\": [], \"title\": \"Article 5\", \"updatedAt\": \"2026-10-28T19:37:09.029Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 4 body\", \"createdAt\": \"2026-10-28T19:37:09.023Z\", \"description\": \"Article 4 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-4\", \"tagList\": [], \"title\": \"Article 4\", \"updatedAt\": \"2026-10-28T19:37:09.023Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 3 body\", \"createdAt\": \"2026-10-28T19:37:09.017Z\", \"description\": \"Article 3 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-3\", \"tagList\": [], \"title\": \"Article 3\", \"updatedAt\": \"2026-10-28T19:37:09.017Z\"}, {\"author\": {\"bio\": null, \"following\": false, \"image\": null, \"username\": \"alice\"}, \"body\": \"Article 2 body\", \"createdAt\": \"2026-10-28T19:37:09.011Z\", \"description\": \"Article 2 description\", \"favorited\": false, \"favoritesCount\": 0, \"slug\": \"article-2\", \"tagList\": [], \"title\": \"Article 2\", \"updatedAt\": \"2026-10-28T19:37:09.011Z\"}]\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/articlesCount.int.test.ts:11:31\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/articlesCount.int.test.ts:5:58)"
+          }
+        ]
+      },
+      "ok": false
+    }
+  }
+}

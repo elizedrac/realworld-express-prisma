@@ -1,0 +1,172 @@
+{
+  "id": "rw-007",
+  "type": "build",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:35:40.509Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-007-a",
+  "branch_b": "rw-007-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "type_error",
+    "manifests": [
+      "type_error",
+      "test_failure"
+    ],
+    "failing_tests": [
+      "src/test/integration/articles.int.test.ts",
+      "src/test/integration/comments.int.test.ts",
+      "src/test/integration/user.int.test.ts",
+      "src/test/integration/profiles.int.test.ts",
+      "src/test/integration/users.int.test.ts",
+      "src/test/integration/favorites.int.test.ts",
+      "src/test/integration/app.int.test.ts",
+      "src/test/integration/profileArticles.int.test.ts",
+      "src/controllers/controllerGuards.test.ts"
+    ],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "539b9ca59666758a79d2261b0eb27f1ba639fb7b",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.5,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "8025b833f5f24be84caa40829dd68f3e6ec78294",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.9,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": false,
+        "exit": 2,
+        "seconds": 1.1,
+        "log": "src/controllers/profileController/getProfileArticles.ts(27,58): error TS2554: Expected 0-1 arguments, but got 2.\n"
+      },
+      "test": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 3.3,
+        "total": 107,
+        "failed_count": 0,
+        "failed_suites": 9,
+        "failed": [
+          {
+            "file": "src/test/integration/articles.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/comments.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/user.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/profiles.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/users.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/favorites.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/app.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/test/integration/profileArticles.int.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          },
+          {
+            "file": "src/controllers/controllerGuards.test.ts",
+            "test": null,
+            "message": "  ● Test suite failed to run\n\n    \u001b[96msrc/controllers/profileController/getProfileArticles.ts\u001b[0m:\u001b[93m27\u001b[0m:\u001b[93m58\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2554: \u001b[0mExpected 0-1 arguments, but got 2.\n\n    \u001b[7m27\u001b[0m     const articles = await articlesListPrisma(undefined, username);\n    \u001b[7m  \u001b[0m \u001b[91m                                                         ~~~~~~~~\u001b[0m\n"
+          }
+        ]
+      },
+      "ok": false
+    }
+  }
+}

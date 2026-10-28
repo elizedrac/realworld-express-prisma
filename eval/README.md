@@ -1,7 +1,7 @@
 # Conflict eval cases
 
 Seeded pairs of branches (`rw-XXX-a`, `rw-XXX-b`) that each pass on their own,
-built on the `eval-base-v1` tag. Case branches do not contain this folder.
+built on the `eval-base-v2` tag. Case branches do not contain this folder.
 
 - `cases.jsonl`: one line per case with its `type`, label, intents and explanation.
 - `cases/<id>/oracle/`: oracle tests for `runtime` cases. They check the behavior

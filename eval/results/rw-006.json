@@ -1,0 +1,100 @@
+{
+  "id": "rw-006",
+  "type": "textual",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:35:02.130Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-006-a",
+  "branch_b": "rw-006-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "textual",
+    "manifests": [
+      "textual"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "6e20a114ff5b9d171cd04136a8748b7448e79cda",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.6,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "126eee55bbee2914ade6294c78198097754d09b0",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.1,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": true,
+      "conflict_files": [
+        "src/utils/db/article/articleFeedPrisma.ts"
+      ],
+      "ok": false
+    }
+  }
+}

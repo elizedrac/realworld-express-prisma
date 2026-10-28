@@ -1,0 +1,112 @@
+{
+  "id": "rw-017",
+  "type": "negative",
+  "label": "no_conflict",
+  "verified_at": "2026-10-28T19:44:38.171Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-017-a",
+  "branch_b": "rw-017-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "none",
+    "manifests": [],
+    "failing_tests": [],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "199033c136816851dc31b7e31f5416cd709748bd",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.6,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "b666624597263990f434ee220326406e065e6a58",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.5,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16,
+        "total": 243,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    }
+  }
+}

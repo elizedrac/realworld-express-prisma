@@ -1,0 +1,135 @@
+{
+  "id": "rw-004",
+  "type": "textual",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:50:49.282Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-004-a",
+  "branch_b": "rw-004-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "textual",
+    "manifests": [
+      "textual"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.9,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "4f9d4a0f5ec9f21beeebaa5173e1e4d5d17ce956",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.7
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.9,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "bea75b1e1eaf3da4b88bbbaf0b81b5271c0b91a3",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.8,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": true,
+      "conflict_files": [
+        "src/utils/hashPasswords.ts"
+      ],
+      "ok": false
+    }
+  }
+}

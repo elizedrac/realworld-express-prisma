@@ -148,31 +148,68 @@ function cleanExcludes() {
     .join(" ");
 }
 
-const setupHashFile = `${workdir}.setup-hash`;
+// Setup is a list of steps, each re-run only when its input files change, so a
+// schema change regenerates the client without reinstalling every package.
+// Once a step runs, every later step runs too, since it may depend on it.
+// A plain string setup with setup_inputs is treated as a single step.
+function setupSteps() {
+  if (!target.setup) return [];
+  if (Array.isArray(target.setup)) return target.setup;
+  return [{ run: target.setup, inputs: target.setup_inputs }];
+}
 
-function setupIfNeeded() {
-  if (!target.setup) return null;
+function inputsDigest(inputs) {
   const hash = createHash("sha256");
-  for (const file of target.setup_inputs ?? []) {
+  for (const file of inputs) {
     const p = path.join(workdir, file);
     hash.update(file);
     hash.update(fs.existsSync(p) ? fs.readFileSync(p) : "<missing>");
   }
-  const digest = hash.digest("hex");
-  const previous = fs.existsSync(setupHashFile)
-    ? fs.readFileSync(setupHashFile, "utf8")
-    : null;
-  if (target.setup_inputs && previous === digest) return { skipped: true };
-  const res = run(target.setup, workdir);
-  if (res.exit === 0) fs.writeFileSync(setupHashFile, digest);
-  else fs.rmSync(setupHashFile, { force: true });
-  return {
-    skipped: false,
-    ok: res.exit === 0,
-    exit: res.exit,
-    seconds: res.seconds,
-    log: tail(res.output),
-  };
+  return hash.digest("hex");
+}
+
+function setupIfNeeded() {
+  const steps = setupSteps();
+  if (steps.length === 0) return null;
+  const result = { skipped: true, ok: true, seconds: 0, steps: [] };
+  let rerunRest = false;
+  for (const [index, step] of steps.entries()) {
+    const hashFile = `${workdir}.setup-hash-${index}`;
+    const digest = step.inputs ? inputsDigest(step.inputs) : null;
+    const previous = fs.existsSync(hashFile)
+      ? fs.readFileSync(hashFile, "utf8")
+      : null;
+    if (!rerunRest && digest !== null && previous === digest) {
+      result.steps.push({ run: step.run, skipped: true });
+      continue;
+    }
+    rerunRest = true;
+    result.skipped = false;
+    const res = run(step.run, workdir);
+    result.seconds += res.seconds;
+    const ok = res.exit === 0;
+    result.steps.push({
+      run: step.run,
+      skipped: false,
+      ok,
+      exit: res.exit,
+      seconds: res.seconds,
+    });
+    if (ok && digest !== null) fs.writeFileSync(hashFile, digest);
+    else fs.rmSync(hashFile, { force: true });
+    if (!ok) {
+      // Force every step to run again next time, since this one left things half done.
+      for (let i = index + 1; i < steps.length; i++)
+        fs.rmSync(`${workdir}.setup-hash-${i}`, { force: true });
+      Object.assign(result, {
+        ok: false,
+        exit: res.exit,
+        log: tail(res.output),
+      });
+      return result;
+    }
+  }
+  return result;
 }
 
 // ---------- checks ----------
@@ -429,6 +466,64 @@ const versions = target.versions
 const baseCache = new Map();
 const summary = [];
 
+// baselines.jsonl: what plain git, tsc and the repo's tests report for each
+// case, i.e. what a detector with no extra analysis would see. Rows from
+// earlier runs are kept, so running a subset of cases only updates those.
+const baselinesPath = path.join(outDir, "baselines.jsonl");
+const baselines = new Map(
+  (fs.existsSync(baselinesPath) ? fs.readFileSync(baselinesPath, "utf8") : "")
+    .split("\n")
+    .filter((l) => l.trim())
+    .map((l) => JSON.parse(l))
+    .map((row) => [row.id, row])
+);
+
+function sideBaseline(step) {
+  return {
+    tsc: step.typecheck?.ok ?? null,
+    tests: step.test?.ok ?? null,
+    oracle: step.oracle ? step.oracle.ok : null,
+  };
+}
+
+function baselineRow(pair, steps, verdict) {
+  const merged = steps.merged;
+  const tscRan = !merged.textual_conflict;
+  return {
+    id: pair.id,
+    type: pair.type ?? null,
+    label: pair.label ?? null,
+    valid: verdict.valid,
+    git: {
+      conflict: merged.textual_conflict,
+      conflict_files: merged.conflict_files ?? [],
+    },
+    tsc: tscRan
+      ? { pass: merged.typecheck.ok, exit: merged.typecheck.exit }
+      : null,
+    tests: tscRan
+      ? {
+          pass: merged.test.ok,
+          failed_count: merged.test.failed_count ?? null,
+          failing: (merged.test.failed ?? []).map((f) =>
+            f.test ? `${f.file} > ${f.test}` : f.file
+          ),
+        }
+      : null,
+    oracle: merged.oracle ? { pass: merged.oracle.ok } : null,
+    sides: { a: sideBaseline(steps.a), b: sideBaseline(steps.b) },
+    verified_at: new Date().toISOString(),
+  };
+}
+
+function writeBaselines() {
+  const rows = [...baselines.values()].sort((x, y) => x.id.localeCompare(y.id));
+  fs.writeFileSync(
+    baselinesPath,
+    rows.map((row) => JSON.stringify(row)).join("\n") + "\n"
+  );
+}
+
 for (const pair of pairs) {
   console.log(
     `\n== ${pair.id} [${pair.type ?? "untyped"}]: ${pair.a} + ${pair.b} (base ${
@@ -504,17 +599,38 @@ for (const pair of pairs) {
     valid: verdict.valid,
     problems: verdict.problems,
   });
+  baselines.set(pair.id, baselineRow(pair, steps, verdict));
 }
 
+writeBaselines();
+
 checkout(pairs[0].base);
+
+// summary.json covers every case with a result file, not just this run's, so
+// running a subset of cases does not drop the others.
+const allResults = fs
+  .readdirSync(outDir)
+  .filter((f) => /\.json$/.test(f) && f !== "summary.json")
+  .map((f) => JSON.parse(fs.readFileSync(path.join(outDir, f), "utf8")))
+  .filter((r) => r.id && r.verdict)
+  .sort((x, y) => x.id.localeCompare(y.id));
 fs.writeFileSync(
   path.join(outDir, "summary.json"),
   JSON.stringify(
     {
-      verified_at: new Date().toISOString(),
+      written_at: new Date().toISOString(),
       target: target.name,
       versions,
-      cases: summary,
+      valid: allResults.filter((r) => r.verdict.valid).length,
+      total: allResults.length,
+      cases: allResults.map((r) => ({
+        id: r.id,
+        type: r.type,
+        observed: r.observed.manifests_as,
+        valid: r.verdict.valid,
+        problems: r.verdict.problems,
+        verified_at: r.verified_at,
+      })),
     },
     null,
     2

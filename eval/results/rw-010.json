@@ -1,0 +1,122 @@
+{
+  "id": "rw-010",
+  "type": "test",
+  "label": "conflict",
+  "verified_at": "2026-10-28T19:38:01.688Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-010-a",
+  "branch_b": "rw-010-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "test_failure",
+    "manifests": [
+      "test_failure"
+    ],
+    "failing_tests": [
+      "src/test/integration/clearImage.int.test.ts > an empty image clears the user's avatar"
+    ],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "exit": 0,
+        "seconds": 20,
+        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "8d8e58ed21bda433280e64f6002a31e88ec0a547",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.8,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "428900168915bbc89ea8dd813a5fd6fd99461b90",
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.9,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 15.9,
+        "total": 241,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/clearImage.int.test.ts",
+            "test": "an empty image clears the user's avatar",
+            "message": "Error: expect(received).toBeNull()\n\nReceived: \"https://static.productionready.io/images/smiley-cyrus.jpg\"\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/clearImage.int.test.ts:16:35\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/clearImage.int.test.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)"
+          }
+        ]
+      },
+      "ok": false
+    }
+  }
+}

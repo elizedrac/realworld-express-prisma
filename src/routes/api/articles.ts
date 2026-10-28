@@ -23,6 +23,8 @@ router.get(
 
 router.get("/:slug", auth.optionalAuthenticate, articles.articlesGet);
 
+router.get("/:slug/stats", articles.articlesStats);
+
 router.post(
   "/",
   auth.authenticate,

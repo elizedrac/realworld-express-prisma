@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import articleGetPrisma from "../../utils/db/article/articleGetPrisma";
+import articleViewPrisma from "../../utils/db/article/articleViewPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
 
@@ -27,6 +28,7 @@ export default async function articlesGet(
     // Get the article
     const article = await articleGetPrisma(slug);
     if (!article) return res.sendStatus(404);
+    await articleViewPrisma(slug);
 
     // Create the article view
     const articleView = currentUser

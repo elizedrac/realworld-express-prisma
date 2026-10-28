@@ -16,6 +16,9 @@ export default async function articleFeedPrisma(
     },
     take: limit,
     skip: offset,
+    where: {
+      author: { followedBy: { some: { username: currentUser.username } } },
+    },
   });
   return articles;
 }

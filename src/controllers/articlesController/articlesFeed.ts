@@ -33,7 +33,13 @@ export default async function articlesFeed(
     if (!currentUser) return res.sendStatus(401);
 
     // Get articles feed
-    const articles = await articleFeedPrisma(currentUser, limit, offset);
+    const allArticles = await articleFeedPrisma(currentUser, limit, offset);
+
+    // Keep only articles written by authors the user follows.
+    const followed = new Set(currentUser.follows.map((user) => user.username));
+    const articles = allArticles.filter((article) =>
+      followed.has(article.authorUsername)
+    );
 
     // Create articles feed view
     const articlesFeedView = articles.map((article) =>

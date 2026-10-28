@@ -16,6 +16,7 @@ export default async function articleFeedPrisma(
     },
     take: limit,
     skip: offset,
+    orderBy: { updatedAt: "desc" },
   });
   return articles;
 }

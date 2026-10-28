@@ -38,13 +38,13 @@ export default async function articlesList(
     const currentUser = await userGetPrisma(username);
 
     // Get the articles
-    const articles = await articlesListPrisma(
+    const articles = await articlesListPrisma({
       tag,
-      author,
+      authorUsername: author,
       favorited,
       limit,
-      offset
-    );
+      offset,
+    });
 
     // Create articles view
     const articlesListView = articles.map((article) =>

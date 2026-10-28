@@ -1,12 +1,20 @@
 import prisma from "../prisma";
 
-export default async function articlesListPrisma(
-  tag?: string,
-  authorUsername?: string,
-  favorited?: string,
+interface ListOptions {
+  tag?: string;
+  authorUsername?: string;
+  favorited?: string;
+  limit?: number;
+  offset?: number;
+}
+
+export default async function articlesListPrisma({
+  tag,
+  authorUsername,
+  favorited,
   limit = 20,
-  offset = 0
-) {
+  offset = 0,
+}: ListOptions = {}) {
   const articles = await prisma.article.findMany({
     where: {
       authorUsername,

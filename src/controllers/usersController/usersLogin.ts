@@ -22,7 +22,8 @@ export default async function userLogin(
 
     // Compare the user password given with the one stored
     console.log(password, user.password);
-    if (!compareWithHash(password, user.password)) return res.sendStatus(403);
+    // 401 matches the RealWorld spec for bad credentials.
+    if (!compareWithHash(password, user.password)) return res.sendStatus(401);
 
     // Create the user token for future authentication
     const token = createUserToken(user);

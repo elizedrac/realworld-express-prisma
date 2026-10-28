@@ -137,7 +137,7 @@ describe("PUT /api/user", () => {
     await api
       .post("/api/users/login")
       .send({ user: { email: alice.email, password: "new-password" } })
-      .expect(403);
+      .expect(401);
   });
 
   test("rejects an email that belongs to another user with 422", async () => {

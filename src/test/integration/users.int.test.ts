@@ -113,12 +113,12 @@ describe("POST /api/users/login", () => {
       .expect(404);
   });
 
-  test("returns 403 for a wrong password", async () => {
+  test("returns 401 for a wrong password", async () => {
     const alice = await registerUser("alice");
     await api
       .post("/api/users/login")
       .send({ user: { email: alice.email, password: "wrong" } })
-      .expect(403);
+      .expect(401);
   });
 
   test("rejects a body without a user object", async () => {

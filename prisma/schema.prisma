@@ -27,7 +27,7 @@ model Article {
   title          String    @unique
   slug           String    @id /// Slug is an uri safe string derived from the title.
   description    String /// Description for SEO of this article.
-  body           String /// The main content of the article.
+  content        String /// The main content of the article.
   tagList        Tag[] /// List of tags associated with this article.
   author         User      @relation("Author", fields: [authorUsername], references: [username], onDelete: Cascade) /// User that is the author of this article.
   authorUsername String /// Username of the author of this article.

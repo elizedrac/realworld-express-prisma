@@ -23,7 +23,7 @@ export default function articleViewer(
     slug: article.slug,
     title: article.title,
     description: article.description,
-    body: article.body,
+    body: article.content,
     tagList: tagListView,
     createdAt: article.createdAt,
     updatedAt: article.updatedAt,

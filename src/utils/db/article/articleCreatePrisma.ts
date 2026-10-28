@@ -13,10 +13,12 @@ export default async function articleCreatePrisma(
   tagList: Tag[],
   authorUsername: string
 ) {
+  const { body, ...rest } = info;
   const slug = slugfy(info.title);
   const article = await prisma.article.create({
     data: {
-      ...info,
+      ...rest,
+      content: body,
       slug,
       authorUsername,
       tagList: { connect: tagList },

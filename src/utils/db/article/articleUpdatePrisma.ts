@@ -11,11 +11,13 @@ export default async function articleUpdatePrisma(
   slug: string,
   info: UpdateFields
 ) {
+  const { body, ...rest } = info;
   const newSlug = slugfy(slug);
   const article = await prisma.article.update({
     where: { slug },
     data: {
-      ...info,
+      ...rest,
+      content: body,
       slug: newSlug,
       updatedAt: new Date(),
     },

@@ -5,7 +5,8 @@ export default async function articlesListPrisma(
   authorUsername?: string,
   favorited?: string,
   limit = 20,
-  offset = 0
+  offset = 0,
+  sort: "created" | "updated" = "updated"
 ) {
   const articles = await prisma.article.findMany({
     where: {
@@ -15,7 +16,7 @@ export default async function articlesListPrisma(
     },
     take: limit,
     skip: offset,
-    orderBy: { updatedAt: "desc" },
+    orderBy: sort === "created" ? { createdAt: "desc" } : { updatedAt: "desc" },
     include: {
       author: { include: { followedBy: true } },
       tagList: true,

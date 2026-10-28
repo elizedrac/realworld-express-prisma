@@ -8,12 +8,21 @@ import articleViewer from "../../view/articleViewer";
 function parseArticleListQuery(query: ParsedQs) {
   let { tag, author, favorited } = query;
   const { limit, offset } = query;
+  const sort: "created" | "updated" =
+    query.sort === "created" ? "created" : "updated";
   tag = tag ? (tag as string) : undefined;
   author = author ? (author as string) : undefined;
   favorited = favorited ? (favorited as string) : undefined;
   const limitNumber = limit ? parseInt(limit as string) : undefined;
   const offsetNumber = offset ? parseInt(offset as string) : undefined;
-  return { tag, author, favorited, limit: limitNumber, offset: offsetNumber };
+  return {
+    tag,
+    author,
+    favorited,
+    limit: limitNumber,
+    offset: offsetNumber,
+    sort,
+  };
 }
 
 /**
@@ -28,7 +37,7 @@ export default async function articlesList(
   res: Response,
   next: NextFunction
 ) {
-  const { tag, author, favorited, limit, offset } = parseArticleListQuery(
+  const { tag, author, favorited, limit, offset, sort } = parseArticleListQuery(
     req.query
   );
   const username = req.auth?.user?.username;
@@ -43,7 +52,8 @@ export default async function articlesList(
       author,
       favorited,
       limit,
-      offset
+      offset,
+      sort
     );
 
     // Create articles view

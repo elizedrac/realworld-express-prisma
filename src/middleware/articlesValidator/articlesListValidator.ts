@@ -14,7 +14,7 @@ export default async function articlesListValidator(
   res: Response,
   next: NextFunction
 ) {
-  const { tag, author, favorited, limit, offset } = req.query;
+  const { tag, author, favorited, limit, offset, sort } = req.query;
   const errors: ValidationError = {};
   errors.query = [];
 
@@ -25,6 +25,9 @@ export default async function articlesListValidator(
 
   if (favorited && typeof favorited != "string")
     errors.query.push("favorited must be a string");
+
+  if (sort && sort !== "created" && sort !== "updated")
+    errors.query.push("sort must be 'created' or 'updated'");
 
   if (limit && typeof limit != "string")
     errors.query.push("limit must be a string");

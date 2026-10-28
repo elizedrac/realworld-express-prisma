@@ -4,7 +4,7 @@ export default async function articlesListPrisma(
   tag?: string,
   authorUsername?: string,
   favorited?: string,
-  limit = 20,
+  limit = 10,
   offset = 0
 ) {
   const articles = await prisma.article.findMany({

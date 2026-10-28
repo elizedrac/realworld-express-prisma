@@ -4,8 +4,8 @@ import { expressjwt as jwt } from "express-jwt";
 
 dotenv.config();
 
-if (!process.env.JWT_SECRET) {
-  throw new Error("JWT_SECRET missing in environment.");
+if (!process.env.AUTH_JWT_SECRET) {
+  throw new Error("AUTH_JWT_SECRET missing in environment.");
 }
 
 /**
@@ -25,14 +25,14 @@ function getTokenInHeader(req: Request) {
 // Authenticate is a middleware that will not throw errors, only if user is able to authenticate.
 export const authenticate = jwt({
   algorithms: ["HS256"],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.AUTH_JWT_SECRET,
   getToken: getTokenInHeader,
 });
 
 // OptionalAuthenticate is a middleware that will not throw errors, the authentication is optional.
 export const optionalAuthenticate = jwt({
   algorithms: ["HS256"],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.AUTH_JWT_SECRET,
   credentialsRequired: false,
   getToken: getTokenInHeader,
 });

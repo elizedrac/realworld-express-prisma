@@ -24,7 +24,7 @@ describe("POST /api/users (register)", () => {
 
     const payload = jwt.verify(
       res.body.user.token,
-      process.env.JWT_SECRET as string
+      process.env.AUTH_JWT_SECRET as string
     );
     expect(payload).toMatchObject({
       user: { username: "alice", email: "alice@mail.com" },

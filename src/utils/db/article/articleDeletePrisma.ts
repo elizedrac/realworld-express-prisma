@@ -9,5 +9,7 @@ export default async function articleDeletePrisma(slug: string) {
       _count: { select: { favoritedBy: true } },
     },
   });
+  // Tags no longer attached to any article are removed.
+  await prisma.tag.deleteMany({ where: { article: { none: {} } } });
   return article;
 }

@@ -7,6 +7,9 @@ export default async function articleFeedPrisma(
   offset = 0
 ) {
   const articles = await prisma.article.findMany({
+    where: {
+      author: { followedBy: { some: { username: currentUser.username } } },
+    },
     include: {
       tagList: true,
       author: {

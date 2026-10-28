@@ -491,15 +491,6 @@ describe("DELETE /api/articles/:slug", () => {
     expect(await prisma.comment.count()).toBe(0);
   });
 
-  // Known bug: there is no ownership check.
-  test("lets a non-author delete the article", async () => {
-    const alice = await registerUser("alice");
-    const bob = await registerUser("bob");
-    await createArticle(alice, { title: "Mine" });
-    await api.delete("/api/articles/mine").set(auth(bob)).expect(200);
-    await api.get("/api/articles/mine").expect(404);
-  });
-
   test("returns 422 for an unknown slug", async () => {
     const alice = await registerUser("alice");
     await api.delete("/api/articles/nope").set(auth(alice)).expect(422);

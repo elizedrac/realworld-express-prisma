@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import articleDeletePrisma from "../../utils/db/article/articleDeletePrisma";
+import articleGetPrisma from "../../utils/db/article/articleGetPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
 
@@ -24,6 +25,11 @@ export default async function articlesDelete(
     // Get current user
     const currentUser = await userGetPrisma(userName);
     if (!currentUser) return res.sendStatus(401);
+
+    // Only the author may delete the article
+    const existing = await articleGetPrisma(slug);
+    if (existing && existing.authorUsername !== currentUser.username)
+      return res.sendStatus(403);
 
     // Delete the article
     const article = await articleDeletePrisma(slug);

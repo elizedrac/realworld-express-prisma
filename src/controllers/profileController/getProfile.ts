@@ -1,5 +1,6 @@
 import { NextFunction, Response } from "express";
 import { Request as JWTRequest } from "express-jwt";
+import profileGetPrisma from "../../utils/db/user/profileGetPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import profileViewer from "../../view/profileViewer";
 
@@ -24,7 +25,7 @@ export default async function getProfile(
     const currentUser = await userGetPrisma(currentUsername);
 
     // Get the desired profile
-    const profile = await userGetPrisma(username);
+    const profile = await profileGetPrisma(username);
     if (!profile) return res.sendStatus(404);
 
     // Create the profile view

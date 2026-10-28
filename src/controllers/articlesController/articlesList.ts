@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ParsedQs } from "qs";
+import articleCountPrisma from "../../utils/db/article/articleCountPrisma";
 import articlesListPrisma from "../../utils/db/article/articleListPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
@@ -51,10 +52,10 @@ export default async function articlesList(
       currentUser ? articleViewer(article, currentUser) : articleViewer(article)
     );
 
-    return res.json({
-      articles: articlesListView,
-      articlesCount: articlesListView.length,
-    });
+    // articlesCount is the total number of matches, not the size of this page.
+    const articlesCount = await articleCountPrisma(tag, author, favorited);
+
+    return res.json({ articles: articlesListView, articlesCount });
   } catch (error) {
     return next(error);
   }

@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import prisma from "../prisma";
 
 export default async function articlesListPrisma(
@@ -7,12 +8,13 @@ export default async function articlesListPrisma(
   limit = 20,
   offset = 0
 ) {
+  const where: Prisma.ArticleWhereInput = {};
+  if (authorUsername) where.authorUsername = authorUsername;
+  if (tag) where.tagList = { some: { tagName: tag } };
+  if (favorited) where.favoritedBy = { some: { username: favorited } };
+
   const articles = await prisma.article.findMany({
-    where: {
-      authorUsername,
-      tagList: tag ? { some: { tagName: tag } } : undefined,
-      favoritedBy: favorited ? { some: { username: favorited } } : undefined,
-    },
+    where,
     take: limit,
     skip: offset,
     orderBy: { updatedAt: "desc" },

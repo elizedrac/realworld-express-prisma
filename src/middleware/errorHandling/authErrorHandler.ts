@@ -16,6 +16,7 @@ export default async function authErrorHandler(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("authErrorHandler");
   if (!(err instanceof UnauthorizedError)) return next(err);
 
   // Se why authorization failed

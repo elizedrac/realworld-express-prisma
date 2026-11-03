@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import commentCreatePrisma from "../../utils/db/comment/commentCreatePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import commentViewer from "../../view/commentViewer";
+import logger from "../../utils/logger";
 
 /**
  * Comment controller that must receive a request with an authenticated user.
@@ -18,6 +19,7 @@ export default async function createComment(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("createComment");
   const slug = req.params.slug;
   const { body: commentContent } = req.body.comment;
   const username = req.auth?.user?.username;
@@ -38,6 +40,7 @@ export default async function createComment(
     const commentView = commentViewer(comment, currentUser);
     return res.status(201).json({ comment: commentView });
   } catch (error) {
+    logger.error("createComment failed", { error: error });
     return next(error);
   }
 }

@@ -1,5 +1,6 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
+import logger from "../../utils/logger";
 
 /**
  * Middleware that validates the properties of the request for the comment creation controller.
@@ -13,6 +14,7 @@ export default function commentCreateValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("commentCreateValidator");
   const comment = req.body.comment;
   if (!comment)
     return res

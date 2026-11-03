@@ -5,6 +5,7 @@ import articleCreatePrisma from "../../utils/db/article/articleCreatePrisma";
 import tagsCreatePrisma from "../../utils/db/tag/tagsCreatePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 interface Article {
   title: string;
@@ -26,6 +27,7 @@ export default async function articlesCreate(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesCreate");
   const { title, description, body, tagList }: Article = req.body.article;
   const userName = req.auth?.user?.username;
 
@@ -51,6 +53,7 @@ export default async function articlesCreate(
     const articleView = articleViewer(article, currentUser);
     return res.status(201).json({ article: articleView });
   } catch (error) {
+    logger.error("articlesCreate failed", { error: error });
     return next(error);
   }
 }

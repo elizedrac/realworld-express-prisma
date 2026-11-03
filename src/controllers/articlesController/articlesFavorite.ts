@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import articleFavoritePrisma from "../../utils/db/article/articleFavoritePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 /**
  * Article controller that must receive a request with an authenticated user.
@@ -17,6 +18,7 @@ export default async function articlesFavorite(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesFavorite");
   const slug = req.params.slug;
   const username = req.auth?.user.username;
 
@@ -37,6 +39,7 @@ export default async function articlesFavorite(
     const articleView = articleViewer(article, currentUser);
     return res.json({ article: articleView });
   } catch (error) {
+    logger.error("articlesFavorite failed", { error: error });
     next(error);
   }
 }

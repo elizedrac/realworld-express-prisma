@@ -4,6 +4,7 @@ import { ParsedQs } from "qs";
 import articleFeedPrisma from "../../utils/db/article/articleFeedPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 function parseQuery(query: ParsedQs) {
   const { limit, offset } = query;
@@ -24,6 +25,7 @@ export default async function articlesFeed(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesFeed");
   const { limit, offset } = parseQuery(req.query);
   const username = req.auth?.user?.username;
 
@@ -45,6 +47,7 @@ export default async function articlesFeed(
       articlesCount: articlesFeedView.length,
     });
   } catch (error) {
+    logger.error("articlesFeed failed", { error: error });
     return next(error);
   }
 }

@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import commentDeletePrisma from "../../utils/db/comment/commentDeletePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import commentViewer from "../../view/commentViewer";
+import logger from "../../utils/logger";
 
 /**
  * Comment controller that must receive a request with an authenticated user.
@@ -17,6 +18,7 @@ export default async function deleteComment(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("deleteComment");
   const slug = req.params.slug;
   const id = parseInt(req.params.id);
   const username = req.auth?.user?.username;
@@ -34,6 +36,7 @@ export default async function deleteComment(
     const commentView = commentViewer(comment, currentUser);
     return res.json({ comment: commentView });
   } catch (error) {
+    logger.error("deleteComment failed", { error: error });
     return next(error);
   }
 }

@@ -5,14 +5,22 @@ import articlesListPrisma from "../../utils/db/article/articleListPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
 
+const PAGE_SIZE = 20;
+
 function parseArticleListQuery(query: ParsedQs) {
   let { tag, author, favorited } = query;
-  const { limit, offset } = query;
+  const { limit, offset, page } = query;
   tag = tag ? (tag as string) : undefined;
   author = author ? (author as string) : undefined;
   favorited = favorited ? (favorited as string) : undefined;
-  const limitNumber = limit ? parseInt(limit as string) : undefined;
-  const offsetNumber = offset ? parseInt(offset as string) : undefined;
+  let limitNumber = limit ? parseInt(limit as string) : undefined;
+  let offsetNumber = offset ? parseInt(offset as string) : undefined;
+  // ?page=N reads pages of PAGE_SIZE articles, starting at 1.
+  if (page) {
+    const pageNumber = parseInt(page as string);
+    limitNumber = PAGE_SIZE;
+    offsetNumber = (pageNumber - 1) * PAGE_SIZE;
+  }
   return { tag, author, favorited, limit: limitNumber, offset: offsetNumber };
 }
 

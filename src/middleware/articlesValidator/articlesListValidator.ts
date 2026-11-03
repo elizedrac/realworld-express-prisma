@@ -14,7 +14,7 @@ export default async function articlesListValidator(
   res: Response,
   next: NextFunction
 ) {
-  const { tag, author, favorited, limit, offset } = req.query;
+  const { tag, author, favorited, limit, offset, page } = req.query;
   const errors: ValidationError = {};
   errors.query = [];
 
@@ -38,6 +38,14 @@ export default async function articlesListValidator(
   if (offset && typeof offset == "string") {
     const offsetValue = parseInt(offset);
     if (isNaN(offsetValue)) errors.query.push("offset is not a valid number");
+  }
+
+  if (page && typeof page != "string")
+    errors.query.push("page must be a string");
+  if (page && typeof page == "string") {
+    const pageValue = parseInt(page);
+    if (isNaN(pageValue) || pageValue < 1)
+      errors.query.push("page is not a valid page number");
   }
 
   if (errors.query.length > 0) return res.json({ errors });

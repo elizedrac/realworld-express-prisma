@@ -2,6 +2,7 @@ import { NextFunction, Response } from "express";
 import { Request as JWTRequest } from "express-jwt";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import profileViewer from "../../view/profileViewer";
+import logger from "../../utils/logger";
 
 /**
  * Profile controller that takes the username in the parameters and returns its profile.
@@ -16,6 +17,7 @@ export default async function getProfile(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("getProfile");
   const { username } = req.params;
   const currentUsername = req.auth?.user?.username; // The current user's username
 
@@ -34,6 +36,7 @@ export default async function getProfile(
 
     return res.json({ profile: profileView });
   } catch (error) {
+    logger.error("getProfile failed", { error: error });
     return next(error);
   }
 }

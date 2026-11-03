@@ -28,7 +28,7 @@ Create a development environment file `.env.development` inside the root folder 
 
 ```
 DATABASE_URL=file:./dev.db
-JWT_SECRET=theSecretForCreatingTheJWT
+AUTH_JWT_SECRET=theSecretForCreatingTheJWT
 NODE_ENV=development
 ```
 

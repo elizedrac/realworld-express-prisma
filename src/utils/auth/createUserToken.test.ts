@@ -1,14 +1,14 @@
-describe("JWT_SECRET is required", () => {
-  const secret = process.env.JWT_SECRET;
+describe("AUTH_JWT_SECRET is required", () => {
+  const secret = process.env.AUTH_JWT_SECRET;
 
   beforeEach(() => {
     jest.resetModules();
     jest.doMock("dotenv", () => ({ config: jest.fn() }));
-    delete process.env.JWT_SECRET;
+    delete process.env.AUTH_JWT_SECRET;
   });
 
   afterEach(() => {
-    process.env.JWT_SECRET = secret;
+    process.env.AUTH_JWT_SECRET = secret;
     jest.dontMock("dotenv");
   });
 
@@ -22,12 +22,12 @@ describe("JWT_SECRET is required", () => {
         bio: null,
         image: null,
       })
-    ).toThrow("JWT_SECRET missing in environment.");
+    ).toThrow("AUTH_JWT_SECRET missing in environment.");
   });
 
   test("the authenticator module refuses to load without it", async () => {
     await expect(import("../../middleware/auth/authenticator")).rejects.toThrow(
-      "JWT_SECRET missing in environment."
+      "AUTH_JWT_SECRET missing in environment."
     );
   });
 });

@@ -10,10 +10,10 @@ dotenv.config();
  * @returns the token created
  */
 export default function createUserToken(user: User) {
-  if (!process.env.JWT_SECRET)
-    throw new Error("JWT_SECRET missing in environment.");
+  if (!process.env.AUTH_JWT_SECRET)
+    throw new Error("AUTH_JWT_SECRET missing in environment.");
   const tokenObject = { user: { username: user.username, email: user.email } };
   const userJSON = JSON.stringify(tokenObject);
-  const token = jwt.sign(userJSON, process.env.JWT_SECRET);
+  const token = jwt.sign(userJSON, process.env.AUTH_JWT_SECRET);
   return token;
 }

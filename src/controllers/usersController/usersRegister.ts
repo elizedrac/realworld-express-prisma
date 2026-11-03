@@ -16,7 +16,8 @@ export default async function usersRegister(
   res: Response,
   next: NextFunction
 ) {
-  const { email, password, username } = req.body.user;
+  const { email, password } = req.body.user;
+  const username = String(req.body.user.username).trim();
   try {
     // Hash password
     const hashed = hashPassword(password);

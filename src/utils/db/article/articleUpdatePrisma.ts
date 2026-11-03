@@ -11,7 +11,7 @@ export default async function articleUpdatePrisma(
   slug: string,
   info: UpdateFields
 ) {
-  const newSlug = slugfy(slug);
+  const newSlug = info.title ? slugfy(info.title) : slug;
   const article = await prisma.article.update({
     where: { slug },
     data: {

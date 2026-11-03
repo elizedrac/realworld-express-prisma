@@ -395,8 +395,7 @@ describe("PUT /api/articles/:slug", () => {
     );
   });
 
-  // Known bug: the slug is re-derived from the old slug, so renaming does not change it.
-  test("keeps the old slug when the title changes", async () => {
+  test("derives a new slug when the title changes", async () => {
     const alice = await registerUser("alice");
     await createArticle(alice, { title: "Old Title" });
     const res = await api
@@ -405,10 +404,11 @@ describe("PUT /api/articles/:slug", () => {
       .send({ article: { title: "New Title" } })
       .expect(200);
     expect(res.body.article).toMatchObject({
-      slug: "old-title",
+      slug: "new-title",
       title: "New Title",
     });
-    await api.get("/api/articles/new-title").expect(404);
+    await api.get("/api/articles/new-title").expect(200);
+    await api.get("/api/articles/old-title").expect(404);
   });
 
   // Known bug: there is no ownership check.

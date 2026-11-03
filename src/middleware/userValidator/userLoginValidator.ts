@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ValidationError } from "../../utils/types";
+import logger from "../../utils/logger";
 
 /**
  * This function is a middleware that validates the user information in the request in order to log the user.
@@ -14,6 +15,7 @@ export default async function userLoginValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("userLoginValidator");
   const errors: ValidationError = {};
   errors.body = [];
   if (!req.body) {

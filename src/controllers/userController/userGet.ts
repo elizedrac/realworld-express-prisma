@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import createUserToken from "../../utils/auth/createUserToken";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import userViewer from "../../view/userViewer";
+import logger from "../../utils/logger";
 
 /**
  * User controller that gets the current user based on the JWT given.
@@ -16,6 +17,7 @@ export default async function userGet(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("userGet");
   const username = req.auth?.user?.username;
   try {
     // Get current user
@@ -30,6 +32,7 @@ export default async function userGet(
 
     return res.json(response);
   } catch (error) {
+    logger.error("userGet failed", { error: error });
     return next(error);
   }
 }

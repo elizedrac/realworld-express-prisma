@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import commentsGetPrisma from "../../utils/db/comment/commentsGetPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import commentViewer from "../../view/commentViewer";
+import logger from "../../utils/logger";
 
 /**
  * Comment controller that must receive a request with an optionally authenticated user.
@@ -17,6 +18,7 @@ export default async function getComments(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("getComments");
   const slug = req.params.slug;
   const username = req.auth?.user?.username;
 
@@ -36,6 +38,7 @@ export default async function getComments(
 
     return res.json({ comments: commentsView });
   } catch (error) {
+    logger.error("getComments failed", { error: error });
     return next(error);
   }
 }

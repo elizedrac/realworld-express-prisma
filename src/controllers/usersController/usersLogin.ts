@@ -3,6 +3,7 @@ import createUserToken from "../../utils/auth/createUserToken";
 import userGetEmailPrisma from "../../utils/db/user/userGetEmailPrisma";
 import { compareWithHash } from "../../utils/hashPasswords";
 import userViewer from "../../view/userViewer";
+import logger from "../../utils/logger";
 
 /**
  * Users controller for the login function sending a valid jwt token in the response if login is successful.
@@ -14,6 +15,7 @@ export default async function userLogin(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("userLogin");
   const { email, password } = req.body.user;
   try {
     // Get the user with given email
@@ -32,6 +34,7 @@ export default async function userLogin(
 
     return res.json(userView);
   } catch (error) {
+    logger.error("userLogin failed", { error: error });
     return next(error);
   }
 }

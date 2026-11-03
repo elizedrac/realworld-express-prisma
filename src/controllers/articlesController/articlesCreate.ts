@@ -13,6 +13,8 @@ interface Article {
   tagList?: Array<string>;
 }
 
+const MAX_TAGS = 10;
+
 /**
  * Article controller that must receive a request with an authenticated user.
  * The body of the request must have the article object that is an @interface Article.
@@ -33,6 +35,11 @@ export default async function articlesCreate(
     // Get current user
     const currentUser = await userGetPrisma(userName);
     if (!currentUser) return res.sendStatus(401);
+
+    if (tagList && tagList.length > MAX_TAGS)
+      return res
+        .status(422)
+        .json({ errors: { body: [`at most ${MAX_TAGS} tags are allowed`] } });
 
     // Create list of tags
     let tags: Tag[] = [];

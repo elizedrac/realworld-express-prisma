@@ -1,0 +1,162 @@
+{
+  "id": "rw-026",
+  "type": "negative",
+  "label": "no_conflict",
+  "verified_at": "2026-11-03T03:58:34.915Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\n\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages",
+  "base": "eval-base-v2",
+  "branch_a": "rw-026-a",
+  "branch_b": "rw-026-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "none",
+    "manifests": [],
+    "failing_tests": [],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 3.9000000000000004,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 2.7
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 1.2
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 18.4,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "9f6cfd93c8b70be1c81fa91a7f860ed4a3cd4476",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 14.9,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "758fead87aa8c09837e735bee7515ff983c5de3b",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "id": "rw-011",
   "type": "runtime",
   "label": "conflict",
-  "verified_at": "2026-10-28T19:39:03.299Z",
+  "verified_at": "2026-11-03T04:07:39.455Z",
   "target": "realworld-express-prisma",
   "versions": "v22.23.4\nVersion 4.9.4",
   "base": "eval-base-v2",
@@ -31,41 +31,19 @@
     "base": {
       "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
       "setup": {
-        "skipped": false,
+        "skipped": true,
         "ok": true,
-        "exit": 0,
-        "seconds": 20,
-        "log": "\nadded 591 packages in 19s\nPrisma schema loaded from prisma/schema.prisma\n\n✔ Generated Prisma Client (4.9.0 | library) to ./node_modules/@prisma/client in 280ms\nYou can now start using Prisma Client in your code. Reference: https://pris.ly/d/client\n```\nimport { PrismaClient } from '@prisma/client'\nconst prisma = new PrismaClient()\n```\n"
-      },
-      "typecheck": {
-        "ok": true,
-        "exit": 0,
-        "seconds": 1.2
-      },
-      "test": {
-        "ok": true,
-        "exit": 0,
-        "seconds": 17.7,
-        "total": 240,
-        "failed_count": 0,
-        "failed_suites": 0,
-        "failed": []
-      },
-      "ok": true,
-      "oracle": {
-        "ok": true,
-        "exit": 0,
-        "seconds": 2.8,
-        "total": 1,
-        "failed_count": 0,
-        "failed_suites": 0,
-        "failed": []
-      }
-    },
-    "a": {
-      "sha": "c997942de239836a68fb0215b2c8b049e7a9367d",
-      "setup": {
-        "skipped": true
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
       },
       "typecheck": {
         "ok": true,
@@ -75,7 +53,49 @@
       "test": {
         "ok": true,
         "exit": 0,
-        "seconds": 15.4,
+        "seconds": 15.3,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "a": {
+      "sha": "c997942de239836a68fb0215b2c8b049e7a9367d",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 14.9,
         "total": 241,
         "failed_count": 0,
         "failed_suites": 0,
@@ -93,9 +113,21 @@
       }
     },
     "b": {
-      "sha": "200cb9be7cb173b98039545419ad2d63db511222",
+      "sha": "a8ee1989d9c9b2c21a08a8b9f5faeeaf7cff5e6e",
       "setup": {
-        "skipped": true
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
       },
       "typecheck": {
         "ok": true,
@@ -105,7 +137,7 @@
       "test": {
         "ok": true,
         "exit": 0,
-        "seconds": 15.8,
+        "seconds": 15.5,
         "total": 242,
         "failed_count": 0,
         "failed_suites": 0,
@@ -115,7 +147,7 @@
       "oracle": {
         "ok": true,
         "exit": 0,
-        "seconds": 2.6,
+        "seconds": 2.7,
         "total": 1,
         "failed_count": 0,
         "failed_suites": 0,
@@ -125,7 +157,19 @@
     "merged": {
       "textual_conflict": false,
       "setup": {
-        "skipped": true
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
       },
       "typecheck": {
         "ok": true,
@@ -135,7 +179,7 @@
       "test": {
         "ok": true,
         "exit": 0,
-        "seconds": 16.3,
+        "seconds": 15.5,
         "total": 243,
         "failed_count": 0,
         "failed_suites": 0,

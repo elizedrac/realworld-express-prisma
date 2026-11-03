@@ -1,0 +1,186 @@
+{
+  "id": "rw-033",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T04:10:22.734Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-033-a",
+  "branch_b": "rw-033-b",
+  "oracle_applies_to": [
+    "a"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "an http image is rejected by every endpoint that sets it"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.3,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "b0c942bc97ffe1447fb5dd45ed10c19616a90eff",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.3,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.6,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "b": {
+      "sha": "590252ceb641e4165c22965b16072eaa3e6d8e77",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.4,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.8,
+        "total": 244,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/noInsecureImages.int.test.ts",
+            "test": "an http image is rejected by every endpoint that sets it",
+            "message": "Error: expect(received).toBeGreaterThanOrEqual(expected)\n\nExpected: >= 400\nReceived:    200\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/__oracle__/noInsecureImages.int.test.ts:19:27\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/__oracle__/noInsecureImages.int.test.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)"
+          }
+        ]
+      }
+    }
+  }
+}

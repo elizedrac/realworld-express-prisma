@@ -1,0 +1,195 @@
+{
+  "id": "rw-027",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T04:08:36.452Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-027-a",
+  "branch_b": "rw-027-b",
+  "oracle_applies_to": [
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "tag counts only count articles that are still listed"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.3,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "94a0623db0e80fe1e97e617b69966fb2875f162e",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.1,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "9884617bedb12b66cc1ab48efa9905d951b5cd60",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.2,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.6,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.5,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/tagCountsMatchList.int.test.ts",
+            "test": "tag counts only count articles that are still listed",
+            "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 1\n\n  Object {\n-   \"count\": 1,\n+   \"count\": 2,"
+          }
+        ]
+      }
+    }
+  }
+}

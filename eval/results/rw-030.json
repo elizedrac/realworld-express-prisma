@@ -1,0 +1,195 @@
+{
+  "id": "rw-030",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T04:02:18.479Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\n\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages",
+  "base": "eval-base-v2",
+  "branch_a": "rw-030-a",
+  "branch_b": "rw-030-b",
+  "oracle_applies_to": [
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "cursor paging visits every article once after an edit"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 3.9000000000000004,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 2.7
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 1.2
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 18.4,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "383141509fc40ba745562087b885222cd1cb8ee3",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 0.8,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 0.8
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.5,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "b9059edae33d5271c70c00128a6881ade7512ba3",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.1,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.6,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.4,
+        "total": 243,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/cursorVisitsEveryArticle.int.test.ts",
+            "test": "cursor paging visits every article once after an edit",
+            "message": "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 0\n\n  Array [\n-   \"one\",\n    \"three\","
+          }
+        ]
+      }
+    }
+  }
+}

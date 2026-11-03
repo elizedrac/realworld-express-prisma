@@ -1,0 +1,178 @@
+{
+  "id": "rw-032",
+  "type": "test",
+  "label": "conflict",
+  "verified_at": "2026-11-03T04:03:46.828Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\n\n\u001b[41m                                                                               \u001b[0m\n\u001b[41m\u001b[37m                This is not the tsc command you are looking for                \u001b[0m\n\u001b[41m                                                                               \u001b[0m\n\nTo get access to the TypeScript compiler, \u001b[34mtsc\u001b[0m, from the command line either:\n\n- Use \u001b[1mnpm install typescript\u001b[0m to first add TypeScript to your project \u001b[1mbefore\u001b[0m using npx\n- Use \u001b[1myarn\u001b[0m to avoid accidentally running code from un-installed packages",
+  "base": "eval-base-v2",
+  "branch_a": "rw-032-a",
+  "branch_b": "rw-032-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "test_failure",
+    "manifests": [
+      "test_failure"
+    ],
+    "failing_tests": [
+      "src/test/integration/usernameTrim.int.test.ts > POST /api/users username trims surrounding spaces",
+      "src/test/integration/usernameTrim.int.test.ts > POST /api/users username treats a padded username as a duplicate"
+    ],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": false,
+        "ok": true,
+        "seconds": 3.9000000000000004,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 2.7
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": false,
+            "ok": true,
+            "exit": 0,
+            "seconds": 1.2
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 18.4,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "8cba2db6782aa369d510c36c1b899664e53fd0ae",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.4,
+        "total": 243,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "77ade6a798140bb2d5012e51e9c6a34b1285f53a",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.3,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 16.3,
+        "total": 245,
+        "failed_count": 2,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/usernameTrim.int.test.ts",
+            "test": "POST /api/users username trims surrounding spaces",
+            "message": "Error: expected 201 \"Created\", got 400 \"Bad Request\"\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:10:8\n    at Generator.next (<anonymous>)\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:8:71\n    at new Promise (<anonymous>)\n    at Object.<anonymous>.__awaiter (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:4:12)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:4:47)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)"
+          },
+          {
+            "file": "src/test/integration/usernameTrim.int.test.ts",
+            "test": "POST /api/users username treats a padded username as a duplicate",
+            "message": "Error: expected 201 \"Created\", got 400 \"Bad Request\"\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:20:8\n    at Generator.next (<anonymous>)\n    at /private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:8:71\n    at new Promise (<anonymous>)\n    at Object.<anonymous>.__awaiter (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:4:12)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/src/test/integration/usernameTrim.int.test.ts:14:62)\n    at Promise.then.completed (/private/tmp/claude-501/-Users-elizedracopoulos/f8f61db6-bd5d-4c6c-a457-30e79ccf00bd/scratchpad/verify-worktree/node_modules/jest-circus/build/utils.js:289:28)"
+          }
+        ]
+      },
+      "ok": false
+    }
+  }
+}

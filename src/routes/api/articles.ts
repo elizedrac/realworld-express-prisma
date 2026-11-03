@@ -21,7 +21,12 @@ router.get(
   articles.articlesFeed
 );
 
-router.get("/:slug", auth.optionalAuthenticate, articles.articlesGet);
+// Slugs are lowercase letters, digits and dashes; anything else is a 404.
+router.get(
+  "/:slug([a-z0-9-]+)",
+  auth.optionalAuthenticate,
+  articles.articlesGet
+);
 
 router.post(
   "/",

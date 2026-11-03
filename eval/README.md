@@ -8,6 +8,8 @@ built on the `eval-base-v2` tag. Case branches do not contain this folder.
   the merge breaks when tsc and the repo's tests do not catch it.
 - `targets/*.json`: how to set up, typecheck, test and run oracles for a target repo.
 - `verify.mjs`: checks every case and writes `results/`.
+- `detectors/<name>/`: candidate conflict detectors (see `detectors/README.md`).
+- `score.mjs`: runs detectors on every case and reports recall, precision, misses and false alarms.
 - `replay.mjs`: testing only; pushes one side of a case to a scratch remote on a schedule, like a teammate.
 - `test/`: tests for the eval scripts.
 

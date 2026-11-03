@@ -43,6 +43,12 @@ They do not conflict if they touch related code but stay correct together.
 Most concurrent changes are fine. Only flag a conflict if you can describe a
 concrete scenario where the merged code goes wrong or does the work twice.
 
+The agent's task and the commit messages, when given, say what each side
+meant to do. Use them as hints about where to look, but they can be
+incomplete or wrong: a change may do more than its message says, or
+something different. Decide from the code. When a message and the code
+disagree, trust the code.
+
 confidence is how sure you are of your answer (0 to 1).`;
 
 // explanation comes first so the model reasons before it decides.

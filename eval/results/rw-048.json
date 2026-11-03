@@ -1,0 +1,186 @@
+{
+  "id": "rw-048",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T21:31:32.780Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-048-a",
+  "branch_b": "rw-048-b",
+  "oracle_applies_to": [
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "confirm-password accepts the registered password with spaces"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 18.3,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "2134fb518ad3b9649a6f7bbc504ca65f64fda8f4",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.7,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "9cb54d388e5df4eafeb4d12c12eb00d072cd5899",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 19.2,
+        "total": 244,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 3.4,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 18,
+        "total": 245,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.9,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/confirmSpacedPassword.int.test.ts",
+            "test": "confirm-password accepts the registered password with spaces",
+            "message": "Error: expected 204 \"No Content\", got 403 \"Forbidden\"\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/confirmSpacedPassword.int.test.ts:14:6\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/confirmSpacedPassword.int.test.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n----\n    at Test._assertStatus (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:309:14)\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:365:13"
+          }
+        ]
+      }
+    }
+  }
+}

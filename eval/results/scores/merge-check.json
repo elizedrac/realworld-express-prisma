@@ -1,0 +1,367 @@
+{
+  "detector": "merge-check",
+  "scored_at": "2026-11-03T00:38:03.371Z",
+  "cases": 18,
+  "summary": {
+    "true_positives": 9,
+    "false_negatives": 6,
+    "false_positives": 0,
+    "true_negatives": 3,
+    "errors": 0,
+    "recall": 0.6,
+    "precision": 1,
+    "category_accuracy": 1,
+    "by_type": {
+      "test": {
+        "total": 3,
+        "correct": 3
+      },
+      "build": {
+        "total": 3,
+        "correct": 3
+      },
+      "negative": {
+        "total": 3,
+        "correct": 3
+      },
+      "textual": {
+        "total": 3,
+        "correct": 3
+      },
+      "runtime": {
+        "total": 3,
+        "correct": 0
+      },
+      "intent": {
+        "total": 3,
+        "correct": 0
+      }
+    },
+    "missed": [
+      "rw-011",
+      "rw-012",
+      "rw-013",
+      "rw-014",
+      "rw-015",
+      "rw-016"
+    ],
+    "false_alarms": [],
+    "errored": [],
+    "total_seconds": 231.6,
+    "total_cost_usd": null
+  },
+  "rows": [
+    {
+      "id": "rw-001",
+      "type": "test",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 23.5,
+      "confidence": 1,
+      "category": "test",
+      "involved_symbols": [],
+      "explanation": "tests fail after merge:\nsrc/utils/auth/passwordResetToken.test.ts > password reset tokens round-trips the email\nsrc/utils/auth/passwordResetToken.test.ts > password reset tokens rejects a tampered token\nsrc/utils/auth/passwordResetToken.test.ts > password reset tokens rejects a token issued for another purpose\nsrc/utils/auth/passwordResetToken.test.ts > password reset tokens rejects an expired token",
+      "timings": {
+        "merge": 0,
+        "setup": 3.8,
+        "typecheck": 1.1,
+        "tests": 18.4
+      }
+    },
+    {
+      "id": "rw-002",
+      "type": "build",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 2.5,
+      "confidence": 1,
+      "category": "build",
+      "involved_symbols": [],
+      "explanation": "typecheck fails after merge:\nsrc/controllers/articlesController/articlesList.ts(59,35): error TS2345: Argument of type 'Article' is not assignable to parameter of type 'FullArticle'.\nsrc/controllers/articlesController/articlesList.ts(59,73): error TS2345: Argument of type 'Article' is not assignable to parameter of type 'FullArticle'.\nsrc/utils/db/article/articleListPrisma.ts(19,15): error TS2322: Type '({ title: { contains: string; mode: \"insensitive\"; }; } | { body: { contains: string; mode: string; }; })[] | undefined' is not assignable to type 'Enumerable<ArticleWhereInput> | undefined'.",
+      "timings": {
+        "merge": 0,
+        "setup": 1,
+        "typecheck": 1.3
+      }
+    },
+    {
+      "id": "rw-003",
+      "type": "negative",
+      "label": "no_conflict",
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 19.2,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0.8,
+        "typecheck": 1,
+        "tests": 17.2
+      }
+    },
+    {
+      "id": "rw-004",
+      "type": "textual",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 0.3,
+      "confidence": 1,
+      "category": "textual",
+      "involved_symbols": [],
+      "explanation": "git merge conflict in src/utils/hashPasswords.ts",
+      "timings": {
+        "merge": 0.1
+      }
+    },
+    {
+      "id": "rw-005",
+      "type": "textual",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 0.2,
+      "confidence": 1,
+      "category": "textual",
+      "involved_symbols": [],
+      "explanation": "git merge conflict in src/controllers/usersController/usersLogin.ts",
+      "timings": {
+        "merge": 0
+      }
+    },
+    {
+      "id": "rw-006",
+      "type": "textual",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 0.2,
+      "confidence": 1,
+      "category": "textual",
+      "involved_symbols": [],
+      "explanation": "git merge conflict in src/utils/db/article/articleFeedPrisma.ts",
+      "timings": {
+        "merge": 0
+      }
+    },
+    {
+      "id": "rw-007",
+      "type": "build",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 1.3,
+      "confidence": 1,
+      "category": "build",
+      "involved_symbols": [],
+      "explanation": "typecheck fails after merge:\nsrc/controllers/profileController/getProfileArticles.ts(27,58): error TS2554: Expected 0-1 arguments, but got 2.",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1
+      }
+    },
+    {
+      "id": "rw-008",
+      "type": "build",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 1.2,
+      "confidence": 1,
+      "category": "build",
+      "involved_symbols": [],
+      "explanation": "typecheck fails after merge:\nsrc/controllers/profileController/getProfileStats.ts(21,29): error TS2339: Property 'authored' does not exist on type 'User & { follows: User[]; favorites: Article[]; }'.\nsrc/controllers/profileController/getProfileStats.ts(22,30): error TS2339: Property 'followedBy' does not exist on type 'User & { follows: User[]; favorites: Article[]; }'.",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1
+      }
+    },
+    {
+      "id": "rw-009",
+      "type": "test",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 18.8,
+      "confidence": 1,
+      "category": "test",
+      "involved_symbols": [],
+      "explanation": "tests fail after merge:\nsrc/test/integration/articlesCount.int.test.ts > articlesCount is the total number of matches, independent of the page",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1,
+        "tests": 17.6
+      }
+    },
+    {
+      "id": "rw-010",
+      "type": "test",
+      "label": "conflict",
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 17.1,
+      "confidence": 1,
+      "category": "test",
+      "involved_symbols": [],
+      "explanation": "tests fail after merge:\nsrc/test/integration/clearImage.int.test.ts > an empty image clears the user's avatar",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1,
+        "tests": 15.7
+      }
+    },
+    {
+      "id": "rw-011",
+      "type": "runtime",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 17.6,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1,
+        "tests": 16.3
+      }
+    },
+    {
+      "id": "rw-012",
+      "type": "runtime",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 19.6,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1,
+        "tests": 18.2
+      }
+    },
+    {
+      "id": "rw-013",
+      "type": "runtime",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 18.4,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0.9,
+        "typecheck": 1,
+        "tests": 16.2
+      }
+    },
+    {
+      "id": "rw-014",
+      "type": "intent",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 18.5,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 1,
+        "typecheck": 1,
+        "tests": 16.3
+      }
+    },
+    {
+      "id": "rw-015",
+      "type": "intent",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 17.3,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1,
+        "tests": 16.1
+      }
+    },
+    {
+      "id": "rw-016",
+      "type": "intent",
+      "label": "conflict",
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 17.2,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1,
+        "tests": 15.8
+      }
+    },
+    {
+      "id": "rw-017",
+      "type": "negative",
+      "label": "no_conflict",
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 18.9,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.1,
+        "tests": 17.7
+      }
+    },
+    {
+      "id": "rw-018",
+      "type": "negative",
+      "label": "no_conflict",
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 19.8,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 1,
+        "typecheck": 1,
+        "tests": 17.5
+      }
+    }
+  ]
+}

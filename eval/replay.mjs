@@ -5,7 +5,8 @@
 // 2. After --delay seconds, pushes the teammate branch's commits to the
 //    scratch main one at a time, --interval seconds apart.
 // The reset and each push are appended to a JSON-lines log with timestamps, so
-// an eval can compare them with when a detector flagged the conflict.
+// an eval can compare them with when a detector flagged the conflict. A push is
+// stamped when it starts, with push_seconds for how long it took.
 //
 // The scratch remote is always a local bare repo that this script created
 // (it carries a marker file). It refuses to push anywhere else.
@@ -72,9 +73,9 @@ function git(gitArgs, cwd = repo) {
   return res.stdout.trim();
 }
 
-function logEvent(event, fields = {}) {
+function logEvent(event, fields = {}, at = new Date()) {
   const row = {
-    t: new Date().toISOString(),
+    t: at.toISOString(),
     case: testCase.id,
     event,
     ...fields,
@@ -126,13 +127,20 @@ logEvent("reset", { sha: baseSha, base: testCase.base, remote });
 await sleep(delaySeconds * 1000);
 for (const [index, sha] of commits.entries()) {
   if (index > 0) await sleep(intervalSeconds * 1000);
-  git(["push", "--quiet", remote, `${sha}:refs/heads/main`]);
   const subject = git(["log", "-1", "--format=%s", sha]);
-  logEvent("teammate_push", {
-    sha,
-    subject,
-    side: args.teammate,
-    branch: teammateBranch,
-  });
+  // Stamped when the push starts, the earliest a poller can see the new main.
+  const started = new Date();
+  git(["push", "--quiet", remote, `${sha}:refs/heads/main`]);
+  logEvent(
+    "teammate_push",
+    {
+      sha,
+      subject,
+      side: args.teammate,
+      branch: teammateBranch,
+      push_seconds: (Date.now() - started.getTime()) / 1000,
+    },
+    started
+  );
 }
 logEvent("done");

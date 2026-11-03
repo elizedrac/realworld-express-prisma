@@ -2,13 +2,14 @@
 // Scores conflict detectors against the labeled cases.
 //
 // Each detector lives in detectors/<name>/detect.mjs. For every case it is run
-// with the repo and the case's refs only (never the label, type or
-// explanation), and must print one JSON object on stdout:
+// with the repo, the case's refs and the agent's task (intent_a; A is the
+// agent's side), never the label, type, explanation or involved symbols, and
+// must print one JSON object on stdout:
 //
 //   { "conflict": true, "confidence": 0.9, "category": "build",
 //     "involved_symbols": ["articlesListPrisma"], "explanation": "..." }
 //
-// Optionally it may add "cost_usd". A detector that exits non-zero, times out
+// Optionally it may add "cost_usd" and "timings" (seconds per stage). A detector that exits non-zero, times out
 // or prints anything else is recorded as an error and counted as answering
 // "no conflict", so a crash can never improve its score.
 //
@@ -115,6 +116,7 @@ function runDetector(name, testCase) {
     "--b",
     testCase.branch_b,
   ];
+  if (testCase.intent_a) detectArgs.push("--task", testCase.intent_a);
   if (target) detectArgs.push("--target", target);
   const started = Date.now();
   const res = spawnSync(process.execPath, detectArgs, {
@@ -255,6 +257,7 @@ for (const name of args.detector) {
       });
       if (result.answer.cost_usd !== undefined)
         row.cost_usd = result.answer.cost_usd;
+      if (result.answer.timings) row.timings = result.answer.timings;
     } else {
       Object.assign(row, { error: result.error, stderr: result.stderrTail });
     }

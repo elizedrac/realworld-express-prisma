@@ -1,16 +1,19 @@
 # Detectors
 
-Candidate conflict detectors, compared with `../score.mjs` to choose one for the service.
+Candidate conflict detectors, compared with `../score.mjs` to choose one for the
+service.
 
 Each detector is a folder with a `detect.mjs`. For one case it is run as:
 
 ```sh
-node detectors/<name>/detect.mjs --repo <path> --base <ref> --a <branch> --b <branch> [--target <target.json>]
+node detectors/<name>/detect.mjs --repo <path> --base <ref> --a <branch> --b <branch> \
+  [--task <text>] [--target <target.json>]
 ```
 
-It gets only the repo and refs, never the case's label, type or explanation. It
-must not change the repo's working copy (use a worktree), and must print one
-JSON object on stdout:
+A is the agent's side and `--task` is the agent's task (`intent_a`), which the
+service would know. A detector may ignore it. It never gets the case's label,
+type, explanation or involved symbols. It must not change the repo's working
+copy (use a worktree), and must print one JSON object on stdout:
 
 ```json
 {
@@ -23,18 +26,28 @@ JSON object on stdout:
 }
 ```
 
-- `category` is one of `textual`, `build`, `test`, `runtime`, `intent`; required when `conflict` is true.
+- `category` is one of `textual`, `build`, `test`, `runtime`, `intent`; required
+  when `conflict` is true.
 - `cost_usd` is optional, for detectors that call a paid API.
+- `timings` is optional: seconds per stage, e.g.
+  `{"merge": 0.1, "typecheck": 4.2}`.
 
 A non-zero exit, a timeout or output that breaks this shape is scored as an
 error and counted as "no conflict".
 
+## Detectors
+
+- `merge-check`: baseline, what CI catches. Merges B into A in its own worktree
+  and runs the target's typecheck and tests; needs `--target`.
+
 ## Scoring
 
 ```sh
-node eval/score.mjs --repo . --cases eval/cases.jsonl --detector <name> [--detector <other>]
+node eval/score.mjs --repo . --cases eval/cases.jsonl --detector <name> [--detector <other>] \
+  --target eval/targets/realworld-express-prisma.json
 ```
 
 Per detector it prints recall, precision, category accuracy, true/false
 positives and negatives, results by case type, and the IDs of missed cases,
-false alarms and errors. Full per-case results go to `results/scores/<name>.json`.
+false alarms and errors. Full per-case results go to
+`results/scores/<name>.json`.

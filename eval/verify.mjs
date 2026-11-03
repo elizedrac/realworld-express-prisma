@@ -62,8 +62,15 @@ const outDir = path.resolve(
   args.out ??
     path.join(path.dirname(new URL(import.meta.url).pathname), "results")
 );
+// The temp dir is resolved to its real path because git lists worktrees by real
+// path (on macOS /var is a symlink to /private/var).
 const workdir = path.resolve(
-  args.workdir ?? path.join(os.tmpdir(), "conflict-verify", path.basename(repo))
+  args.workdir ??
+    path.join(
+      fs.realpathSync(os.tmpdir()),
+      "conflict-verify",
+      path.basename(repo)
+    )
 );
 const env = { ...process.env, ...(target.env ?? {}) };
 if (args["path-prepend"]) env.PATH = `${args["path-prepend"]}:${env.PATH}`;

@@ -13,6 +13,8 @@ export default async function userUpdatePrisma(
   info: UpdateFields
 ) {
   if (!username) return null;
+  // Surrounding whitespace in the profile text fields is never meaningful.
+  info = { ...info, bio: info.bio?.trim(), image: info.image?.trim() };
   const user = await prisma.user.update({ where: { username }, data: info });
   return user;
 }

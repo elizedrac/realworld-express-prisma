@@ -4,7 +4,7 @@
  * @returns the slug string
  */
 export default function slugfy(text: string) {
-  return text
+  const slug = text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -12,4 +12,8 @@ export default function slugfy(text: string) {
     .replace(/[^\w\s-]/g, "")
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
+  // Long slugs are cut at a dash, to at most 60 characters.
+  if (slug.length <= 60) return slug;
+  const cut = slug.slice(0, 61);
+  return cut.slice(0, cut.lastIndexOf("-")) || slug.slice(0, 60);
 }

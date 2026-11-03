@@ -37,6 +37,10 @@ export default async function articlesCreateValidator(
     }
   }
 
+  const MAX_BODY_CHARS = 20_000;
+  if (typeof body == "string" && body.length > MAX_BODY_CHARS)
+    errors.body.push(`body must be at most ${MAX_BODY_CHARS} characters`);
+
   // Checks if tagList is an array of strings in case it is not undefined.
   if (tagList && !Array.isArray(tagList))
     errors.body.push("tagList must be an array of non-empty strings");

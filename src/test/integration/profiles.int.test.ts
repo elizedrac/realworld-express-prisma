@@ -15,10 +15,13 @@ describe("GET /api/profiles/:username", () => {
     await api
       .put("/api/user")
       .set(auth(alice))
-      .send({ user: { bio: "hi", image: "img" } })
+      .send({ user: { bio: "hi", image: "https://img.example.com/a.png" } })
       .expect(200);
     const res = await api.get("/api/profiles/alice").expect(200);
-    expect(res.body.profile).toMatchObject({ bio: "hi", image: "img" });
+    expect(res.body.profile).toMatchObject({
+      bio: "hi",
+      image: "https://img.example.com/a.png",
+    });
   });
 
   test("returns 404 for an unknown user", async () => {

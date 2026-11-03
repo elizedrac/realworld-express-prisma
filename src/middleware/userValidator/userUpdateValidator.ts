@@ -45,6 +45,13 @@ export default async function userUpdateValidator(
     }
   }
 
+  if (
+    typeof user.image == "string" &&
+    user.image !== "" &&
+    !user.image.startsWith("https://")
+  )
+    errors.body.push("image must be an https URL");
+
   if (errors.body.length) return res.status(400).json({ errors });
   next();
 }

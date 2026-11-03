@@ -121,25 +121,6 @@ describe("PUT /api/user", () => {
     await api.get("/api/user").set(auth(alice)).expect(404);
   });
 
-  // Known bug: the new password is stored as plain text, so logging in with it fails.
-  test("stores an updated password unhashed", async () => {
-    const alice = await registerUser("alice");
-    await api
-      .put("/api/user")
-      .set(auth(alice))
-      .send({ user: { password: "new-password" } })
-      .expect(200);
-
-    const stored = await prisma.user.findUniqueOrThrow({
-      where: { username: "alice" },
-    });
-    expect(stored.password).toBe("new-password");
-    await api
-      .post("/api/users/login")
-      .send({ user: { email: alice.email, password: "new-password" } })
-      .expect(403);
-  });
-
   test("rejects an email that belongs to another user with 422", async () => {
     const alice = await registerUser("alice");
     const bob = await registerUser("bob");

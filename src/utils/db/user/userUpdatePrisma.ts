@@ -1,3 +1,4 @@
+import { hashPassword } from "../../hashPasswords";
 import prisma from "../prisma";
 
 interface UpdateFields {
@@ -13,6 +14,8 @@ export default async function userUpdatePrisma(
   info: UpdateFields
 ) {
   if (!username) return null;
+  // Never store a plain-text password.
+  if (info.password) info = { ...info, password: hashPassword(info.password) };
   const user = await prisma.user.update({ where: { username }, data: info });
   return user;
 }

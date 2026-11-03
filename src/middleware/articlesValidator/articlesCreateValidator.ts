@@ -37,6 +37,10 @@ export default async function articlesCreateValidator(
     }
   }
 
+  const MAX_TITLE_CHARS = 100;
+  if (typeof title == "string" && title.length > MAX_TITLE_CHARS)
+    errors.body.push(`title must be at most ${MAX_TITLE_CHARS} characters`);
+
   // Checks if tagList is an array of strings in case it is not undefined.
   if (tagList && !Array.isArray(tagList))
     errors.body.push("tagList must be an array of non-empty strings");

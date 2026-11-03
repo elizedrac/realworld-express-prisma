@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import commentDeletePrisma from "../../utils/db/comment/commentDeletePrisma";
+import isModerator from "../../utils/auth/isModerator";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import commentViewer from "../../view/commentViewer";
 
@@ -27,7 +28,12 @@ export default async function deleteComment(
     if (!currentUser) return res.sendStatus(401);
 
     // Remove comment from database
-    const comment = await commentDeletePrisma(slug, id, currentUser);
+    const comment = await commentDeletePrisma(
+      slug,
+      id,
+      currentUser,
+      isModerator(req)
+    );
     if (!comment) return res.sendStatus(500);
 
     // Create comment view

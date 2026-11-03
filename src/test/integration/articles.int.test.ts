@@ -8,14 +8,14 @@ import {
 } from "./helpers";
 
 /**
- * Pins updatedAt so list ordering does not depend on request timing.
+ * Pins createdAt so list ordering does not depend on request timing.
  * @param slugs article slugs, oldest first
  */
-async function setUpdateOrder(slugs: string[]) {
+async function setCreateOrder(slugs: string[]) {
   for (const [index, slug] of slugs.entries()) {
     await prisma.article.update({
       where: { slug },
-      data: { updatedAt: new Date(Date.UTC(2024, 0, index + 1)) },
+      data: { createdAt: new Date(Date.UTC(2024, 0, index + 1)) },
     });
   }
 }
@@ -190,12 +190,12 @@ describe("GET /api/articles/:slug", () => {
 });
 
 describe("GET /api/articles", () => {
-  test("lists articles newest update first", async () => {
+  test("lists articles newest first", async () => {
     const alice = await registerUser("alice");
     for (const title of ["First", "Second", "Third"]) {
       await createArticle(alice, { title });
     }
-    await setUpdateOrder(["first", "second", "third"]);
+    await setCreateOrder(["first", "second", "third"]);
 
     const res = await api.get("/api/articles").expect(200);
     expect(res.body.articles.map((a: { slug: string }) => a.slug)).toEqual([
@@ -248,7 +248,7 @@ describe("GET /api/articles", () => {
     for (const title of ["A1", "A2", "A3", "A4"]) {
       await createArticle(alice, { title });
     }
-    await setUpdateOrder(["a1", "a2", "a3", "a4"]);
+    await setCreateOrder(["a1", "a2", "a3", "a4"]);
 
     const res = await api.get("/api/articles?limit=2&offset=1").expect(200);
     expect(res.body.articles.map((a: { slug: string }) => a.slug)).toEqual([

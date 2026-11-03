@@ -15,7 +15,7 @@ export default async function articlesListPrisma(
     },
     take: limit,
     skip: offset,
-    orderBy: { updatedAt: "desc" },
+    orderBy: { createdAt: "desc" },
     include: {
       author: { include: { followedBy: true } },
       tagList: true,

@@ -57,7 +57,7 @@ describe("POST /api/articles", () => {
     const article = await createArticle(alice, {
       title: "  Héllo, Wörld!  It's_me ",
     });
-    expect(article.slug).toBe("hello-world-its-me");
+    expect(article.slug).toBe("héllo-wörld-its-me");
   });
 
   test("works with no tagList or an empty one", async () => {

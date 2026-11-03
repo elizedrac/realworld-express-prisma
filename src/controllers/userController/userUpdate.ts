@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import createUserToken from "../../utils/auth/createUserToken";
 import userUpdatePrisma from "../../utils/db/user/userUpdatePrisma";
 import userViewer from "../../view/userViewer";
+import logger from "../../utils/logger";
 
 /**
  * User controller that updates the current user with info given on the body of the request.
@@ -16,6 +17,7 @@ export default async function userUpdate(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("userUpdate");
   const username = req.auth?.user?.username;
   const info = req.body.user;
   try {
@@ -31,6 +33,7 @@ export default async function userUpdate(
 
     return res.json(userView);
   } catch (error) {
+    logger.error("userUpdate failed", { error: error });
     return next(error);
   }
 }

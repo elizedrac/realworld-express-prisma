@@ -3,6 +3,7 @@ import createUserToken from "../../utils/auth/createUserToken";
 import userCreatePrisma from "../../utils/db/user/userCreatePrisma";
 import { hashPassword } from "../../utils/hashPasswords";
 import userViewer from "../../view/userViewer";
+import logger from "../../utils/logger";
 
 /**
  * Users controller that registers the user with information given in the body of the request.
@@ -16,6 +17,7 @@ export default async function usersRegister(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("usersRegister");
   const { email, password, username } = req.body.user;
   try {
     // Hash password
@@ -32,6 +34,7 @@ export default async function usersRegister(
 
     return res.status(201).json(userView);
   } catch (error) {
+    logger.error("usersRegister failed", { error: error });
     return next(error);
   }
 }

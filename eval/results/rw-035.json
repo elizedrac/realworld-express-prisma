@@ -1,0 +1,186 @@
+{
+  "id": "rw-035",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T15:54:38.161Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-035-a",
+  "branch_b": "rw-035-b",
+  "oracle_applies_to": [
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "GET /api/tags/:tag finds a tag created with capitals"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 14.8,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "5eadeb3127b7ae14007c9c05ed3b29ddbd13be2c",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.9,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "a963438371175328da7ec41166c7f15670876170",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.5,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.7,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.4,
+        "total": 244,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 3,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/tagLookupAnyCase.int.test.ts",
+            "test": "GET /api/tags/:tag finds a tag created with capitals",
+            "message": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/tagLookupAnyCase.int.test.ts:7:48\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/tagLookupAnyCase.int.test.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n----\n    at Test._assertStatus (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:309:14)\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:365:13"
+          }
+        ]
+      }
+    }
+  }
+}

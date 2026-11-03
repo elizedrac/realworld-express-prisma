@@ -11,6 +11,7 @@ built on the `eval-base-v2` tag. Case branches do not contain this folder.
 - `detectors/<name>/`: candidate conflict detectors (see `detectors/README.md`).
 - `package.json`: the eval scripts' own dependencies (the Anthropic SDK), separate from the app's.
 - `score.mjs`: runs detectors on every case and reports recall, precision, misses and false alarms.
+- `lib/dbLock.mjs`: lets one run at a time use the test database; `verify.mjs` and `merge-check` wait for it.
 - `replay.mjs`: testing only; pushes one side of a case to a scratch remote on a schedule, like a teammate.
 - `test/`: tests for the eval scripts.
 
@@ -35,6 +36,10 @@ node eval/verify.mjs ... --case rw-011        # one case
 ```
 
 Each case is checked out in a temporary git worktree, so the working copy is never touched.
+
+Only one run uses the test database at a time: `verify.mjs` holds it for the
+whole run, and `merge-check` while its tests run. Whichever starts second waits
+and says so on stderr. Waiting counts toward the scorer's time for that case.
 
 ## Replaying a case live (testing only)
 

@@ -1,0 +1,156 @@
+{
+  "id": "rw-038",
+  "type": "negative",
+  "label": "no_conflict",
+  "verified_at": "2026-11-03T15:45:29.153Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-038-a",
+  "branch_b": "rw-038-b",
+  "oracle_applies_to": [],
+  "observed": {
+    "manifests_as": "none",
+    "manifests": [],
+    "failing_tests": [],
+    "failing_oracle_tests": []
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 14.8,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "b70792c7765fea55618beea957ac16f645af4452",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.2,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "41f1e28d9603a62ab33994a1feb835d564610658",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 14.8,
+        "total": 241,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 15.4,
+        "total": 242,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    }
+  }
+}

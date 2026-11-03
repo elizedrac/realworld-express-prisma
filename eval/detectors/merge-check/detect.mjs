@@ -20,6 +20,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { acquireDbLock } from "../../lib/dbLock.mjs";
 
 const { values: args } = parseArgs({
   options: {
@@ -173,9 +174,10 @@ function setup() {
 
 // ---------- checks ----------
 
-function failingTests(reportPath) {
-  if (target.test_report !== "jest-json" || !fs.existsSync(reportPath))
-    return [];
+// Returns the failing tests, and how many tests ran (null if unknown).
+function readReport(reportPath) {
+  if (target.test_report !== "jest-json") return { failed: [], ran: null };
+  if (!fs.existsSync(reportPath)) return { failed: [], ran: 0 };
   const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
   const failed = [];
   for (const file of report.testResults ?? []) {
@@ -186,7 +188,8 @@ function failingTests(reportPath) {
     if (assertions.length === 0 && file.status === "failed") failed.push(rel);
     for (const t of assertions) failed.push(`${rel} > ${t.fullName}`);
   }
-  return failed;
+  const ran = (report.numPassedTests ?? 0) + (report.numFailedTests ?? 0);
+  return { failed, ran };
 }
 
 function answer(fields) {
@@ -240,11 +243,20 @@ const reportPath = path.join(
   `conflict-detect-report-${process.pid}.json`
 );
 fs.rmSync(reportPath, { force: true });
+// Only the tests use the database, and only one run may use it at a time.
+const releaseDb = acquireDbLock("merge-check");
 const tests = timed("tests", () =>
   run(target.test.replaceAll("{report}", reportPath), workdir)
 );
-const failed = failingTests(reportPath);
+releaseDb();
+const { failed, ran } = readReport(reportPath);
 fs.rmSync(reportPath, { force: true });
+// A timeout, or a run where no test got to run (say the database is down),
+// says nothing about the merge, so it is an error rather than a conflict.
+if (tests.exit === 124)
+  fail(`tests timed out after merge:\n${tests.output.slice(-1000)}`);
+if (tests.exit !== 0 && ran === 0)
+  fail(`tests did not run after merge:\n${tests.output.slice(-1000)}`);
 if (tests.exit !== 0) {
   answer({
     conflict: true,

@@ -1,9 +1,9 @@
 {
-  "written_at": "2026-11-03T14:59:27.949Z",
+  "written_at": "2026-11-03T15:59:33.790Z",
   "target": "realworld-express-prisma",
   "versions": "v22.23.4\nVersion 4.9.4",
-  "valid": 34,
-  "total": 34,
+  "valid": 41,
+  "total": 41,
   "cases": [
     {
       "id": "rw-001",
@@ -276,6 +276,62 @@
       "valid": true,
       "problems": [],
       "verified_at": "2026-11-03T04:05:36.804Z"
+    },
+    {
+      "id": "rw-035",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:54:38.161Z"
+    },
+    {
+      "id": "rw-036",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:55:49.899Z"
+    },
+    {
+      "id": "rw-037",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:57:07.469Z"
+    },
+    {
+      "id": "rw-038",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:45:29.153Z"
+    },
+    {
+      "id": "rw-039",
+      "type": "intent",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:46:35.216Z"
+    },
+    {
+      "id": "rw-040",
+      "type": "runtime",
+      "observed": "oracle_failure",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:58:23.375Z"
+    },
+    {
+      "id": "rw-041",
+      "type": "negative",
+      "observed": "none",
+      "valid": true,
+      "problems": [],
+      "verified_at": "2026-11-03T15:59:33.688Z"
     }
   ]
 }

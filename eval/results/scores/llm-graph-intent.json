@@ -1,152 +1,152 @@
 {
   "detector": "llm-graph-intent",
-  "scored_at": "2026-11-03T15:27:56.048Z",
+  "scored_at": "2026-11-03T20:47:46.726Z",
   "after": "merge-check",
-  "cases": 23,
+  "cases": 30,
   "runs": [
     {
       "run": 1,
       "summary": {
-        "true_positives": 13,
+        "true_positives": 17,
         "false_negatives": 0,
         "false_positives": 0,
-        "true_negatives": 10,
+        "true_negatives": 13,
         "errors": 0,
         "recall": 1,
         "precision": 1,
-        "category_accuracy": 1,
+        "category_accuracy": 0.9411764705882353,
         "by_type": {
           "negative": {
-            "total": 10,
-            "correct": 10
+            "total": 13,
+            "correct": 13
           },
           "runtime": {
-            "total": 8,
-            "correct": 8
+            "total": 11,
+            "correct": 11
           },
           "intent": {
-            "total": 5,
-            "correct": 5
+            "total": 6,
+            "correct": 6
           }
         },
         "missed": [],
         "false_alarms": [],
         "errored": [],
-        "total_seconds": 115.9,
-        "median_seconds": 4.4,
-        "max_seconds": 8,
-        "total_cost_usd": 0.27006
+        "total_seconds": 153.2,
+        "median_seconds": 4.6,
+        "max_seconds": 8.5,
+        "total_cost_usd": 0.39315399999999995
       }
     },
     {
       "run": 2,
       "summary": {
-        "true_positives": 13,
+        "true_positives": 17,
         "false_negatives": 0,
         "false_positives": 0,
-        "true_negatives": 10,
+        "true_negatives": 13,
         "errors": 0,
         "recall": 1,
         "precision": 1,
-        "category_accuracy": 1,
+        "category_accuracy": 0.8823529411764706,
         "by_type": {
           "negative": {
-            "total": 10,
-            "correct": 10
+            "total": 13,
+            "correct": 13
           },
           "runtime": {
-            "total": 8,
-            "correct": 8
+            "total": 11,
+            "correct": 11
           },
           "intent": {
-            "total": 5,
-            "correct": 5
+            "total": 6,
+            "correct": 6
           }
         },
         "missed": [],
         "false_alarms": [],
         "errored": [],
-        "total_seconds": 95.2,
-        "median_seconds": 4.1,
-        "max_seconds": 5,
-        "total_cost_usd": 0.27112
+        "total_seconds": 123.8,
+        "median_seconds": 4,
+        "max_seconds": 5.1,
+        "total_cost_usd": 0.395124
       }
     },
     {
       "run": 3,
       "summary": {
-        "true_positives": 13,
+        "true_positives": 17,
         "false_negatives": 0,
         "false_positives": 0,
-        "true_negatives": 10,
+        "true_negatives": 13,
         "errors": 0,
         "recall": 1,
         "precision": 1,
-        "category_accuracy": 0.9230769230769231,
+        "category_accuracy": 0.9411764705882353,
         "by_type": {
           "negative": {
-            "total": 10,
-            "correct": 10
+            "total": 13,
+            "correct": 13
           },
           "runtime": {
-            "total": 8,
-            "correct": 8
+            "total": 11,
+            "correct": 11
           },
           "intent": {
-            "total": 5,
-            "correct": 5
+            "total": 6,
+            "correct": 6
           }
         },
         "missed": [],
         "false_alarms": [],
         "errored": [],
-        "total_seconds": 100.2,
-        "median_seconds": 4.3,
-        "max_seconds": 8.2,
-        "total_cost_usd": 0.2748500000000001
+        "total_seconds": 447,
+        "median_seconds": 4.5,
+        "max_seconds": 320.8,
+        "total_cost_usd": 0.397454
       }
     }
   ],
   "summary": {
-    "true_positives": 39,
+    "true_positives": 51,
     "false_negatives": 0,
     "false_positives": 0,
-    "true_negatives": 30,
+    "true_negatives": 39,
     "errors": 0,
     "recall": 1,
     "precision": 1,
-    "category_accuracy": 0.9743589743589743,
+    "category_accuracy": 0.9215686274509803,
     "by_type": {
       "negative": {
-        "total": 30,
-        "correct": 30
+        "total": 39,
+        "correct": 39
       },
       "runtime": {
-        "total": 24,
-        "correct": 24
+        "total": 33,
+        "correct": 33
       },
       "intent": {
-        "total": 15,
-        "correct": 15
+        "total": 18,
+        "correct": 18
       }
     },
     "missed": [],
     "false_alarms": [],
     "errored": [],
-    "total_seconds": 311.3,
-    "median_seconds": 4.2,
-    "max_seconds": 8.2,
-    "total_cost_usd": 0.8160299999999998
+    "total_seconds": 724,
+    "median_seconds": 4.3,
+    "max_seconds": 320.8,
+    "total_cost_usd": 1.1857320000000002
   },
   "pipeline": {
-    "true_positives": 72,
+    "true_positives": 84,
     "false_negatives": 0,
     "false_positives": 0,
-    "true_negatives": 30,
+    "true_negatives": 39,
     "errors": 0,
     "recall": 1,
     "precision": 1,
-    "category_accuracy": 0.9861111111111112,
+    "category_accuracy": 0.9523809523809523,
     "by_type": {
       "test": {
         "total": 12,
@@ -157,29 +157,29 @@
         "correct": 12
       },
       "negative": {
-        "total": 30,
-        "correct": 30
+        "total": 39,
+        "correct": 39
       },
       "textual": {
         "total": 9,
         "correct": 9
       },
       "runtime": {
-        "total": 24,
-        "correct": 24
+        "total": 33,
+        "correct": 33
       },
       "intent": {
-        "total": 15,
-        "correct": 15
+        "total": 18,
+        "correct": 18
       }
     },
     "missed": [],
     "false_alarms": [],
     "errored": [],
-    "total_seconds": 1767.5,
-    "median_seconds": 21.5,
-    "max_seconds": 26.8,
-    "total_cost_usd": 0.8160299999999998
+    "total_seconds": 2636.8,
+    "median_seconds": 22.4,
+    "max_seconds": 337.6,
+    "total_cost_usd": 1.1857320000000002
   },
   "rows": [
     {
@@ -189,629 +189,29 @@
       "run": 1,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 8,
+      "seconds": 7.9,
       "confidence": 0.88,
       "category": null,
       "involved_symbols": [
         "tagsCreatePrisma",
         "parseArticleListQuery"
       ],
-      "explanation": "A normalizes tags to trimmed lowercase when storing them; B lowercases and trims the tag filter on the read side. These are complementary halves of the same feature rather than duplicates: B's filter works against A's normalized stored data (and against already-lowercase data), and A's integration test querying ?tag=dragons still passes with B's change. B's lowercasing is harmless alone but only fully correct once A's normalization exists, and together they are consistent. No concrete scenario of wrong behavior or duplicated work was found.",
-      "cost_usd": 0.0081,
-      "timings": {
-        "graph": 0.4,
-        "llm": 7.3
-      },
-      "usage": {
-        "input_tokens": 2910,
-        "output_tokens": 228
-      }
-    },
-    {
-      "id": "rw-011",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.88,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
-        "src/controllers/tagsController/getTags.ts#getTags",
-        "src/controllers/tagsController/getTags.ts#cache",
-        "src/controllers/tagsController/getTags.ts#invalidateTagsCache"
-      ],
-      "explanation": "B adds a 60s in-memory cache of GET /api/tags, invalidated only when articlesCreate creates tags. A makes article deletion remove orphaned tags via prisma.tag.deleteMany, but nothing invalidates B's cache on that path. Merged: after deleting an article whose tag becomes orphaned (e.g. 'solo'), the tag is removed from the DB but GET /api/tags keeps returning it from cache for up to 60 seconds. B's cache assumes tags only change when articles are created, and A breaks that assumption. A's new test only checks the DB, and B's tests only cover creation, so existing tests pass.",
-      "cost_usd": 0.01156,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.5
-      },
-      "usage": {
-        "input_tokens": 4005,
-        "output_tokens": 355
-      }
-    },
-    {
-      "id": "rw-012",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.6,
-      "confidence": 0.95,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
-        "src/controllers/userController/userChangePassword.ts#userChangePassword",
-        "src/utils/hashPasswords.ts#hashPassword"
-      ],
-      "explanation": "A makes userUpdatePrisma hash any password it receives. B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma. In the merged code, the password is hashed twice (bcrypt of a bcrypt hash). After POST /api/user/password, the stored value is bcrypt(bcrypt(newPassword)), so logging in with the new password compares against the single-hash path and fails, locking the user out. B's own test only checks that the stored password differs from plain text, so it still passes.",
-      "cost_usd": 0.012744,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.9
-      },
-      "usage": {
-        "input_tokens": 4907,
-        "output_tokens": 293
-      }
-    },
-    {
-      "id": "rw-013",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 7.6,
-      "confidence": 0.85,
-      "category": "runtime",
-      "involved_symbols": [
-        "articleViewPrisma",
-        "articleUpdatePrisma",
-        "Article.updatedAt",
-        "articlesGet"
-      ],
-      "explanation": "Change A adds @updatedAt to Article.updatedAt, so Prisma bumps updatedAt on every prisma.article.update call, not just real edits. Change B adds articleViewPrisma, which calls prisma.article.update to increment views on every GET of an article. In the merged code, every read of an article now changes its updatedAt to the read time, so updatedAt no longer means 'last edited' and the article's reported updatedAt becomes the time of the last view. Neither change alone causes this: before A, updatedAt was only set manually in articleUpdatePrisma; before B, views didn't exist. Combined, the article's updatedAt is corrupted by view counting.",
-      "cost_usd": 0.013204,
-      "timings": {
-        "graph": 0.4,
-        "llm": 6.9
-      },
-      "usage": {
-        "input_tokens": 5137,
-        "output_tokens": 293
-      }
-    },
-    {
-      "id": "rw-014",
-      "type": "intent",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.1,
-      "confidence": 0.82,
-      "category": "intent",
-      "involved_symbols": [
-        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
-        "src/controllers/tagsController/getTags.ts#getTags"
-      ],
-      "explanation": "Both changes solve the same problem: making sure the tag list does not show tags that no article uses after an article is deleted. Change A does it by physically deleting orphan tags at article-deletion time; Change B does it by filtering unused tags out of the GET /api/tags query. Merged, the code is redundant: A's cleanup makes B's read-time filter unnecessary on the delete path, and B's filter makes A's deletion unnecessary for the visible behavior. Both even add an equivalent integration test (create 'solo'/'shared' tags, delete the article, expect only 'shared'). One of the two approaches should be removed.",
-      "cost_usd": 0.008502,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.5
-      },
-      "usage": {
-        "input_tokens": 2776,
-        "output_tokens": 295
-      }
-    },
-    {
-      "id": "rw-015",
-      "type": "intent",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.1,
-      "confidence": 0.9,
-      "category": "intent",
-      "involved_symbols": [
-        "src/utils/db/article/articleFeedPrisma.ts#articleFeedPrisma",
-        "src/controllers/articlesController/articlesFeed.ts#articlesFeed"
-      ],
-      "explanation": "Both changes fix the same bug (the feed returning articles from non-followed authors) in different layers. A adds a `where` clause in the Prisma query, and B post-filters the results in the controller using `currentUser.follows`. Merged, the controller filter is redundant: the DB already returns only followed authors' articles, so B's filter never removes anything, and the same rule is implemented twice. One of the two should be removed, and A's task explicitly says to filter in the database query rather than in memory. The two tests are also duplicates, and both edit the same lines of articles.int.test.ts identically.",
-      "cost_usd": 0.012954,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.4
-      },
-      "usage": {
-        "input_tokens": 5037,
-        "output_tokens": 288
-      }
-    },
-    {
-      "id": "rw-016",
-      "type": "intent",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.93,
-      "category": "intent",
-      "involved_symbols": [
-        "src/controllers/articlesController/articlesDelete.ts#articlesDelete",
-        "src/middleware/auth/requireArticleAuthor.ts#requireArticleAuthor",
-        "src/routes/api/articles.ts#router.delete("
-      ],
-      "explanation": "Both changes add the same author-only deletion guard for DELETE /api/articles/:slug. A puts the check inside the articlesDelete controller. B adds a requireArticleAuthor middleware on the route that does the identical lookup (user, article, 403 on mismatch). In the merged code the route runs the middleware and then the controller, so the ownership check runs twice with the same queries and the same 403 outcome. Behavior is correct, but the two solve the same problem in different places, so one should be removed. Both also delete the same 'known bug' test and add near-duplicate 403 tests.",
-      "cost_usd": 0.014484,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.6
-      },
-      "usage": {
-        "input_tokens": 5707,
-        "output_tokens": 307
-      }
-    },
-    {
-      "id": "rw-017",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.1,
-      "confidence": 0.93,
-      "category": null,
-      "involved_symbols": [
-        "slugfy",
-        "articlesCreateValidator"
-      ],
-      "explanation": "Change A truncates slugs to 100 characters inside slugfy; Change B rejects article titles longer than 150 characters in the create validator. They address different concerns (slug length vs. title length validation) and touch separate functions with no code linkage. A scenario where they interact: titles between 101 and 150 characters are accepted and produce truncated slugs, which is consistent with both intents. Truncation could theoretically cause slug collisions for long titles sharing a 100-character prefix, but that would occur with A alone and B does not worsen it (B in fact limits input length). Neither duplicates nor contradicts the other.",
-      "cost_usd": 0.007362,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.5
-      },
-      "usage": {
-        "input_tokens": 2421,
-        "output_tokens": 252
-      }
-    },
-    {
-      "id": "rw-018",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 7.8,
-      "confidence": 0.93,
-      "category": null,
-      "involved_symbols": [
-        "Article",
-        "articlesListPrisma",
-        "parseArticleListQuery"
-      ],
-      "explanation": "Change A adds database indexes on Article.authorUsername and updatedAt to speed up the author filter and default updatedAt-desc ordering. Change B adds an optional sort query param (created|updated, defaulting to updated) to the article list. They address different problems, so there is no intent duplication. At runtime, B's default path still orders by updatedAt, which A's index supports; B's new createdAt ordering is simply not indexed, which is a performance consideration rather than incorrect behavior. No assumption is broken, and the indexes don't alter query results.",
-      "cost_usd": 0.011278,
-      "timings": {
-        "graph": 0.4,
-        "llm": 7.1
-      },
-      "usage": {
-        "input_tokens": 4449,
-        "output_tokens": 238
-      }
-    },
-    {
-      "id": "rw-019",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.8,
-      "confidence": 0.85,
-      "category": null,
-      "involved_symbols": [
-        "src/controllers/tagsController/getTags.ts#getTags",
-        "src/controllers/tagsController/getTags.ts#prisma.$use(async (params, next) => {",
-        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma"
-      ],
-      "explanation": "A caches the tag list and invalidates it via a prisma middleware whenever a write action runs on model Tag or Article. B adds prisma.tag.deleteMany after an article delete. Both operations go through the same middleware: the article delete invalidates the cache (model Article, action delete), and then tag.deleteMany also invalidates it (model Tag, action deleteMany). Since the tag cleanup occurs inside articleDeletePrisma after the article delete, and the cache is cleared after each call completes, the final state is cache=null after both. A concurrent getTags between the two calls could repopulate the cache with tags that are about to be deleted, but the subsequent deleteMany middleware clears the cache again afterward, so stale data does not persist. The changes are compatible and do not duplicate work.",
-      "cost_usd": 0.010844,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.1
-      },
-      "usage": {
-        "input_tokens": 3502,
-        "output_tokens": 384
-      }
-    },
-    {
-      "id": "rw-020",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 6.1,
-      "confidence": 0.85,
-      "category": null,
-      "involved_symbols": [
-        "userUpdatePrisma",
-        "userChangePassword",
-        "userSetPasswordPrisma",
-        "hashPassword"
-      ],
-      "explanation": "Both changes address password handling but on different paths. A fixes the plain-text bug in PUT /api/user by hashing inside userUpdatePrisma. B adds a new POST /api/user/password endpoint that hashes in the controller and writes via a separate userSetPasswordPrisma. B never calls userUpdatePrisma, so there is no double hashing: A's hash applies only to the PUT path, B's only to its own path. B's new function does not touch the PUT flow. One could argue that adding a dedicated password-change endpoint overlaps with fixing the PUT password path, but they offer distinct features (verified current password vs. direct update), and neither contradicts nor duplicates the other's work in a way requiring removal. No concrete runtime failure scenario exists.",
-      "cost_usd": 0.013692,
-      "timings": {
-        "graph": 0.4,
-        "llm": 5.4
-      },
-      "usage": {
-        "input_tokens": 5231,
-        "output_tokens": 323
-      }
-    },
-    {
-      "id": "rw-021",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.8,
-      "confidence": 0.95,
-      "category": null,
-      "involved_symbols": [
-        "createUserToken",
-        "authenticate",
-        "optionalAuthenticate",
-        "createPasswordResetToken",
-        "verifyPasswordResetToken"
-      ],
-      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET across the login-token code (authenticator, createUserToken, tests, .env.test, README). Change B adds a separate RESET_TOKEN_SECRET and new password reset token helpers that never read JWT_SECRET. The two touch the same .env.test file but different lines, and merge cleanly to a file containing AUTH_JWT_SECRET, NODE_ENV, and RESET_TOKEN_SECRET. B's code and tests only use RESET_TOKEN_SECRET, which A does not touch, so there is no broken assumption and no duplicated purpose.",
-      "cost_usd": 0.013334,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.1
-      },
-      "usage": {
-        "input_tokens": 5187,
-        "output_tokens": 296
-      }
-    },
-    {
-      "id": "rw-022",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.6,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/articlesController/articlesList.ts#PAGE_SIZE",
-        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery",
-        "src/controllers/articlesController/articlesList.ts#articlesList"
-      ],
-      "explanation": "Change A lowers the default page size to 10 by changing the default of `limit` in `articlesListPrisma`, which only applies when the controller passes `limit` as undefined. Change B adds `?page=N`, which hardcodes `PAGE_SIZE = 20` in the controller and always passes an explicit limit. Merged, the plain list (no `page`) returns 10 articles, while `?page=1` returns 20 and `?page=2` starts at offset 20. A client that fetches the default list, then follows with `?page=2`, skips articles 11-20. The two changes disagree about the page size, so the default page size becomes inconsistent with the new pagination. Both changes' own tests still pass in isolation, but the system as a whole now has two contradictory page sizes.",
-      "cost_usd": 0.012978,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4
-      },
-      "usage": {
-        "input_tokens": 4484,
-        "output_tokens": 401
-      }
-    },
-    {
-      "id": "rw-023",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.6,
-      "confidence": 0.95,
-      "category": null,
-      "involved_symbols": [
-        "src/controllers/articlesController/articlesCreate.ts#articlesCreate",
-        "src/controllers/articlesController/articlesCreate.ts#MAX_TAGS"
-      ],
-      "explanation": "Change A adds an info log after successful article creation; Change B adds an early 422 return when tagList exceeds 10 entries. They solve different problems and compose correctly: rejected requests return before creation so no log is emitted (which is sensible), and accepted requests still log. A's test only creates an article with no tags, so it is unaffected by B's limit, and B's tests don't depend on logging. No shared assumption is broken and no duplicated work.",
-      "cost_usd": 0.009604,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4
-      },
-      "usage": {
-        "input_tokens": 3607,
-        "output_tokens": 239
-      }
-    },
-    {
-      "id": "rw-024",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.7,
-      "confidence": 0.96,
-      "category": null,
-      "involved_symbols": [
-        "articlesListPrisma",
-        "getProfileArticles"
-      ],
-      "explanation": "Change A refactors the where-clause construction in articlesListPrisma without changing behavior for any given argument. The one subtle difference is that an empty-string filter is now skipped, but B always passes a non-empty username (route param) and undefined for tag and favorited. Change B's controller calls the function with the correct positional arguments (authorUsername as the second parameter), and limit/offset undefined falls back to the defaults. The two changes are correct together, and they do not duplicate work.",
-      "cost_usd": 0.010128,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3
-      },
-      "usage": {
-        "input_tokens": 4019,
-        "output_tokens": 209
-      }
-    },
-    {
-      "id": "rw-025",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.3,
-      "confidence": 0.97,
-      "category": null,
-      "involved_symbols": [
-        "countComments",
-        "countTagArticles"
-      ],
-      "explanation": "Change A adds a comment-count endpoint under /api/articles/:slug/comments/count; Change B adds an article-count endpoint under /api/tags/:tag/count. They live on different routers and paths, use different controllers, and count different entities. The only overlap is both reading from the article table, which is read-only and harmless. No shared state, no route collision, and no duplicated purpose.",
-      "cost_usd": 0.009672,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.6
-      },
-      "usage": {
-        "input_tokens": 3971,
-        "output_tokens": 173
-      }
-    },
-    {
-      "id": "rw-026",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 1,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.3,
-      "confidence": 0.93,
-      "category": null,
-      "involved_symbols": [
-        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma"
-      ],
-      "explanation": "Change A only adds doc comments to userUpdatePrisma; Change B adds trimming of bio and image inside the function plus an integration test. The A docs say 'Fields left out are kept' and describe the returned user, both of which remain accurate after B's change (spreading with undefined bio/image makes Prisma skip those fields). The docs don't contradict the trimming behavior. No runtime or intent conflict.",
-      "cost_usd": 0.005842,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.6
-      },
-      "usage": {
-        "input_tokens": 1901,
-        "output_tokens": 204
-      }
-    },
-    {
-      "id": "rw-027",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 7.6,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "getTagCounts",
-        "articleDeletePrisma",
-        "articleGetPrisma",
-        "articlesListPrisma",
-        "articleFeedPrisma"
-      ],
-      "explanation": "Change A soft-deletes articles by setting deletedAt and filters deleted articles out of the article get, list, and feed queries. Change B's getTagCounts counts articles per tag using `_count: { select: { article: true } }` on the tag model, with no deletedAt filter. After merge, a soft-deleted article still has its Tag relations, so its tags keep being counted. Example: article 'Gone' tagged 'x' is deleted; /api/tags/counts still reports x with count 1 even though no visible article uses it. B's test passes because it never deletes anything. The same gap exists in getTags, but that is pre-existing and unchanged by B. Count includes hidden articles, which is wrong behavior emerging only from the combination.",
-      "cost_usd": 0.014372,
-      "timings": {
-        "graph": 0.4,
-        "llm": 6.9
-      },
-      "usage": {
-        "input_tokens": 5566,
-        "output_tokens": 324
-      }
-    },
-    {
-      "id": "rw-028",
-      "type": "intent",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 7.9,
-      "confidence": 0.88,
-      "category": "intent",
-      "involved_symbols": [
-        "src/utils/normalizeEmail.ts#normalizeEmail",
-        "src/utils/db/user/userCreatePrisma.ts#userCreatePrisma",
-        "src/utils/db/user/userGetEmailPrisma.ts#userGetEmailPrisma",
-        "src/controllers/usersController/usersLogin.ts#userLogin",
-        "src/controllers/usersController/usersRegister.ts#usersRegister"
-      ],
-      "explanation": "Both changes solve the same problem: making email handling case/whitespace-insensitive on register and login. Change A normalizes in the controllers via a new normalizeEmail util, while Change B normalizes inside the DB helpers (userCreatePrisma and userGetEmailPrisma) with inline trim().toLowerCase(). Merged, every email is normalized twice by two different mechanisms. The result is behaviorally harmless (trim/lowercase is idempotent), but it is duplicated logic that could drift, and one layer should be removed. Both also add overlapping integration tests for the same behavior.",
-      "cost_usd": 0.013058,
+      "explanation": "Change A normalizes tags to trimmed lowercase at write time (tagsCreatePrisma). Change B normalizes the tag filter to trimmed lowercase at read time (parseArticleListQuery). These touch different code paths and are complementary: after merge, stored tags are lowercase and filters are lowercased, so they match. B's tests assume lowercase storage (which A guarantees, and which was the prior convention for lowercase inputs). Pre-existing tags stored with uppercase would become unfilterable, but that is a data-migration concern arising from B alone (or the combination only marginally), not a concrete new conflict. Neither duplicates the other's work: one handles write-side normalization, the other read-side query normalization, both needed for end-to-end case-insensitivity.",
+      "cost_usd": 0.00895,
       "timings": {
         "graph": 0.4,
         "llm": 7.2
       },
       "usage": {
-        "input_tokens": 4669,
-        "output_tokens": 372
-      }
-    },
-    {
-      "id": "rw-029",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 5.2,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "articleUpdatePrisma",
-        "recentArticlesPrisma",
-        "recordViewPrisma",
-        "RecentView"
-      ],
-      "explanation": "Change A makes article slugs mutable on title change (and the DB cascades the slug rename to Comment via the foreign key). Change B introduces a RecentView table keyed by (username, slug) with no foreign key to Article. After A's rename, RecentView rows keep the old slug, so they dangle. In recentArticlesPrisma, views are fetched with take: 10, then flatMap drops any whose slug no longer resolves to an article. So a user who viewed an article that was later renamed loses it from /api/user/recent, and the dangling rows still consume slots in the top-10 window, returning fewer than 10 articles even when more valid viewed articles exist. B's design assumes slugs are stable (as they effectively were before A, since the slug was never changed by update), and A breaks that assumption. Additionally, viewing the new slug creates a duplicate-looking separate row, while the old row dangles.",
-      "cost_usd": 0.016868,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.5
-      },
-      "usage": {
-        "input_tokens": 6599,
-        "output_tokens": 367
-      }
-    },
-    {
-      "id": "rw-030",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 5,
-      "confidence": 0.88,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/articlesController/articlesList.ts#articlesList"
-      ],
-      "explanation": "In the merged articlesListPrisma, ordering is by createdAt desc (Change A), but the cursor filter is updatedAt < cursor.updatedAt (Change B). B's cursor pagination assumed the list was ordered by updatedAt. Scenario: article X was created early but edited recently; with ?after=X the filter returns articles with updatedAt older than X's update time, while the createdAt ordering places articles created after X at positions following X only if they're older by creation. This can skip articles (e.g., one created after X but never edited, with updatedAt earlier than X's edit... actually it would be included incorrectly or repeated) and show articles already seen on earlier pages. B's own test, which pins updatedAt only, would fail after A's ordering change if createdAt values are in the same order, but it passes since createdAt is monotonic with creation order; the bug appears only once edits happen. So the cursor key and sort key are inconsistent.",
-      "cost_usd": 0.01541,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.4
-      },
-      "usage": {
-        "input_tokens": 5720,
-        "output_tokens": 397
-      }
-    },
-    {
-      "id": "rw-033",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.4,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "userUpdateValidator",
-        "userSetImage",
-        "userUpdatePrisma",
-        "router.put(\"/image\", authenticate, userSetImage)"
-      ],
-      "explanation": "Change A adds an https-only rule for the user image, but only inside userUpdateValidator, which guards PUT /api/user. Change B adds a new route PUT /api/user/image with its own controller that writes the image directly via userUpdatePrisma, bypassing userUpdateValidator. In the merged code, a client can set image to 'http://...' or any arbitrary string through /api/user/image and succeed with 200, defeating the invariant that A is trying to enforce (images must be https). B's tests even exercise only https, and its validation only checks typeof string. So the rule A introduced is not enforced on the new write path for the same field.",
-      "cost_usd": 0.010362,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.8
-      },
-      "usage": {
-        "input_tokens": 3726,
-        "output_tokens": 291
-      }
-    },
-    {
-      "id": "rw-034",
-      "type": "intent",
-      "label": "conflict",
-      "run": 1,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.9,
-      "confidence": 0.8,
-      "category": "intent",
-      "involved_symbols": [
-        "src/controllers/userController/userFavorites.ts#userFavorites",
-        "src/controllers/articlesController/articlesList.ts#articlesList",
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
-      ],
-      "explanation": "Both changes add a way for the current user to list their own favorited articles. Change A adds a dedicated GET /api/user/favorites endpoint, and change B adds a ?favorited=me shortcut on GET /api/articles. Their integration tests even use the same scenario (alice creates articles, bob favorites one, bob lists his favorites). The merged code works at runtime, but it now provides two endpoints that do the same job, so one of them is redundant.",
-      "cost_usd": 0.013708,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.2
-      },
-      "usage": {
-        "input_tokens": 5544,
-        "output_tokens": 262
-      }
-    },
-    {
-      "id": "rw-003",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.9,
-      "confidence": 0.9,
-      "category": null,
-      "involved_symbols": [
-        "tagsCreatePrisma",
-        "parseArticleListQuery"
-      ],
-      "explanation": "A normalizes tags to trimmed lowercase on write; B normalizes the tag query filter to trimmed lowercase on read. These are complementary halves of the same convention and compose correctly: stored tags are lowercase, filters are lowercased, so they match. B's normalization would not be needed for matching if only A existed with lowercase input, but it handles uppercase filter input, which A does not touch. Both changes lead to the same stored-lowercase invariant, with no double work or contradiction. A's test filters by an already lowercase tag, which still works with B's change.",
-      "cost_usd": 0.00823,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.3
-      },
-      "usage": {
         "input_tokens": 2910,
-        "output_tokens": 241
+        "output_tokens": 313
       }
     },
     {
       "id": "rw-011",
       "type": "runtime",
       "label": "conflict",
-      "run": 2,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
       "seconds": 4.2,
@@ -820,614 +220,14 @@
       "involved_symbols": [
         "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
         "src/controllers/tagsController/getTags.ts#getTags",
-        "src/controllers/tagsController/getTags.ts#cache",
-        "src/controllers/tagsController/getTags.ts#invalidateTagsCache"
+        "src/controllers/tagsController/getTags.ts#invalidateTagsCache",
+        "src/controllers/tagsController/getTags.ts#cache"
       ],
-      "explanation": "B adds a 60s in-memory cache for GET /api/tags that is invalidated only when articlesCreate creates tags. A adds tag deletion (orphan cleanup) to article deletion, but nothing invalidates B's cache on that path. After merge, deleting an article removes orphan tags from the DB while GET /api/tags keeps serving the cached list, including the deleted tags, for up to 60s. B's cache assumes tags only change on article creation (its stated invalidation rule: 'refresh when new tags are created'), and A's change breaks that assumption by introducing a new tag-deleting write path. A's test deletes then queries prisma directly, so it wouldn't catch this.",
-      "cost_usd": 0.01169,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.6
-      },
-      "usage": {
-        "input_tokens": 4005,
-        "output_tokens": 368
-      }
-    },
-    {
-      "id": "rw-012",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.6,
-      "confidence": 0.96,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
-        "src/controllers/userController/userChangePassword.ts#userChangePassword",
-        "src/utils/hashPasswords.ts#hashPassword"
-      ],
-      "explanation": "A makes userUpdatePrisma hash any password it receives. B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma. In the merged code the new password is hashed twice: bcrypt(bcrypt(newPassword)). The stored hash then no longer matches the plain new password, so after POST /api/user/password the user cannot log in with the new password. B's own tests only check that the stored value differs from the plain text and the old hash, so they still pass while the feature is broken.",
-      "cost_usd": 0.012694,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.9
-      },
-      "usage": {
-        "input_tokens": 4907,
-        "output_tokens": 288
-      }
-    },
-    {
-      "id": "rw-013",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.9,
-      "confidence": 0.88,
-      "category": "runtime",
-      "involved_symbols": [
-        "prisma/schema.prisma#Article.updatedAt",
-        "src/utils/db/article/articleViewPrisma.ts#articleViewPrisma",
-        "src/controllers/articlesController/articlesGet.ts#articlesGet",
-        "src/utils/db/article/articleUpdatePrisma.ts#articleUpdatePrisma"
-      ],
-      "explanation": "Change A adds @updatedAt to Article.updatedAt so Prisma bumps it on every update() call. Change B adds articleViewPrisma, which calls prisma.article.update on every article GET to increment views. Combined, every read of an article now silently bumps updatedAt to the current time, because the view-count update triggers @updatedAt. Previously (before A), updatedAt was only set explicitly in articleUpdatePrisma, so B alone would not touch it. A's change turns B's view increment into a modification timestamp change. Concrete scenario: an article last edited a month ago is read once; its updatedAt becomes now, so API consumers see it as freshly modified, and any updatedAt-based ordering or display is wrong. Neither change alone produces this behavior.",
-      "cost_usd": 0.014284,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.2
-      },
-      "usage": {
-        "input_tokens": 5137,
-        "output_tokens": 401
-      }
-    },
-    {
-      "id": "rw-014",
-      "type": "intent",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.8,
-      "category": "intent",
-      "involved_symbols": [
-        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
-        "src/controllers/tagsController/getTags.ts#getTags"
-      ],
-      "explanation": "Both changes solve the same problem: making sure the tag list does not show tags that no longer belong to any article after an article is deleted. A does it by deleting orphan tags from the DB on article delete; B does it by filtering unused tags at read time in getTags. Both ship essentially identical integration tests asserting the same scenario. Behavior is harmless when combined (no wrong output), but the work is duplicated: one mechanism is redundant, and one of the two should be removed. Additionally, A's deleteMany removes any pre-existing orphan tags globally, making B's filter largely unnecessary, while B's filter makes A's cleanup unnecessary for the visible tag list.",
-      "cost_usd": 0.008662,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.6
-      },
-      "usage": {
-        "input_tokens": 2776,
-        "output_tokens": 311
-      }
-    },
-    {
-      "id": "rw-015",
-      "type": "intent",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.7,
-      "confidence": 0.93,
-      "category": "intent",
-      "involved_symbols": [
-        "src/utils/db/article/articleFeedPrisma.ts#articleFeedPrisma",
-        "src/controllers/articlesController/articlesFeed.ts#articlesFeed"
-      ],
-      "explanation": "Both changes fix the same bug (feed returning articles from non-followed authors). A filters in the Prisma query (the approach the agent task specifies); B filters in the controller after the query. Merged, the controller's in-memory filter is redundant because the DB query already restricts to followed authors, so the same work is done twice in two different ways and one should be removed. Both also make identical edits to articles.int.test.ts and add near-duplicate new tests. Runtime behavior is harmless, but the duplicated filtering is an intent conflict.",
-      "cost_usd": 0.012784,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3
-      },
-      "usage": {
-        "input_tokens": 5037,
-        "output_tokens": 271
-      }
-    },
-    {
-      "id": "rw-016",
-      "type": "intent",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.9,
-      "confidence": 0.93,
-      "category": "intent",
-      "involved_symbols": [
-        "src/controllers/articlesController/articlesDelete.ts#articlesDelete",
-        "src/middleware/auth/requireArticleAuthor.ts#requireArticleAuthor",
-        "src/routes/api/articles.ts#router.delete("
-      ],
-      "explanation": "Both changes add the same author-only check to DELETE /api/articles/:slug: A inside the articlesDelete controller, B as a new requireArticleAuthor middleware wired into the route. Merged, a non-author is rejected with 403 by the middleware and the controller's identical check is dead code that repeats the same two DB lookups. Behavior is correct, but the two solve the same problem in different places, so one should be removed. Both also delete the same 'Known bug' test and add near-identical new tests.",
-      "cost_usd": 0.014204,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.3
-      },
-      "usage": {
-        "input_tokens": 5707,
-        "output_tokens": 279
-      }
-    },
-    {
-      "id": "rw-017",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.4,
-      "confidence": 0.93,
-      "category": null,
-      "involved_symbols": [
-        "src/utils/slugfy.ts#slugfy",
-        "src/middleware/articlesValidator/articlesCreateValidator.ts#articlesCreateValidator"
-      ],
-      "explanation": "Change A truncates slugs to 100 characters inside slugfy, while Change B rejects titles longer than 150 characters in the create validator. They address different problems (slug length vs. title length) and operate on different code with no shared state. The merged code remains correct: titles up to 150 characters are accepted and their slugs are truncated to 100. A 150-character title can map to a slug that collides after truncation, but that is an edge case A introduces on its own (titles of 101+ chars sharing a prefix) and does not depend on B's validator, so it is not a combined conflict. B's integration test uses 'x'.repeat(150), whose slug would be truncated to 100 chars but the test only checks for a 201 status, so it still passes.",
-      "cost_usd": 0.008112,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.7
-      },
-      "usage": {
-        "input_tokens": 2421,
-        "output_tokens": 327
-      }
-    },
-    {
-      "id": "rw-018",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.7,
-      "confidence": 0.93,
-      "category": null,
-      "involved_symbols": [
-        "Article",
-        "articlesListPrisma",
-        "parseArticleListQuery"
-      ],
-      "explanation": "Change A adds database indexes on Article.authorUsername and Article.updatedAt via the Prisma schema. Change B adds an optional sort parameter to the article list that picks between ordering by createdAt or updatedAt (default updatedAt, so existing behavior is preserved). The changes are complementary: the updatedAt index still supports the default ordering and the sort=updated option, and the authorUsername index supports the author filter. The only gap is that sort=created has no createdAt index, which is a performance consideration rather than a correctness issue. Neither change breaks an assumption of the other, and they do not solve the same problem in different ways.",
-      "cost_usd": 0.011548,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3
-      },
-      "usage": {
-        "input_tokens": 4449,
-        "output_tokens": 265
-      }
-    },
-    {
-      "id": "rw-019",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.9,
-      "confidence": 0.88,
-      "category": null,
-      "involved_symbols": [
-        "getTags",
-        "articleDeletePrisma",
-        "prisma.$use",
-        "WRITE_ACTIONS"
-      ],
-      "explanation": "A caches the tag list and invalidates via a prisma.$use middleware that clears the cache on write actions (including deleteMany) for models Tag or Article. B adds a prisma.tag.deleteMany call after article deletion to remove orphan tags. In the merged code, the article.delete triggers invalidation (model Article, action delete), and the tag.deleteMany also triggers invalidation (model Tag, action deleteMany). Since the cache is reset by the final write and any request reading in between would have been invalidated by the later write, there is no stale window beyond a trivial race that exists regardless. The two changes are complementary and correct together.",
-      "cost_usd": 0.009774,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.3
-      },
-      "usage": {
-        "input_tokens": 3502,
-        "output_tokens": 277
-      }
-    },
-    {
-      "id": "rw-020",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.8,
-      "confidence": 0.8,
-      "category": null,
-      "involved_symbols": [
-        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
-        "src/controllers/userController/userChangePassword.ts#userChangePassword",
-        "src/utils/db/user/userSetPasswordPrisma.ts#userSetPasswordPrisma",
-        "src/utils/hashPasswords.ts#hashPassword"
-      ],
-      "explanation": "The two changes use separate code paths. A hashes the password inside userUpdatePrisma, which is used by PUT /api/user. B adds a new endpoint, POST /api/user/password, that hashes the new password itself and writes it through userSetPasswordPrisma, which does not go through userUpdatePrisma. There is no double hashing, because B bypasses userUpdatePrisma. Both end up storing correctly hashed passwords. They do overlap in purpose, since both give users a way to change their password and both fix plain-text storage, but they expose different API surfaces: PUT /api/user for profile updates, and a dedicated endpoint that verifies the current password. These are complementary rather than contradictory. Because of that, no concrete failure scenario or duplicated work turns up when the two are merged.",
-      "cost_usd": 0.014582,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.1
-      },
-      "usage": {
-        "input_tokens": 5231,
-        "output_tokens": 412
-      }
-    },
-    {
-      "id": "rw-021",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4,
-      "confidence": 0.95,
-      "category": null,
-      "involved_symbols": [
-        "createUserToken",
-        "authenticate",
-        "optionalAuthenticate",
-        "createPasswordResetToken",
-        "verifyPasswordResetToken"
-      ],
-      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET across authenticator, createUserToken, tests, README and .env.test. Change B adds a separate RESET_TOKEN_SECRET env var and new password-reset token helpers that do not reference JWT_SECRET at all. The .env.test edits touch different lines and merge cleanly into a file with AUTH_JWT_SECRET plus RESET_TOKEN_SECRET. B's code and tests only use RESET_TOKEN_SECRET, which A leaves untouched, so no assumption is broken and the two changes solve different problems.",
-      "cost_usd": 0.013234,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.3
-      },
-      "usage": {
-        "input_tokens": 5187,
-        "output_tokens": 286
-      }
-    },
-    {
-      "id": "rw-022",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.9,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/articlesController/articlesList.ts#PAGE_SIZE",
-        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery"
-      ],
-      "explanation": "Change A lowers the default page size to 10 by editing the default `limit` in `articlesListPrisma`. Change B adds a `?page=N` parameter that hard-codes its own `PAGE_SIZE = 20` in the controller. Merged, the default list (no params) returns 10 articles per page, while `?page=1` returns 20 per page and `?page=2` starts at offset 20. A client that uses the default and then moves to `page=2` would skip articles 10-19, and the two code paths now disagree on what the page size is. The two changes touch the same concept (page size) from different layers and contradict each other. Both new tests pass independently (A's test hits the default path, B's uses `?page=`), so nothing catches the inconsistency.",
-      "cost_usd": 0.012638,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.2
-      },
-      "usage": {
-        "input_tokens": 4484,
-        "output_tokens": 367
-      }
-    },
-    {
-      "id": "rw-023",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.7,
-      "confidence": 0.96,
-      "category": null,
-      "involved_symbols": [
-        "src/controllers/articlesController/articlesCreate.ts#articlesCreate",
-        "src/controllers/articlesController/articlesCreate.ts#MAX_TAGS"
-      ],
-      "explanation": "Change A adds an info log after successful article creation; Change B adds an early 422 return when tagList exceeds 10. They touch different parts of the same function and are independent: requests rejected by B's limit never reach A's log line, which is correct since no article was created. Accepted requests are logged as before. Tests from both sides remain valid (A's log test creates an article without tags; B's tests don't depend on logging).",
-      "cost_usd": 0.009474,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.1
-      },
-      "usage": {
-        "input_tokens": 3607,
-        "output_tokens": 226
-      }
-    },
-    {
-      "id": "rw-024",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.1,
-      "confidence": 0.95,
-      "category": null,
-      "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/profileController/getProfileArticles.ts#getProfileArticles"
-      ],
-      "explanation": "Change A refactors the where clause construction in articlesListPrisma to only set fields when the filter values are truthy; for the cases the callers use (a defined authorUsername, undefined tag/favorited) it is behaviorally identical to the old code. Change B's new controller calls articlesListPrisma with only the author username set and a non-empty username from the route params, so the filter works the same under A's refactor. The only behavioral difference is for an empty-string authorUsername (previously matched empty username, now unfiltered), but B's route cannot produce an empty username. The two changes solve different problems and do not duplicate or contradict each other.",
-      "cost_usd": 0.011018,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.4
-      },
-      "usage": {
-        "input_tokens": 4019,
-        "output_tokens": 298
-      }
-    },
-    {
-      "id": "rw-025",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.5,
-      "confidence": 0.97,
-      "category": null,
-      "involved_symbols": [
-        "countComments",
-        "countTagArticles"
-      ],
-      "explanation": "Change A adds a comment-count endpoint under /api/articles/:slug/comments/count, while Change B adds an article-count-by-tag endpoint under /api/tags/:tag/count. They solve different problems, live on different routes in different routers, and only share a read of the article table. Neither alters data or assumptions the other relies on, and there is no route collision or duplicated functionality.",
-      "cost_usd": 0.009672,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.8
-      },
-      "usage": {
-        "input_tokens": 3971,
-        "output_tokens": 173
-      }
-    },
-    {
-      "id": "rw-026",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 2,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 3.4,
-      "confidence": 0.96,
-      "category": null,
-      "involved_symbols": [
-        "userUpdatePrisma"
-      ],
-      "explanation": "Change A only adds JSDoc comments to userUpdatePrisma. Change B adds trimming of bio and image inside the function body plus a test. The docs say 'Updates the given fields of a user' and 'Fields left out are kept', which remains accurate after B's change: omitted bio/image become undefined via optional chaining, and Prisma ignores undefined values. The two changes do not alter the same behavior or duplicate work, so there is no runtime or intent conflict.",
-      "cost_usd": 0.005822,
-      "timings": {
-        "graph": 0.4,
-        "llm": 2.7
-      },
-      "usage": {
-        "input_tokens": 1901,
-        "output_tokens": 202
-      }
-    },
-    {
-      "id": "rw-027",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.7,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "getTagCounts",
-        "articleDeletePrisma",
-        "articlesListPrisma",
-        "articleGetPrisma",
-        "articleFeedPrisma"
-      ],
-      "explanation": "A makes article deletion a soft delete (sets deletedAt) and filters deleted articles out of the get, list, and feed queries. B adds GET /api/tags/counts, which counts articles per tag via prisma.tag's _count of article, and does not filter on deletedAt. In the merged code, a soft-deleted article keeps its tag relation, so its tags are still counted. Deleting the only article tagged 'x' leaves x with a count of 1 and still listed, though no visible article uses it. Before A, hard delete removed the article and its tag relation, so B's counts were correct. Merged, B's endpoint reports counts that disagree with what the article list and get endpoints show. Neither change shows this alone.",
-      "cost_usd": 0.014292,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.1
-      },
-      "usage": {
-        "input_tokens": 5566,
-        "output_tokens": 316
-      }
-    },
-    {
-      "id": "rw-028",
-      "type": "intent",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.85,
-      "category": "intent",
-      "involved_symbols": [
-        "normalizeEmail",
-        "userLogin",
-        "usersRegister",
-        "userCreatePrisma",
-        "userGetEmailPrisma"
-      ],
-      "explanation": "Both changes solve the same problem: making email handling case- and whitespace-insensitive on register and login. A adds a normalizeEmail helper and applies it in the controllers; B inlines trim().toLowerCase() in the DB helpers userCreatePrisma and userGetEmailPrisma. Merged, every email is normalized twice (once in the controller, once in the DB layer). Behavior is correct and idempotent, but the normalization logic is duplicated in two places that could drift apart, and one of the two should be removed. Each side also adds its own integration test covering essentially the same scenario.",
-      "cost_usd": 0.012038,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.5
-      },
-      "usage": {
-        "input_tokens": 4669,
-        "output_tokens": 270
-      }
-    },
-    {
-      "id": "rw-029",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 5,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "articleUpdatePrisma",
-        "recentArticlesPrisma",
-        "recordViewPrisma",
-        "RecentView"
-      ],
-      "explanation": "Change A makes article updates rename the slug when the title changes. Change B adds a RecentView table keyed by (username, slug) with no foreign key to Article, so there is no cascade or update on slug change. After A's rename, RecentView rows still hold the old slug; recentArticlesPrisma looks up articles by those slugs and silently drops any that no longer exist (via the ?? [] fallback). A user who viewed an article, then had it retitled (A's PUT has no ownership check, so anyone can rename), loses it from their /user/recent list. A rename also leaves dangling rows that count toward the KEEP=10 take limit, so a user can see fewer than 10 recent articles even though more valid ones exist. B implicitly assumes slugs are stable identifiers, as they were before A's change, while A breaks that assumption. Existing tests pass because B's test never renames an article.",
-      "cost_usd": 0.016818,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4.3
-      },
-      "usage": {
-        "input_tokens": 6599,
-        "output_tokens": 362
-      }
-    },
-    {
-      "id": "rw-030",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.6,
-      "confidence": 0.9,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/articlesController/articlesList.ts#articlesList"
-      ],
-      "explanation": "After merging, articlesListPrisma orders by createdAt desc (A) but the new ?after= cursor filters with updatedAt < cursor.updatedAt (B). The cursor's sort key and the list's sort key no longer match. Concrete scenario: articles X (created Jan 1) and Y (created Jan 2), then X is edited so its updatedAt is Jan 5. List ordered by createdAt gives [Y, X]. Requesting ?after=Y filters updatedAt < Y.updatedAt (Jan 2), which excludes X (updatedAt Jan 5), so X is skipped. Conversely ?after=X (updatedAt Jan 5) returns Y again, which was already shown. B's new test passes only because it sets updatedAt while createdAt stays near-identical, which actually works by luck of ordering via insertion order; the cursor pagination is broken in general.",
-      "cost_usd": 0.01529,
-      "timings": {
-        "graph": 0.4,
-        "llm": 4
-      },
-      "usage": {
-        "input_tokens": 5720,
-        "output_tokens": 385
-      }
-    },
-    {
-      "id": "rw-033",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.8,
-      "category": "runtime",
-      "involved_symbols": [
-        "userUpdateValidator",
-        "userSetImage",
-        "src/routes/api/user.ts",
-        "userUpdatePrisma"
-      ],
-      "explanation": "Change A adds an https-only rule for the user image, but only inside userUpdateValidator, which guards PUT /api/user. Change B adds a new route PUT /api/user/image with its own controller that writes the image directly via userUpdatePrisma and never goes through userUpdateValidator. In the merged code a client can set image to \"http://...\" or any arbitrary string through the new endpoint, bypassing the rule A introduced for setting a user's image. The invariant 'user images must be https' that A establishes is silently violated by B's new write path. This is a concrete gap: after merge, the rule is enforced on one path but not the other.",
-      "cost_usd": 0.010272,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.5
-      },
-      "usage": {
-        "input_tokens": 3726,
-        "output_tokens": 282
-      }
-    },
-    {
-      "id": "rw-034",
-      "type": "intent",
-      "label": "conflict",
-      "run": 2,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 3.7,
-      "confidence": 0.85,
-      "category": "intent",
-      "involved_symbols": [
-        "src/controllers/userController/userFavorites.ts#userFavorites",
-        "src/controllers/articlesController/articlesList.ts#articlesList",
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
-      ],
-      "explanation": "Both changes add a way for an authenticated user to list their own favorited articles: A adds a dedicated GET /api/user/favorites endpoint, B adds a ?favorited=me shortcut on GET /api/articles. Both ultimately call articlesListPrisma with the current user's username as the favorited filter and render with articleViewer, and both ship near-identical integration tests asserting the same behavior. Nothing breaks at runtime when merged, but the two solve the same problem in different ways, so one of them is redundant and should be removed.",
-      "cost_usd": 0.013988,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3
-      },
-      "usage": {
-        "input_tokens": 5544,
-        "output_tokens": 290
-      }
-    },
-    {
-      "id": "rw-003",
-      "type": "negative",
-      "label": "no_conflict",
-      "run": 3,
-      "predicted_conflict": false,
-      "outcome": "true_negative",
-      "seconds": 4.3,
-      "confidence": 0.9,
-      "category": null,
-      "involved_symbols": [
-        "tagsCreatePrisma",
-        "parseArticleListQuery"
-      ],
-      "explanation": "A normalizes tags (trim, lowercase, dedupe) at write time, storing only lowercase names. B lowercases and trims the tag filter at read time. These are complementary: with A's normalization the stored tags are lowercase, so B's lowercase filter matches them correctly, and B's filtering also works against legacy lowercase data. Neither breaks the other's assumptions. Both address related casing concerns but on different paths (write vs. query), so they don't duplicate work; the read-side normalization is still needed for user-supplied filters. Pre-existing mixed-case tags in the DB would not match B's filter, but that is a data-migration concern that only exists because of B's design and is not made worse by A (A actually reduces it).",
-      "cost_usd": 0.00877,
-      "timings": {
-        "graph": 0.4,
-        "llm": 3.6
-      },
-      "usage": {
-        "input_tokens": 2910,
-        "output_tokens": 295
-      }
-    },
-    {
-      "id": "rw-011",
-      "type": "runtime",
-      "label": "conflict",
-      "run": 3,
-      "predicted_conflict": true,
-      "outcome": "true_positive",
-      "seconds": 4.3,
-      "confidence": 0.88,
-      "category": "runtime",
-      "involved_symbols": [
-        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
-        "src/controllers/tagsController/getTags.ts#getTags",
-        "src/controllers/tagsController/getTags.ts#cache",
-        "src/controllers/tagsController/getTags.ts#invalidateTagsCache"
-      ],
-      "explanation": "B adds a 60s in-memory cache of the tag list for GET /api/tags and invalidates it only when articles are created with tags. A makes article deletion remove orphan tags from the DB via prisma.tag.deleteMany, but does not call invalidateTagsCache. In the merged code, after a cached GET /api/tags, deleting an article whose tag becomes orphaned removes the tag from the DB while the cache still serves it for up to 60 seconds. B's cache correctness relied on tags only being added (and refreshed on creation); A introduces a new tag-removal path that B's invalidation does not cover, so /api/tags returns tags that no longer exist.",
+      "explanation": "B introduces a 60s in-memory cache of the tag list, invalidated only when articles are created with tags. A's change deletes orphan tags from the db:tag table when an article is deleted, but does not invalidate B's cache. In the merged code, after deleting an article whose tag becomes orphaned, GET /api/tags continues to serve the deleted tag from the cache for up to 60 seconds. This breaks B's invariant (cache is refreshed whenever the tag set changes) because A adds a new way for the tag set to change that B's invalidation does not cover. Neither change alone has this stale-data problem: B alone never deletes tags, and A alone has no cache.",
       "cost_usd": 0.01161,
       "timings": {
         "graph": 0.4,
-        "llm": 3.6
+        "llm": 3.5
       },
       "usage": {
         "input_tokens": 4005,
@@ -1438,110 +238,110 @@
       "id": "rw-012",
       "type": "runtime",
       "label": "conflict",
-      "run": 3,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
       "seconds": 3.5,
-      "confidence": 0.95,
+      "confidence": 0.97,
       "category": "runtime",
       "involved_symbols": [
-        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
-        "src/controllers/userController/userChangePassword.ts#userChangePassword",
-        "src/utils/hashPasswords.ts#hashPassword"
+        "userUpdatePrisma",
+        "userChangePassword",
+        "hashPassword"
       ],
-      "explanation": "A makes userUpdatePrisma hash any password it receives. B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma. Merged, the password is hashed twice (bcrypt of a bcrypt hash). The stored value is the hash of the hash, so after a change via POST /api/user/password, logging in with the new password fails because compareWithHash(plain, hash(hash(plain))) is false. B's own tests only check the stored value differs from plaintext, so they pass despite the broken login.",
-      "cost_usd": 0.012774,
+      "explanation": "Change A makes userUpdatePrisma hash any password passed to it. Change B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma, so after merge the password is hashed twice. The stored value becomes bcrypt(bcrypt(newPassword)). Login compares the plain password against the stored hash, so after a change through POST /api/user/password the user can no longer log in with their new password and is locked out. B's own test only asserts the stored value differs from plain text and from the old hash, so it still passes despite the double hash.",
+      "cost_usd": 0.012294,
       "timings": {
-        "graph": 0.4,
-        "llm": 2.8
+        "graph": 0.5,
+        "llm": 2.7
       },
       "usage": {
         "input_tokens": 4907,
-        "output_tokens": 296
+        "output_tokens": 248
       }
     },
     {
       "id": "rw-013",
       "type": "runtime",
       "label": "conflict",
-      "run": 3,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 8.2,
+      "seconds": 8.5,
       "confidence": 0.85,
       "category": "runtime",
       "involved_symbols": [
-        "prisma/schema.prisma#Article.updatedAt",
-        "src/utils/db/article/articleViewPrisma.ts#articleViewPrisma",
-        "src/utils/db/article/articleUpdatePrisma.ts#articleUpdatePrisma",
-        "src/controllers/articlesController/articlesGet.ts#articlesGet"
+        "articleViewPrisma",
+        "articleUpdatePrisma",
+        "Article.updatedAt",
+        "articlesGet"
       ],
-      "explanation": "Change A adds @updatedAt to Article.updatedAt so Prisma bumps it on every update() call. Change B adds a views counter that is incremented via prisma.article.update on every article read. Combined, every GET of an article now triggers an update that Prisma treats as a modification, so Article.updatedAt is bumped to now on each read. Before the merge, updatedAt only changed when the article was actually edited (A's manual removal of updatedAt in articleUpdatePrisma, with B's view counter alone not touching it). After the merge, updatedAt reflects the last view, so the field no longer means 'last edited' and any consumer of updatedAt (API responses, clients) would show wrong modification times. The two changes are individually correct but break the assumption that updatedAt tracks content edits.",
-      "cost_usd": 0.014344,
+      "explanation": "A makes Prisma auto-bump Article.updatedAt on every update via @updatedAt. B adds a views counter that is incremented via prisma.article.update on every GET of an article. Merged, each read now triggers an update that also changes updatedAt, so merely viewing an article makes its 'last updated' timestamp change. Before A, the view update left updatedAt untouched (only the explicit update path set it). Neither change alone has this effect: A alone only bumps updatedAt on real edits, and B alone leaves updatedAt alone. The merged code gives wrong behavior: updatedAt (and anything ordering or displaying it) is corrupted by read traffic.",
+      "cost_usd": 0.013204,
       "timings": {
         "graph": 0.4,
-        "llm": 7.5
+        "llm": 7.9
       },
       "usage": {
         "input_tokens": 5137,
-        "output_tokens": 407
+        "output_tokens": 293
       }
     },
     {
       "id": "rw-014",
       "type": "intent",
       "label": "conflict",
-      "run": 3,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.4,
+      "seconds": 4.6,
       "confidence": 0.8,
       "category": "intent",
       "involved_symbols": [
         "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
         "src/controllers/tagsController/getTags.ts#getTags"
       ],
-      "explanation": "Both changes solve the same problem: making sure the tag list does not show tags that no article uses after an article is deleted. Change A does it by deleting orphan tag rows at article-delete time; Change B does it by filtering unused tags out at read time in getTags. Both ship an essentially identical integration test (delete article 'Doomed', expect /api/tags to equal ['shared']). Merged, the behavior is correct but redundant: the read-time filter makes the delete-time cleanup unnecessary for the visible outcome, and the cleanup makes the filter unnecessary for deletes. One of the two mechanisms should be removed (though the filter would still guard against orphans from other paths, such as article updates).",
-      "cost_usd": 0.008752,
+      "explanation": "Both changes solve the same problem: making sure the tag list does not show tags that no article uses anymore. Change A does it by deleting orphan tags from the database on article deletion, while Change B does it by filtering unused tags out of the GET /api/tags read path. Both ship an essentially identical integration test (delete 'Doomed', expect only 'shared'). Merged, the code runs correctly, but it duplicates the mechanism: B's read-time filter makes A's cleanup redundant for the visible tag list, and A's cleanup makes B's filter redundant for the deletion case. They also disagree on semantics: A permanently removes unused tags, B retains them in storage but hides them. One of the two approaches should be removed.",
+      "cost_usd": 0.008822,
       "timings": {
         "graph": 0.4,
-        "llm": 3.8
+        "llm": 3.9
       },
       "usage": {
         "input_tokens": 2776,
-        "output_tokens": 320
+        "output_tokens": 327
       }
     },
     {
       "id": "rw-015",
       "type": "intent",
       "label": "conflict",
-      "run": 3,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.6,
+      "seconds": 5,
       "confidence": 0.9,
       "category": "intent",
       "involved_symbols": [
-        "src/utils/db/article/articleFeedPrisma.ts#articleFeedPrisma",
-        "src/controllers/articlesController/articlesFeed.ts#articlesFeed"
+        "articleFeedPrisma",
+        "articlesFeed"
       ],
-      "explanation": "Both changes fix the same bug (feed returning articles from unfollowed authors) in different layers: A adds a `where` filter in the Prisma query, B adds an in-memory filter in the controller after the query. Merged, the controller's filter is redundant since the DB already returns only followed authors' articles, so the same fix is implemented twice and one should be removed. There is also a latent runtime hazard: B's post-filter after limit/offset pagination would give short pages if the DB query weren't filtered, and the task explicitly asked for the DB-level fix, making B's filter the one to drop. Both also edit the same test in articles.int.test.ts identically and add near-duplicate new test files.",
-      "cost_usd": 0.013284,
+      "explanation": "Both changes fix the same bug (feed returning articles from non-followed authors) in different layers: A adds a `where` filter to the Prisma query, B post-filters the query results in the controller. Merged, the controller's in-memory filter is redundant since the query already returns only followed authors' articles, so the same fix is applied twice and one of them should be removed. Both also make identical edits to articles.int.test.ts and add near-duplicate new tests. Behavior is not wrong at runtime (the filter is idempotent, assuming `follows` is loaded consistently), but the intent duplicates.",
+      "cost_usd": 0.012544,
       "timings": {
         "graph": 0.4,
-        "llm": 4
+        "llm": 4.3
       },
       "usage": {
         "input_tokens": 5037,
-        "output_tokens": 321
+        "output_tokens": 247
       }
     },
     {
       "id": "rw-016",
       "type": "intent",
       "label": "conflict",
-      "run": 3,
+      "run": 1,
       "predicted_conflict": true,
       "outcome": "true_positive",
       "seconds": 4.3,
@@ -1552,7 +352,7 @@
         "src/middleware/auth/requireArticleAuthor.ts#requireArticleAuthor",
         "src/routes/api/articles.ts#router.delete("
       ],
-      "explanation": "Both changes add the same ownership check to DELETE /api/articles/:slug. A puts it inline in the articlesDelete controller. B adds a requireArticleAuthor middleware to the route that does an identical user lookup, article lookup, and author comparison, returning 403 for non-authors. Merged, a request runs the check twice: the middleware rejects non-authors, and the controller repeats the same check, which is now unreachable for any non-author. The behavior is correct, but the work is duplicated and the two checks can drift apart. Both also remove the same 'known bug' test and add near-identical 403 tests. One of the two implementations should be removed.",
+      "explanation": "Both changes add the same author-only check to DELETE /api/articles/:slug. A puts it inline in the articlesDelete controller. B puts it in a new requireArticleAuthor middleware wired into the route. Merged, the check runs twice on every delete: two userGetPrisma calls, two articleGetPrisma calls, and two identical authorUsername comparisons. Behavior is correct (non-authors get 403, unknown slug still 422, unknown user 401), but the authorization logic is duplicated in two places that can drift apart. One of the two should be removed. Both also delete the same 'known bug' test and add near-identical integration tests.",
       "cost_usd": 0.014684,
       "timings": {
         "graph": 0.4,
@@ -1567,25 +367,1576 @@
       "id": "rw-017",
       "type": "negative",
       "label": "no_conflict",
-      "run": 3,
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 7.3,
+      "confidence": 0.93,
+      "category": null,
+      "involved_symbols": [
+        "slugfy",
+        "articlesCreateValidator"
+      ],
+      "explanation": "Change A truncates slugs to 100 characters inside slugfy; Change B rejects titles over 150 characters in the create validator. They address different concerns (slug length vs. title length) and touch different code with no links between them. One scenario worth considering: a title of up to 150 chars could yield a slug truncated to 100, so two articles with long titles sharing the same first ~100 characters could collide on slug. But collision handling (if any) is independent of both changes, and B's limit doesn't make this worse in a way that breaks anything; titles longer than 150 would have collided on truncation anyway. Both changes are correct together and not duplicative.",
+      "cost_usd": 0.007422,
+      "timings": {
+        "graph": 0.3,
+        "llm": 6.7
+      },
+      "usage": {
+        "input_tokens": 2421,
+        "output_tokens": 258
+      }
+    },
+    {
+      "id": "rw-018",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
       "predicted_conflict": false,
       "outcome": "true_negative",
       "seconds": 4.4,
+      "confidence": 0.93,
+      "category": null,
+      "involved_symbols": [
+        "Article",
+        "articlesListPrisma"
+      ],
+      "explanation": "Change A adds database indexes on Article.authorUsername and updatedAt to speed up the author filter and default updatedAt ordering. Change B adds a sort query option (created or updated) to the article list endpoint, defaulting to updatedAt. They don't solve the same problem: A is a performance optimization, B is a feature. Behavior stays correct when merged. One minor gap is that sorting by createdAt has no index, but that is a missing optimization rather than a runtime or intent conflict. The default path (updatedAt desc) still benefits from A's index.",
+      "cost_usd": 0.011208,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.7
+      },
+      "usage": {
+        "input_tokens": 4449,
+        "output_tokens": 231
+      }
+    },
+    {
+      "id": "rw-019",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.4,
+      "confidence": 0.88,
+      "category": null,
+      "involved_symbols": [
+        "getTags",
+        "articleDeletePrisma",
+        "prisma.$use",
+        "WRITE_ACTIONS",
+        "cache"
+      ],
+      "explanation": "A caches the tag list and invalidates via a Prisma middleware that fires on any Tag/Article write action (including delete/deleteMany). B adds a prisma.tag.deleteMany after article delete. In the merged code, the article delete triggers invalidation (model Article, action delete), and the subsequent tag.deleteMany also triggers invalidation (model Tag, action deleteMany). Since the cache is dropped after each call completes, any read after the delete sees fresh data. A concurrent getTags between the article delete and the tag cleanup could re-cache a stale list, but the tag.deleteMany then invalidates again, so the stale entry is cleared. The two changes stay correct together.",
+      "cost_usd": 0.010004,
+      "timings": {
+        "graph": 0.8,
+        "llm": 3.3
+      },
+      "usage": {
+        "input_tokens": 3502,
+        "output_tokens": 300
+      }
+    },
+    {
+      "id": "rw-020",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 7.1,
+      "confidence": 0.8,
+      "category": null,
+      "involved_symbols": [
+        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
+        "src/controllers/userController/userChangePassword.ts#userChangePassword",
+        "src/utils/db/user/userSetPasswordPrisma.ts#userSetPasswordPrisma",
+        "src/utils/hashPasswords.ts#hashPassword"
+      ],
+      "explanation": "The two changes use different paths, so the merged code does not break. B's new endpoint hashes the new password in the controller and writes it through userSetPasswordPrisma, which does not go through userUpdatePrisma, so there is no double hashing. A hashes inside userUpdatePrisma, so PUT /api/user stays correct. Both are still bug fixes for the same problem, passwords stored unhashed through the user update flow. But B's endpoint is a new feature that adds a current-password check. It does not fix PUT /api/user, so it doesn't duplicate A's fix. I can't describe a concrete scenario where the merged code goes wrong or does the same work twice.",
+      "cost_usd": 0.014162,
+      "timings": {
+        "graph": 0.4,
+        "llm": 6.4
+      },
+      "usage": {
+        "input_tokens": 5231,
+        "output_tokens": 370
+      }
+    },
+    {
+      "id": "rw-021",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.8,
+      "confidence": 0.95,
+      "category": null,
+      "involved_symbols": [
+        "createUserToken",
+        "authenticate",
+        "optionalAuthenticate",
+        "createPasswordResetToken",
+        "verifyPasswordResetToken"
+      ],
+      "explanation": "A renames JWT_SECRET to AUTH_JWT_SECRET across code, .env.test, and tests; B adds a separate RESET_TOKEN_SECRET env var and new helper files that never read JWT_SECRET. The .env.test edits touch different lines and merge cleanly, leaving AUTH_JWT_SECRET and RESET_TOKEN_SECRET both defined. B's code and tests don't depend on the renamed variable, and no code in either change contradicts or duplicates the other.",
+      "cost_usd": 0.012874,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3
+      },
+      "usage": {
+        "input_tokens": 5187,
+        "output_tokens": 250
+      }
+    },
+    {
+      "id": "rw-022",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.6,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
+        "src/controllers/articlesController/articlesList.ts#PAGE_SIZE",
+        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery"
+      ],
+      "explanation": "A lowers the default page size in articlesListPrisma from 20 to 10, so requests without limit get 10 articles. B adds ?page=N, which hardcodes PAGE_SIZE = 20 in the controller and always passes limit=20 to the DB function, bypassing A's default. In the merged code, plain GET /api/articles returns 10 articles per page, while ?page=1 returns 20 and ?page=2 starts at offset 20. A client paging with page=N gets pages of 20, but one using the default listing gets 10. The two changes disagree on the default page size, and B's constant duplicates the concept that A is trying to change. A's intent (default page size is 10) is contradicted by B's feature (page size is 20), and each change's tests only cover its own path.",
+      "cost_usd": 0.012728,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 4484,
+        "output_tokens": 376
+      }
+    },
+    {
+      "id": "rw-023",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.5,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "src/controllers/articlesController/articlesCreate.ts#articlesCreate",
+        "src/controllers/articlesController/articlesCreate.ts#MAX_TAGS"
+      ],
+      "explanation": "A adds a logger.info call after article creation; B adds an early 422 return for more than 10 tags before any creation happens. They touch different parts of the same function and are orthogonal. A rejected request (B) never reaches the log line, which is correct since no article was created. A's test creates an article with no tags, so B's limit doesn't affect it, and B's tests don't depend on logging. No concrete scenario of incorrect or duplicated behavior.",
+      "cost_usd": 0.009604,
+      "timings": {
+        "graph": 0.5,
+        "llm": 3.7
+      },
+      "usage": {
+        "input_tokens": 3607,
+        "output_tokens": 239
+      }
+    },
+    {
+      "id": "rw-024",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 5.1,
+      "confidence": 0.95,
+      "category": null,
+      "involved_symbols": [
+        "articlesListPrisma",
+        "getProfileArticles"
+      ],
+      "explanation": "Change A refactors the where clause construction in articlesListPrisma so filters are only set when truthy, which is behaviorally identical for the existing call patterns (undefined values were previously ignored by Prisma; empty strings are now skipped rather than matched, but B passes a non-empty username validated by a found profile). Change B adds a new endpoint that calls articlesListPrisma with the author filter in the same positional argument order, passes undefined limit/offset which fall back to defaults. No assumption is broken and the two changes do not duplicate each other's work.",
+      "cost_usd": 0.010378,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.4
+      },
+      "usage": {
+        "input_tokens": 4019,
+        "output_tokens": 234
+      }
+    },
+    {
+      "id": "rw-025",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "countComments",
+        "countTagArticles"
+      ],
+      "explanation": "Change A adds a comment-count endpoint under /api/articles/:slug/comments/count; Change B adds an article-count-by-tag endpoint under /api/tags/:tag/count. They solve different problems, touch different routes, controllers, and index files, and only share a read-only prisma.article query. No shared state or assumption is broken, and the routes don't collide.",
+      "cost_usd": 0.009622,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.3
+      },
+      "usage": {
+        "input_tokens": 3971,
+        "output_tokens": 168
+      }
+    },
+    {
+      "id": "rw-026",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.6,
+      "confidence": 0.93,
+      "category": null,
+      "involved_symbols": [
+        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma"
+      ],
+      "explanation": "Change A only adds JSDoc comments to userUpdatePrisma without altering behavior. Change B adds trimming of bio and image inside the function body and a new integration test. The two merge cleanly. A's docs ('Updates the given fields of a user... Fields left out are kept') remain accurate after B's change: omitted fields are still kept (trim of undefined yields undefined, which Prisma ignores). The docs don't contradict the trimming behavior, and there is no duplicated problem-solving or runtime breakage.",
+      "cost_usd": 0.006202,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3
+      },
+      "usage": {
+        "input_tokens": 1901,
+        "output_tokens": 240
+      }
+    },
+    {
+      "id": "rw-027",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 6.3,
+      "confidence": 0.85,
+      "category": "runtime",
+      "involved_symbols": [
+        "getTagCounts",
+        "articleDeletePrisma",
+        "articleGetPrisma",
+        "articlesListPrisma",
+        "articleFeedPrisma"
+      ],
+      "explanation": "A soft-deletes articles (sets deletedAt) and filters deleted articles out of the get, list and feed queries. B adds GET /api/tags/counts, which counts articles per tag via prisma.tag.findMany with _count on the article relation and no deletedAt filter. After merge, a soft-deleted article keeps its tag relations (the row is never removed), so its tags are still counted. Example: delete the only article tagged 'x'. The article is hidden everywhere else, but /api/tags/counts still returns {tag:'x', count:1}. B's .filter(count > 0) was meant to drop unused tags, but soft-deleted articles break that assumption. Neither change shows this alone: before A, hard-deleting the article removed the join rows, so the count was correct.",
+      "cost_usd": 0.014502,
+      "timings": {
+        "graph": 0.4,
+        "llm": 5.6
+      },
+      "usage": {
+        "input_tokens": 5566,
+        "output_tokens": 337
+      }
+    },
+    {
+      "id": "rw-028",
+      "type": "intent",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 6.1,
+      "confidence": 0.88,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/normalizeEmail.ts#normalizeEmail",
+        "src/utils/db/user/userCreatePrisma.ts#userCreatePrisma",
+        "src/utils/db/user/userGetEmailPrisma.ts#userGetEmailPrisma",
+        "src/controllers/usersController/usersRegister.ts#usersRegister",
+        "src/controllers/usersController/usersLogin.ts#userLogin"
+      ],
+      "explanation": "Both changes solve the same problem: making email handling case/whitespace-insensitive on register and login. Change A adds a normalizeEmail helper and applies it in the controllers; Change B inlines trim().toLowerCase() in the DB helpers userCreatePrisma and userGetEmailPrisma. Merged, the email is normalized twice on each path (controller then DB helper). The double normalization is idempotent and harmless at runtime, but it is duplicated logic implemented two different ways, so one of the two should be removed. Both also add near-identical integration tests for the same behavior.",
+      "cost_usd": 0.012998,
+      "timings": {
+        "graph": 0.4,
+        "llm": 5.4
+      },
+      "usage": {
+        "input_tokens": 4669,
+        "output_tokens": 366
+      }
+    },
+    {
+      "id": "rw-029",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.9,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "articleUpdatePrisma",
+        "recentArticlesPrisma",
+        "recordViewPrisma",
+        "RecentView"
+      ],
+      "explanation": "Change A makes article slugs mutable on title change. Change B introduces a RecentView table keyed by (username, slug) with no foreign key to Article, so it does not cascade or update when a slug changes. Scenario: Bob views 'old-title', creating a RecentView row with slug 'old-title'. Alice renames the article to 'New Title', so its slug becomes 'new-title'. Bob's RecentView row now points to a stale slug; recentArticlesPrisma looks up articles by that slug, finds none, and silently drops the entry via flatMap. Bob's recent list loses the article, even though it still exists. Worse, the stale row occupies one of the KEEP=10 slots, and a different article later created at the old slug would wrongly appear in Bob's recent list. B's design assumes slugs are immutable (previously true due to the known bug), and A breaks that assumption.",
+      "cost_usd": 0.016828,
+      "timings": {
+        "graph": 0.4,
+        "llm": 5.2
+      },
+      "usage": {
+        "input_tokens": 6599,
+        "output_tokens": 363
+      }
+    },
+    {
+      "id": "rw-030",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.3,
+      "confidence": 0.9,
+      "category": "runtime",
+      "involved_symbols": [
+        "articlesListPrisma",
+        "articlesList"
+      ],
+      "explanation": "In the merged articlesListPrisma, ordering is by createdAt desc (change A) but the cursor filter is updatedAt < before (change B, using cursor.updatedAt). B's pagination assumes the sort key and cursor key are the same (updatedAt). After merge they differ, so ?after=<slug> pagination is wrong. For example, if an older-created article was edited recently, it sorts low by createdAt but has a high updatedAt; using it as a cursor filters to articles with updatedAt less than that, which can skip articles that should follow it or re-include ones already returned. B's own test (which sets only updatedAt and leaves createdAt as insertion order) would still pass by coincidence, but real data breaks.",
+      "cost_usd": 0.01432,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.6
+      },
+      "usage": {
+        "input_tokens": 5720,
+        "output_tokens": 288
+      }
+    },
+    {
+      "id": "rw-033",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 7.5,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "userUpdateValidator",
+        "userSetImage",
+        "userUpdatePrisma"
+      ],
+      "explanation": "Change A adds an https-only rule for the user image, but only inside userUpdateValidator, which guards PUT /api/user. Change B adds a new endpoint PUT /api/user/image that writes the image directly through userUpdatePrisma and bypasses that validator, accepting any string. After merging, the rule A introduced can be circumvented by calling the new endpoint with an http:// image (or any string), so the invariant 'images must be https' no longer holds. B's own tests don't conflict, but the combined behavior contradicts A's intent of requiring https images on user update.",
+      "cost_usd": 0.009952,
+      "timings": {
+        "graph": 0.4,
+        "llm": 6.9
+      },
+      "usage": {
+        "input_tokens": 3726,
+        "output_tokens": 250
+      }
+    },
+    {
+      "id": "rw-034",
+      "type": "intent",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.7,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "src/controllers/userController/userFavorites.ts#userFavorites",
+        "src/controllers/articlesController/articlesList.ts#articlesList",
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
+      ],
+      "explanation": "Both changes add a way for the current user to list their own favorited articles: A via a new GET /api/user/favorites endpoint, B via GET /api/articles?favorited=me. They are implemented independently, both call articlesListPrisma with the current user's username as the favorited filter, and both ship nearly identical integration tests. Each works correctly in isolation and together, but the merged code exposes two overlapping APIs for the same feature, so one of them should be dropped.",
+      "cost_usd": 0.013738,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3
+      },
+      "usage": {
+        "input_tokens": 5544,
+        "output_tokens": 265
+      }
+    },
+    {
+      "id": "rw-035",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.6,
+      "confidence": 0.7,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/controllers/tagsController/getTag.ts#getTag"
+      ],
+      "explanation": "A makes tagsCreatePrisma store tag names trimmed and lowercased. B adds getTag, which does an exact-match findUnique on req.params.tag without normalizing it. In the merged code, a request like GET /api/tags/Dragons (or ' dragons') returns 404 even though the tag 'dragons' exists, because B's lookup does not apply the lowercase/trim normalization that A introduced at write time. B's test passes only because it uses an already-lowercase tag name. Nothing in either change alone fails, but combined the read path breaks the assumption the write path now establishes (lookup key must be normalized). Existing rows with mixed case would also not be found by a lowercased lookup, but the main concrete issue is case-sensitive lookup versus lowercase storage.",
+      "cost_usd": 0.041298,
+      "timings": {
+        "graph": 0.4,
+        "llm": 5
+      },
+      "usage": {
+        "input_tokens": 18889,
+        "output_tokens": 352
+      }
+    },
+    {
+      "id": "rw-036",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.2,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "src/controllers/commentsController/createComment.ts#createComment",
+        "src/utils/db/comment/commentCreatePrisma.ts#commentCreatePrisma"
+      ],
+      "explanation": "Change A adds debug/error logging to handlers and middleware (and, per the task, lowercases tag names in tag creation code). Change B trims comment bodies inside commentCreatePrisma. A's createComment controller only gains logger calls and still passes the body through to B's function unchanged, so the trimming still applies. The tag lowercasing in A is unrelated to comment creation. The two changes address different problems and don't interact in any harmful way.",
+      "cost_usd": 0.038956,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.5
+      },
+      "usage": {
+        "input_tokens": 18293,
+        "output_tokens": 237
+      }
+    },
+    {
+      "id": "rw-037",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 6.5,
+      "confidence": 0.93,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/slugfy.ts#slugfy",
+        "src/routes/api/articles.ts#router.get(\"/:slug\", auth.optionalAuthenticate, articles.articlesGet);"
+      ],
+      "explanation": "Change A makes slugfy keep accented and non-Latin letters (e.g. 'crème-brûlée', 'привет-мир'), so article creation now produces such slugs. Change B constrains the GET /api/articles/:slug route to `[a-z0-9-]+`, which assumes slugs are only ASCII lowercase letters, digits and dashes. Merged, any article created with an accented or Cyrillic title gets a slug that GET /api/articles/:slug returns 404 for, because the route pattern rejects those characters. A's own new tests only check the created slug, not retrieval, so they pass, but the articles become unreachable via GET by slug. B's assumption about slug format is broken by A.",
+      "cost_usd": 0.008792,
+      "timings": {
+        "graph": 0.5,
+        "llm": 5.7
+      },
+      "usage": {
+        "input_tokens": 2716,
+        "output_tokens": 336
+      }
+    },
+    {
+      "id": "rw-038",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.2,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "commentCreateValidator",
+        "articlesCreateValidator",
+        "MAX_COMMENT_CHARS"
+      ],
+      "explanation": "The two changes add length limits to different validators for different resources: A limits comment bodies to 1,000 chars in commentCreateValidator, B limits article bodies to 20,000 chars in articlesCreateValidator. They live on different routes, use separate local constants, and have independent tests. Neither relies on assumptions the other breaks, and they don't solve the same problem twice.",
+      "cost_usd": 0.009374,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.5
+      },
+      "usage": {
+        "input_tokens": 3722,
+        "output_tokens": 193
+      }
+    },
+    {
+      "id": "rw-039",
+      "type": "intent",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.1,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "src/middleware/articlesValidator/articlesCreateValidator.ts#articlesCreateValidator",
+        "src/utils/db/article/articleCreatePrisma.ts#articleCreatePrisma",
+        "src/utils/db/article/articleCreatePrisma.ts#MAX_TITLE_CHARS"
+      ],
+      "explanation": "Both changes bound article title length but with contradictory policies. A rejects titles over 100 characters at the validator (400 error). B silently truncates titles over 120 characters at the DB layer. In the merged code, B's truncation is dead code on the HTTP create path since titles >100 are rejected before reaching it, and the two limits (100 vs 120) express inconsistent intent about how long titles can be and how overlong ones are handled (reject vs. cut). Each change passes its own test because they test different layers, but they address the same problem in different ways, so one should be removed.",
+      "cost_usd": 0.008404,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.3
+      },
+      "usage": {
+        "input_tokens": 2577,
+        "output_tokens": 325
+      }
+    },
+    {
+      "id": "rw-040",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.3,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/controllers/tagsController/getTag.ts#getTag",
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
+      ],
+      "explanation": "A normalizes tag names to trimmed lowercase on write and lowercases the tag filter in the article list query, so that tag lookups are case-insensitive. B adds GET /api/tags/:tag, which looks up prisma.tag.findUnique with req.params.tag verbatim. In the merged code, tags are always stored lowercase, so GET /api/tags/React (or REACT) returns 404 even though the tag \"react\" exists, and the list filter (?tag=REACT) works in any case. A's intent of case-insensitive tag matching is broken for B's new endpoint, which does not normalize its input. Concrete scenario: create an article with tagList [\"React\"], then GET /api/tags/React gives 404 while GET /api/articles?tag=React succeeds. B's own tests use lowercase tags so they still pass.",
+      "cost_usd": 0.011488,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.6
+      },
+      "usage": {
+        "input_tokens": 3749,
+        "output_tokens": 399
+      }
+    },
+    {
+      "id": "rw-041",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.7,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "articleViewer",
+        "slugfy"
+      ],
+      "explanation": "Change A modifies how tag names are sorted in the article view (case-insensitive localeCompare), while Change B truncates slugs to at most 60 characters in slugfy. These touch unrelated code paths (tag list presentation vs. slug generation), share no symbols, and neither test's assumptions depend on the other. The merged code behaves correctly and solves distinct problems.",
+      "cost_usd": 0.006192,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4
+      },
+      "usage": {
+        "input_tokens": 2241,
+        "output_tokens": 171
+      }
+    },
+    {
+      "id": "rw-003",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.7,
       "confidence": 0.9,
       "category": null,
       "involved_symbols": [
-        "src/utils/slugfy.ts#slugfy",
-        "src/middleware/articlesValidator/articlesCreateValidator.ts#articlesCreateValidator"
+        "tagsCreatePrisma",
+        "parseArticleListQuery"
       ],
-      "explanation": "A truncates slugs to 100 characters inside slugfy; B rejects titles over 150 characters in the create validator. These address different problems (slug length vs. input title validation) and don't contradict each other. A title of up to 150 chars is accepted and its slug is simply truncated to 100. Titles that truncate to the same slug prefix could collide, but that's a pre-existing concern about slug uniqueness (same-title collisions already exist) and not something introduced by the combination in a way that breaks behavior. B's test uses 'x'*150 which slugs to 100 x's, still fine and returns 201 unless a uniqueness conflict arises, which it wouldn't in a single creation.",
-      "cost_usd": 0.007992,
+      "explanation": "A normalizes tags to trimmed lowercase at write time, and B normalizes the tag filter to trimmed lowercase at read time. These are complementary halves of one feature: stored tags are lowercase, so lowercasing the filter makes lookups consistent. B's filter on its own would miss legacy mixed-case tags, but A's normalization closes that gap for new data. The two changes duplicate no work and contradict nothing, and A's integration test (filter tag=dragons) still passes with B's lowercasing.",
+      "cost_usd": 0.00809,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3
+      },
+      "usage": {
+        "input_tokens": 2910,
+        "output_tokens": 227
+      }
+    },
+    {
+      "id": "rw-011",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.1,
+      "confidence": 0.88,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
+        "src/controllers/tagsController/getTags.ts#getTags",
+        "src/controllers/tagsController/getTags.ts#cache",
+        "src/controllers/tagsController/getTags.ts#invalidateTagsCache"
+      ],
+      "explanation": "B adds a 60s in-memory cache of the tag list to GET /api/tags and invalidates it only when articles create tags (articlesCreate). A makes article deletion remove orphan tags via prisma.tag.deleteMany, but nothing in the delete path invalidates B's cache. In the merged code, if a cached tag list exists and an article is deleted, the orphaned tag is removed from the DB while GET /api/tags keeps returning the deleted tag for up to 60 seconds. B's cache assumes the tag set only changes via creation (which it invalidates), and A introduces a new way the tag set shrinks without invalidation. Neither change is wrong alone, but together the tags endpoint returns stale, nonexistent tags after deletion.",
+      "cost_usd": 0.01189,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.5
+      },
+      "usage": {
+        "input_tokens": 4005,
+        "output_tokens": 388
+      }
+    },
+    {
+      "id": "rw-012",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.4,
+      "confidence": 0.97,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
+        "src/controllers/userController/userChangePassword.ts#userChangePassword",
+        "src/utils/hashPasswords.ts#hashPassword"
+      ],
+      "explanation": "A makes userUpdatePrisma hash any password it receives. B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma. In the merged code, the password is hashed twice (bcrypt of a bcrypt hash). The stored value is hash(hash(newPassword)), so compareWithHash(newPassword, stored) fails and the user can no longer log in with their new password after using POST /api/user/password. B's own tests only check the stored value differs from plaintext and the old hash, so they still pass.",
+      "cost_usd": 0.012784,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.7
+      },
+      "usage": {
+        "input_tokens": 4907,
+        "output_tokens": 297
+      }
+    },
+    {
+      "id": "rw-013",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.3,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "Article.updatedAt",
+        "articleViewPrisma",
+        "articleUpdatePrisma",
+        "articlesGet"
+      ],
+      "explanation": "A makes Article.updatedAt auto-update on every prisma.article.update via @updatedAt. B adds a views counter and calls prisma.article.update to increment it on every GET of an article. Individually each is correct, but merged, every read bumps updatedAt, so updatedAt no longer means 'last edited'. The prior manual updatedAt only changed in articleUpdatePrisma, so B's increment would have left it untouched. Now each page view silently modifies updatedAt, which breaks the semantics A's change was meant to preserve (and surfaces in the API's updatedAt field and any ordering/caching on it). Existing tests pass, but a read changing 'updated' timestamps is concrete wrong behavior arising only from the combination.",
+      "cost_usd": 0.013444,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.6
+      },
+      "usage": {
+        "input_tokens": 5137,
+        "output_tokens": 317
+      }
+    },
+    {
+      "id": "rw-014",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.1,
+      "confidence": 0.85,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
+        "src/controllers/tagsController/getTags.ts#getTags"
+      ],
+      "explanation": "Both changes solve the same problem: making sure the tag list does not show tags that no longer belong to any article after an article is deleted. A removes orphan tags at delete time; B filters orphan tags out at read time in getTags. Both are correct together and the combined behavior is harmless at runtime (the tag list returns the same result), but the work is duplicated: one mechanism makes the other redundant (with A, B's filter never matters for deletes; with B, A's deleteMany is unnecessary). The two added integration tests are also essentially identical. One of the two approaches should be removed.",
+      "cost_usd": 0.008332,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.4
+      },
+      "usage": {
+        "input_tokens": 2776,
+        "output_tokens": 278
+      }
+    },
+    {
+      "id": "rw-015",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.2,
+      "confidence": 0.9,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleFeedPrisma.ts#articleFeedPrisma",
+        "src/controllers/articlesController/articlesFeed.ts#articlesFeed"
+      ],
+      "explanation": "Both changes fix the same bug (feed returning articles from non-followed authors) in different layers: A adds a Prisma `where` filter in articleFeedPrisma, B adds an in-memory filter in the articlesFeed controller after the query. Merged, the DB already returns only followed authors' articles, so B's post-filter is redundant dead logic. It is harmless at runtime for the common case, but both changes solve the same problem and duplicate each other; one should be removed (and the agent's task explicitly says to filter in the DB query, so B's filter is the one to drop). Both also add near-identical new integration tests and edit the same existing test block identically.",
+      "cost_usd": 0.013164,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.6
+      },
+      "usage": {
+        "input_tokens": 5037,
+        "output_tokens": 309
+      }
+    },
+    {
+      "id": "rw-016",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5,
+      "confidence": 0.93,
+      "category": "intent",
+      "involved_symbols": [
+        "src/controllers/articlesController/articlesDelete.ts#articlesDelete",
+        "src/middleware/auth/requireArticleAuthor.ts#requireArticleAuthor",
+        "src/routes/api/articles.ts#router.delete("
+      ],
+      "explanation": "Both changes add the same author-only check to DELETE /api/articles/:slug. A puts it in the controller (articlesDelete), while B adds a requireArticleAuthor middleware in the route that does the same lookup and returns 403 for non-authors. Merged, every delete request runs the ownership check twice (two userGetPrisma and two articleGetPrisma calls), and the middleware makes the controller's check redundant. This is not harmful at runtime, but it is the same problem solved in two different places, so one should be removed. Both also delete the same old 'known bug' test and add near-identical new tests.",
+      "cost_usd": 0.014534,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.3
+      },
+      "usage": {
+        "input_tokens": 5707,
+        "output_tokens": 312
+      }
+    },
+    {
+      "id": "rw-017",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.9,
+      "confidence": 0.85,
+      "category": null,
+      "involved_symbols": [
+        "slugfy",
+        "articlesCreateValidator"
+      ],
+      "explanation": "Change A truncates the output of slugfy to 100 characters; Change B limits article title length to 150 characters at validation. They address different concerns (slug length vs title length) and don't duplicate each other. Combined, titles up to 150 chars yield slugs truncated to 100 chars, which is consistent and correct. One theoretical risk is that two long titles sharing the same first 100 slug characters would collide on a unique slug, but that depends on how slugs are generated elsewhere (not shown) and is inherent to A's intended change, not an interaction with B's validator. No concrete failure scenario arises from the combination.",
+      "cost_usd": 0.007362,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.2
+      },
+      "usage": {
+        "input_tokens": 2421,
+        "output_tokens": 252
+      }
+    },
+    {
+      "id": "rw-018",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.5,
+      "confidence": 0.93,
+      "category": null,
+      "involved_symbols": [
+        "articlesListPrisma",
+        "Article"
+      ],
+      "explanation": "Change A adds database indexes on Article.authorUsername and Article.updatedAt to speed up the author filter and default updatedAt ordering. Change B adds a sort query param that orders by createdAt or updatedAt (default updatedAt). These are complementary: the indexes are still correct and useful with B's changes (the updatedAt index serves the default and sort=updated paths). sort=created won't benefit from an index, but that is a performance nuance, not a correctness issue or duplicated work. No behavior breaks and neither change solves the same problem as the other.",
+      "cost_usd": 0.011208,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 4449,
+        "output_tokens": 231
+      }
+    },
+    {
+      "id": "rw-019",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.5,
+      "confidence": 0.85,
+      "category": null,
+      "involved_symbols": [
+        "getTags",
+        "articleDeletePrisma",
+        "WRITE_ACTIONS",
+        "cache"
+      ],
+      "explanation": "A caches the tag list and invalidates it via a Prisma middleware on any write action to Tag or Article models. B adds a tag.deleteMany after article deletion. In the merged code, article.delete triggers A's middleware (model Article, action delete) and the tag.deleteMany triggers it too (model Tag, action deleteMany); both are in WRITE_ACTIONS. The middleware sets cache = null after next(params) completes, so the cache is invalidated after the deletion of orphan tags. Sequential awaits mean the cache is cleared after the final tag cleanup. A concurrent getTags could repopulate the cache between the two operations with a stale list, but the second deleteMany then invalidates it again. So the cache is correctly invalidated, and the two changes stay correct together.",
+      "cost_usd": 0.010244,
       "timings": {
         "graph": 0.4,
         "llm": 3.8
       },
       "usage": {
+        "input_tokens": 3502,
+        "output_tokens": 324
+      }
+    },
+    {
+      "id": "rw-020",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 5,
+      "confidence": 0.6,
+      "category": null,
+      "involved_symbols": [
+        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
+        "src/controllers/userController/userChangePassword.ts#userChangePassword",
+        "src/utils/db/user/userSetPasswordPrisma.ts#userSetPasswordPrisma",
+        "src/utils/hashPasswords.ts#hashPassword"
+      ],
+      "explanation": "Both changes fix the plain-text password storage problem, but via separate paths. A hashes inside userUpdatePrisma, so PUT /api/user with a password gets hashed. B adds a new endpoint POST /api/user/password that hashes in the controller and writes through a different DB helper, userSetPasswordPrisma. There is no double hashing: B bypasses userUpdatePrisma, and A only hashes in userUpdatePrisma, so each stored password is hashed exactly once. They also don't collide at runtime. However, in intent they overlap: both are ways to change a user's password securely. The merged code now has two password-change paths, one with current-password verification and one without. PUT /api/user still lets a token holder set a new password without the current one, which undermines B's check. It is a design overlap rather than a correctness failure, so this is a weak conflict and likely fine.",
+      "cost_usd": 0.014812,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.3
+      },
+      "usage": {
+        "input_tokens": 5231,
+        "output_tokens": 435
+      }
+    },
+    {
+      "id": "rw-021",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4,
+      "confidence": 0.95,
+      "category": null,
+      "involved_symbols": [
+        "createUserToken",
+        "authenticate",
+        "optionalAuthenticate",
+        "createPasswordResetToken",
+        "verifyPasswordResetToken"
+      ],
+      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET across login-token code, tests, README and .env.test. Change B adds a separate RESET_TOKEN_SECRET env var and new reset-token helpers that never reference JWT_SECRET. The only shared file is .env.test, where A edits line 2 and B appends a line, so the merged file has AUTH_JWT_SECRET plus RESET_TOKEN_SECRET and both features find the variable they need. No code path in B reads the renamed variable, and A's changes don't touch B's secret. There is no runtime or intent conflict.",
+      "cost_usd": 0.013214,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.4
+      },
+      "usage": {
+        "input_tokens": 5187,
+        "output_tokens": 284
+      }
+    },
+    {
+      "id": "rw-022",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5,
+      "confidence": 0.72,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
+        "src/controllers/articlesController/articlesList.ts#PAGE_SIZE",
+        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery"
+      ],
+      "explanation": "Change A lowers the DB-layer default limit from 20 to 10, intending a new default page size of 10. Change B introduces a hardcoded PAGE_SIZE = 20 in the controller and makes ?page=N always pass limit=20 and offset=(N-1)*20. After merge, the plain list endpoint (no params) returns 10 articles, but ?page=1 returns 20. The notion of 'default page size' is now split across two places with contradictory values: the same list endpoint yields different page sizes depending on whether page is used. A user paging with ?page=1 gets 20, while the stated goal of A was that the default page size be 10. Both changes define the page size in different ways, so the merged code contradicts itself (page size constants 10 vs 20), and one should be reconciled (e.g., PAGE_SIZE should be 10 or share the default).",
+      "cost_usd": 0.013008,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.4
+      },
+      "usage": {
+        "input_tokens": 4484,
+        "output_tokens": 404
+      }
+    },
+    {
+      "id": "rw-023",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.9,
+      "confidence": 0.95,
+      "category": null,
+      "involved_symbols": [
+        "src/controllers/articlesController/articlesCreate.ts#articlesCreate",
+        "src/controllers/articlesController/articlesCreate.ts#MAX_TAGS"
+      ],
+      "explanation": "Change A adds a logger.info call after the article is successfully created. Change B adds an early 422 return when tagList exceeds 10 entries, before any tag or article creation. These are independent concerns: rejected requests never reach the log line (so nothing is logged for articles that were not created, which is correct), and accepted requests behave as in A. Tests don't interfere: A's test creates an article with no tags, B's tests check tag limits and don't depend on logging. No duplicated purpose or broken assumption.",
+      "cost_usd": 0.009794,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.3
+      },
+      "usage": {
+        "input_tokens": 3607,
+        "output_tokens": 258
+      }
+    },
+    {
+      "id": "rw-024",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.5,
+      "confidence": 0.95,
+      "category": null,
+      "involved_symbols": [
+        "articlesListPrisma",
+        "getProfileArticles"
+      ],
+      "explanation": "Change A refactors the where-clause construction in articlesListPrisma, only adding each filter when its value is truthy. Change B adds a new controller that calls articlesListPrisma with only authorUsername set (a non-empty route param). The behavior for B's call is identical before and after A's refactor: the where clause contains authorUsername only. Empty-string edge cases do not arise since Express route params are non-empty. The two changes don't duplicate each other's work or break each other's assumptions.",
+      "cost_usd": 0.010158,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.8
+      },
+      "usage": {
+        "input_tokens": 4019,
+        "output_tokens": 212
+      }
+    },
+    {
+      "id": "rw-025",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "countComments",
+        "countTagArticles"
+      ],
+      "explanation": "The two changes add independent count endpoints: one counts comments on an article (/api/articles/:slug/comments/count), the other counts articles per tag (/api/tags/:tag/count). They live in different controllers and routers, use different URL paths, and solve different problems. The only shared touchpoint is a read of the article table, which is harmless. No runtime interaction or duplicated intent exists.",
+      "cost_usd": 0.009692,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.3
+      },
+      "usage": {
+        "input_tokens": 3971,
+        "output_tokens": 175
+      }
+    },
+    {
+      "id": "rw-026",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.9,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "userUpdatePrisma"
+      ],
+      "explanation": "Change A only adds doc comments to userUpdatePrisma, with no behavioral change. Change B adds trimming of bio and image inside the function body. The merged code has both, and they don't interact. One minor nit: A's docblock doesn't mention trimming, so the docs are slightly incomplete, but that is not a runtime or intent conflict. A's doc claims 'Fields left out are kept', which still holds since B's spread sets bio/image to undefined when absent, and Prisma ignores undefined.",
+      "cost_usd": 0.005932,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.2
+      },
+      "usage": {
+        "input_tokens": 1901,
+        "output_tokens": 213
+      }
+    },
+    {
+      "id": "rw-027",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.5,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/controllers/tagsController/getTagCounts.ts#getTagCounts",
+        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma"
+      ],
+      "explanation": "Change A soft-deletes articles (sets deletedAt, hides them from get/list/feed queries). Change B adds a /api/tags/counts endpoint that counts articles per tag via prisma.tag's _count of the article relation, which does not filter on deletedAt. After merging, a soft-deleted article still counts toward its tags, so /counts reports tags with count > 0 that have no visible articles, while the existing integration test for counts passes since it doesn't delete articles. Previously a hard delete removed the article from the count, so B's code relied on that assumption, which A's change breaks.",
+      "cost_usd": 0.014042,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.8
+      },
+      "usage": {
+        "input_tokens": 5566,
+        "output_tokens": 291
+      }
+    },
+    {
+      "id": "rw-028",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4,
+      "confidence": 0.88,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/normalizeEmail.ts#normalizeEmail",
+        "src/utils/db/user/userCreatePrisma.ts#userCreatePrisma",
+        "src/utils/db/user/userGetEmailPrisma.ts#userGetEmailPrisma",
+        "src/controllers/usersController/usersLogin.ts#userLogin",
+        "src/controllers/usersController/usersRegister.ts#usersRegister"
+      ],
+      "explanation": "Both changes solve the same problem, case- and whitespace-insensitive email handling on register and login. A normalizes in the controllers via a new normalizeEmail helper; B normalizes inside userCreatePrisma and userGetEmailPrisma with an inline trim().toLowerCase(). Merged, every email is normalized twice with identical logic: harmless at runtime (idempotent), but the two approaches duplicate each other. One of them should be removed, and the logic now lives in two places that could drift. Each side also adds its own integration test for the same behavior.",
+      "cost_usd": 0.012918,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.3
+      },
+      "usage": {
+        "input_tokens": 4669,
+        "output_tokens": 358
+      }
+    },
+    {
+      "id": "rw-029",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.7,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "articleUpdatePrisma",
+        "recordViewPrisma",
+        "recentArticlesPrisma",
+        "RecentView"
+      ],
+      "explanation": "Change A makes article slugs mutable on title change. Change B introduces a RecentView table keyed by (username, slug) with no foreign key to Article, so there is no cascade or update propagation. When an article is renamed through A's code path, prisma.article.update changes the slug, but existing RecentView rows keep the old slug. Concretely: bob views /api/articles/first, then alice renames it to a new title. recentArticlesPrisma finds the view with the old slug, the article lookup by old slug returns nothing, and flatMap silently drops it, so the viewed article disappears from bob's recent list. Worse, if a new article is later created with the old slug, bob's recent list shows that unrelated article. B's design assumes slugs are stable identifiers (which was true before A, since the slug never changed), and A breaks that assumption. Neither change alone has this bug.",
+      "cost_usd": 0.016748,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4
+      },
+      "usage": {
+        "input_tokens": 6599,
+        "output_tokens": 355
+      }
+    },
+    {
+      "id": "rw-030",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.2,
+      "confidence": 0.93,
+      "category": "runtime",
+      "involved_symbols": [
+        "articlesListPrisma",
+        "articlesList"
+      ],
+      "explanation": "In the merged articlesListPrisma, ordering is by createdAt desc (A) while the new cursor filter in B is `updatedAt < cursor.updatedAt` (B's controller passes cursor.updatedAt). The cursor assumes the list is sorted by updatedAt, but the list is now sorted by createdAt. Concrete scenario: articles X (created Jan 1, edited Jan 10), Y (created Jan 2, updated Jan 2), Z (created Jan 3, updated Jan 3). List order is Z, Y, X. With ?after=Y, the filter keeps updatedAt < Jan 2, which excludes X (updatedAt Jan 10), so X is skipped; with ?after=X, the filter keeps updatedAt < Jan 10, which returns Z and Y again, duplicating already-seen articles. B's own test still passes because it sets updatedAt and createdAt stays near-monotonic in creation order.",
+      "cost_usd": 0.0151,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.5
+      },
+      "usage": {
+        "input_tokens": 5720,
+        "output_tokens": 366
+      }
+    },
+    {
+      "id": "rw-033",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.2,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "userUpdateValidator",
+        "userSetImage",
+        "src/routes/api/user.ts"
+      ],
+      "explanation": "Change A adds an https-only rule for `image`, but only inside `userUpdateValidator`, which guards `PUT /api/user`. Change B adds a new endpoint `PUT /api/user/image` that writes the same `image` field via `userUpdatePrisma` and bypasses that validator entirely. In the merged code, a client can send `PUT /api/user/image` with `{ image: \"http://...\" }` or any arbitrary string and it will be stored, violating the rule A introduced. B's own test only uses an https URL, so existing tests still pass. This is a concrete bypass of the invariant A is enforcing, so the merged code contradicts the intent of A.",
+      "cost_usd": 0.010302,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.5
+      },
+      "usage": {
+        "input_tokens": 3726,
+        "output_tokens": 285
+      }
+    },
+    {
+      "id": "rw-034",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.7,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "src/controllers/userController/userFavorites.ts#userFavorites",
+        "src/controllers/articlesController/articlesList.ts#articlesList",
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
+      ],
+      "explanation": "Both changes add a way for the authenticated user to list their own favorited articles: A via a new GET /api/user/favorites endpoint, B via a ?favorited=me shortcut on GET /api/articles. They call the same articlesListPrisma and articleViewer helpers and have near-identical integration tests (same scenario, same expected result). The merged code does not misbehave at runtime, but it exposes two different APIs for the same feature, so one of them is redundant and should be removed.",
+      "cost_usd": 0.013798,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.1
+      },
+      "usage": {
+        "input_tokens": 5544,
+        "output_tokens": 271
+      }
+    },
+    {
+      "id": "rw-035",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.9,
+      "confidence": 0.72,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/controllers/tagsController/getTag.ts#getTag"
+      ],
+      "explanation": "A changes tagsCreatePrisma so newly created tags are stored trimmed and lowercase. B adds getTag, which does an exact-match findUnique on req.params.tag with no normalization. In the merged code, a request like GET /api/tags/React (or a tag created before A's change with mixed case, or one with surrounding whitespace) will 404 or miss, because stored names are now always lowercase while the lookup is case-sensitive and un-normalized. B's own test only passes because it uses an already-lowercase tag. A's invariant (tags are stored lowercase) is not honored by B's lookup, so a client who sends tagList [\"Dragons\"], then queries /api/tags/Dragons gets 404 even though the tag exists as \"dragons\".",
+      "cost_usd": 0.041238,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.2
+      },
+      "usage": {
+        "input_tokens": 18889,
+        "output_tokens": 346
+      }
+    },
+    {
+      "id": "rw-036",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.7,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "src/controllers/commentsController/createComment.ts#createComment",
+        "src/utils/db/comment/commentCreatePrisma.ts#commentCreatePrisma"
+      ],
+      "explanation": "Change A adds logger.debug calls and error logging to handlers (and lowercases tag names in tagsCreatePrisma), while Change B trims the comment body in commentCreatePrisma. A's createComment only adds logging around the call to commentCreatePrisma and does not alter the content passed to it. The two changes touch unrelated behavior: logging/tag normalization vs. comment body trimming. No shared assumptions are broken, and they do not solve the same problem.",
+      "cost_usd": 0.039046,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3
+      },
+      "usage": {
+        "input_tokens": 18293,
+        "output_tokens": 246
+      }
+    },
+    {
+      "id": "rw-037",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.9,
+      "confidence": 0.93,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/slugfy.ts#slugfy",
+        "src/routes/api/articles.ts#router.get(\"/:slug([a-z0-9-]+)\")"
+      ],
+      "explanation": "Change A makes slugfy keep accented and non-Latin letters (e.g. 'crème-brûlée', 'привет-мир'). Change B restricts the GET /api/articles/:slug route to the pattern [a-z0-9-]+, assuming slugs are only ASCII lowercase letters, digits and dashes. Merged, any article created with an accented or non-Latin title gets a slug that the GET route rejects with 404, so the article is created successfully but can never be fetched via GET /api/articles/:slug. Neither change alone has this problem. Existing tests don't catch it because B's tests only use ASCII slugs and A's tests only check the slug in the create response.",
+      "cost_usd": 0.008592,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.2
+      },
+      "usage": {
+        "input_tokens": 2716,
+        "output_tokens": 316
+      }
+    },
+    {
+      "id": "rw-038",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.3,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "commentCreateValidator",
+        "articlesCreateValidator",
+        "MAX_COMMENT_CHARS",
+        "MAX_BODY_CHARS"
+      ],
+      "explanation": "Change A adds a 1,000-character limit to comment bodies in commentCreateValidator; Change B adds a 20,000-character limit to article bodies in articlesCreateValidator. They touch different validators, different routes, different constants, and different resources (comments vs articles). The only link is that both validators are used in the same router file, but on different routes. Nothing in one change breaks assumptions of the other, and they don't solve the same problem.",
+      "cost_usd": 0.009694,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.7
+      },
+      "usage": {
+        "input_tokens": 3722,
+        "output_tokens": 225
+      }
+    },
+    {
+      "id": "rw-039",
+      "type": "intent",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "articlesCreateValidator",
+        "articleCreatePrisma",
+        "MAX_TITLE_CHARS"
+      ],
+      "explanation": "Both changes impose a title-length policy on article creation with contradictory approaches. A rejects titles over 100 characters at the validator (400 error), while B silently truncates titles to 120 characters at save time. In the merged code, B's truncation is dead code for the API path, since any title over 100 chars is rejected before reaching articleCreatePrisma, so the 120 limit can never trigger via the endpoint. The two limits (100 vs 120) and the two strategies (reject vs truncate) contradict each other, so one of them should be removed or reconciled. Each side's tests pass independently, so the clash is in intent rather than runtime failure.",
+      "cost_usd": 0.007964,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.3
+      },
+      "usage": {
+        "input_tokens": 2577,
+        "output_tokens": 281
+      }
+    },
+    {
+      "id": "rw-040",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.1,
+      "confidence": 0.85,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/controllers/tagsController/getTag.ts#getTag",
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
+      ],
+      "explanation": "Change A normalizes tag names to trimmed lowercase on write and lowercases the tag filter in the article list query. Change B adds GET /api/tags/:tag, which looks up the tag with the raw req.params.tag via findUnique. Merged, a tag stored as 'react' (created from 'React') can't be found at /api/tags/React: findUnique on 'React' returns null and the endpoint answers 404. A also made the list filter case-insensitive for exactly this reason, so the same tag is found by /api/articles?tag=REACT but 404s at /api/tags/REACT. B's endpoint relies on the assumption that the URL param matches the stored name exactly, and A's change breaks that for any non-lowercase input. B's own tests only use lowercase names, so they still pass.",
+      "cost_usd": 0.011328,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.5
+      },
+      "usage": {
+        "input_tokens": 3749,
+        "output_tokens": 383
+      }
+    },
+    {
+      "id": "rw-041",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.6,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "src/view/articleViewer.ts#articleViewer",
+        "src/utils/slugfy.ts#slugfy"
+      ],
+      "explanation": "Change A modifies how tag names are sorted in the article view (case-insensitive sort in articleViewer), while Change B truncates slugs to 60 characters in slugfy. They touch unrelated code paths: tag display ordering vs. slug generation from titles. There is no shared state, function, or assumption between them, and neither duplicates the other's purpose. Their integration tests are independent (one checks tagList order, the other slug length/trailing dash).",
+      "cost_usd": 0.006692,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.9
+      },
+      "usage": {
+        "input_tokens": 2241,
+        "output_tokens": 221
+      }
+    },
+    {
+      "id": "rw-003",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.5,
+      "confidence": 0.88,
+      "category": null,
+      "involved_symbols": [
+        "tagsCreatePrisma",
+        "parseArticleListQuery"
+      ],
+      "explanation": "A normalizes tags on write (trim, lowercase, dedupe) and B normalizes the tag filter on read (trim, lowercase). These are complementary: A guarantees stored tags are lowercase, so B's lowercased filter now matches everything stored from now on. They do not solve the same problem twice (one is write path, one is query path), and the merged code stays correct. Legacy mixed-case tags already in the database would not match B's lowercased filter, but that pre-exists and is not caused by the combination of these changes.",
+      "cost_usd": 0.00809,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.8
+      },
+      "usage": {
+        "input_tokens": 2910,
+        "output_tokens": 227
+      }
+    },
+    {
+      "id": "rw-011",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.5,
+      "confidence": 0.85,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
+        "src/controllers/tagsController/getTags.ts#getTags",
+        "src/controllers/tagsController/getTags.ts#cache",
+        "src/controllers/tagsController/getTags.ts#invalidateTagsCache"
+      ],
+      "explanation": "B adds a 60s in-memory cache of the tag list to GET /api/tags and invalidates it only when articles create tags (articlesCreate). A makes article deletion remove orphan tags from the DB, but nothing invalidates B's cache on that path. In the merged code, if the tag list is cached (e.g. containing 'solo') and an article is deleted so 'solo' is removed from the DB, GET /api/tags keeps returning the deleted tag for up to 60 seconds. This is a stale-cache behavior that neither change causes alone: B's invalidation assumes tags only change on creation, which A's change breaks. A's own integration test queries prisma directly and so does not catch it, and B's tests don't delete articles.",
+      "cost_usd": 0.01181,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 4005,
+        "output_tokens": 380
+      }
+    },
+    {
+      "id": "rw-012",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.8,
+      "confidence": 0.97,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
+        "src/controllers/userController/userChangePassword.ts#userChangePassword",
+        "src/utils/hashPasswords.ts#hashPassword"
+      ],
+      "explanation": "A makes userUpdatePrisma hash any password it receives. B's new userChangePassword controller already hashes the new password with hashPassword before calling userUpdatePrisma. Merged, the new password is hashed twice: bcrypt(bcrypt(newPassword)). Login compares the plain password against the stored hash via compareWithHash, which will fail because the stored value is a hash of the hash. So a user who changes their password via POST /api/user/password can no longer log in with the new password, locking them out. B's own test only checks that the stored value differs from plain text and from the old hash, so it still passes despite the double hashing.",
+      "cost_usd": 0.013024,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.1
+      },
+      "usage": {
+        "input_tokens": 4907,
+        "output_tokens": 321
+      }
+    },
+    {
+      "id": "rw-013",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.1,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "articleViewPrisma",
+        "articleUpdatePrisma",
+        "Article.updatedAt",
+        "articlesGet"
+      ],
+      "explanation": "Change A adds @updatedAt to Article.updatedAt, so Prisma bumps updatedAt on every prisma.article.update call. Change B adds articleViewPrisma, which calls prisma.article.update to increment views on every GET of an article. Merged, each read of an article now also rewrites updatedAt to the current time, so updatedAt (surfaced in articleViewer as the article's updated time) no longer reflects content edits and changes on every view. Neither change alone causes this: before A, view increments left updatedAt untouched; before B, only real edits updated it. Merge is clean and tests pass since existing tests don't check updatedAt stability.",
+      "cost_usd": 0.013154,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.4
+      },
+      "usage": {
+        "input_tokens": 5137,
+        "output_tokens": 288
+      }
+    },
+    {
+      "id": "rw-014",
+      "type": "intent",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4,
+      "confidence": 0.85,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma",
+        "src/controllers/tagsController/getTags.ts#getTags"
+      ],
+      "explanation": "Both changes solve the same problem: making the tag list not show tags that no longer belong to any article after an article is deleted. Change A does it by physically deleting orphan tags in articleDeletePrisma; Change B does it by filtering unused tags out at read time in getTags. Even combined, the behavior is harmless and the tests agree (both integration tests are essentially identical), but the work is duplicated: one mechanism makes the other redundant (with A, B's filter never matters for deletions; with B, A's deleteMany is unnecessary). One should be removed.",
+      "cost_usd": 0.008282,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.4
+      },
+      "usage": {
+        "input_tokens": 2776,
+        "output_tokens": 273
+      }
+    },
+    {
+      "id": "rw-015",
+      "type": "intent",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.6,
+      "confidence": 0.88,
+      "category": "intent",
+      "involved_symbols": [
+        "src/utils/db/article/articleFeedPrisma.ts#articleFeedPrisma",
+        "src/controllers/articlesController/articlesFeed.ts#articlesFeed"
+      ],
+      "explanation": "Both changes fix the same bug (the feed returning articles from non-followed authors). Change A filters in the Prisma query with a `where` on `author.followedBy`, while Change B filters in the controller by post-filtering the DB results against `currentUser.follows`. In the merged code the filtering is done twice: the DB already restricts to followed authors, so B's in-memory filter is redundant. The two mechanisms also use different sources of truth (followedBy relation vs. currentUser.follows), and one of them should be removed. Both also edit the same existing test in articles.int.test.ts identically and add near-duplicate new tests. The agent's task explicitly says to filter in the database query, so B's controller-side filter duplicates and contradicts that intent.",
+      "cost_usd": 0.013494,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 5037,
+        "output_tokens": 342
+      }
+    },
+    {
+      "id": "rw-016",
+      "type": "intent",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.1,
+      "confidence": 0.95,
+      "category": "intent",
+      "involved_symbols": [
+        "src/controllers/articlesController/articlesDelete.ts#articlesDelete",
+        "src/middleware/auth/requireArticleAuthor.ts#requireArticleAuthor",
+        "src/routes/api/articles.ts#router.delete("
+      ],
+      "explanation": "Both changes add the same author-only check to DELETE /api/articles/:slug with identical logic and the same 403 response. A puts it in the controller, B puts it in a new requireArticleAuthor middleware wired into the route. Merged, the delete route runs the check twice (two extra user and article lookups), and the controller's check is redundant with the middleware. Behavior is correct, but both solve the same problem in different ways, so one should be removed. The agent's task even explicitly asked for the check in the controller, which B's middleware now duplicates.",
+      "cost_usd": 0.014334,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.5
+      },
+      "usage": {
+        "input_tokens": 5707,
+        "output_tokens": 292
+      }
+    },
+    {
+      "id": "rw-017",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.6,
+      "confidence": 0.8,
+      "category": null,
+      "involved_symbols": [
+        "src/utils/slugfy.ts#slugfy",
+        "src/middleware/articlesValidator/articlesCreateValidator.ts#articlesCreateValidator"
+      ],
+      "explanation": "Change A truncates slugs to 100 characters and strips trailing dashes; Change B limits article titles to 150 characters at validation. These address different concerns (slug length vs. title length) and don't duplicate each other. A concrete interaction: titles between 101 and 150 characters now pass validation but produce truncated slugs, so two long titles sharing the same first ~100 characters would collide on the same slug. However, this depends on how the article creation code handles slug uniqueness (not shown), and it's a potential edge case rather than a demonstrated breakage. The changes are otherwise independent and each correct alone and together.",
+      "cost_usd": 0.007752,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
         "input_tokens": 2421,
-        "output_tokens": 315
+        "output_tokens": 291
       }
     },
     {
@@ -1595,22 +1946,22 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 3.5,
+      "seconds": 4.5,
       "confidence": 0.93,
       "category": null,
       "involved_symbols": [
         "Article",
         "articlesListPrisma"
       ],
-      "explanation": "Change A adds indexes on Article.authorUsername and updatedAt to speed up the author filter and default updatedAt ordering. Change B adds an optional sort parameter to the article list that orders by createdAt or updatedAt, defaulting to updatedAt. These are complementary: the updatedAt index still serves the default and sort=updated paths, and B's addition of sort=created simply isn't indexed, which is a performance consideration, not a correctness failure. The changes solve different problems (indexing vs. a new sort feature), don't duplicate work, and neither breaks an assumption the other relies on.",
-      "cost_usd": 0.011358,
+      "explanation": "Change A adds database indexes on Article.authorUsername and updatedAt to speed up the author filter and default updatedAt ordering. Change B adds a sort query parameter that can order by createdAt or updatedAt (default updatedAt). They are complementary, not contradictory: the indexes remain correct and useful with B's default ordering. The only gap is that sort=created would not benefit from an index on createdAt, but that is a performance nuance rather than incorrect behavior or duplicated work. No runtime breakage and no duplicate solution to the same problem.",
+      "cost_usd": 0.011208,
       "timings": {
         "graph": 0.4,
-        "llm": 2.8
+        "llm": 3.8
       },
       "usage": {
         "input_tokens": 4449,
-        "output_tokens": 246
+        "output_tokens": 231
       }
     },
     {
@@ -1620,23 +1971,23 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4.1,
-      "confidence": 0.88,
+      "seconds": 4.4,
+      "confidence": 0.85,
       "category": null,
       "involved_symbols": [
         "src/controllers/tagsController/getTags.ts#getTags",
         "src/controllers/tagsController/getTags.ts#prisma.$use(async (params, next) => {",
         "src/utils/db/article/articleDeletePrisma.ts#articleDeletePrisma"
       ],
-      "explanation": "A's cache is invalidated by a prisma.$use middleware on writes to Tag or Article. B's cleanup runs prisma.tag.deleteMany, which has params.model === 'Tag' and action 'deleteMany' (in WRITE_ACTIONS), so it clears the cache. The article.delete before it already clears the cache, but the subsequent tag.deleteMany also clears it after the tags are removed, so a concurrent read between them cannot leave stale tags cached. No stale-cache scenario arises, and the two changes address different problems (caching vs orphan cleanup), so there is no intent overlap.",
-      "cost_usd": 0.010294,
+      "explanation": "A caches the tag list and invalidates it via a Prisma middleware on any write (create/update/delete/deleteMany/etc.) to Tag or Article. B adds a prisma.tag.deleteMany after deleting an article. Both prisma.article.delete and prisma.tag.deleteMany go through the $use middleware: article.delete is a relevant write action on model Article, and tag.deleteMany is a relevant write on model Tag. So the cache is dropped after each, and a subsequent GET /api/tags re-reads the DB and sees orphan tags removed. Since the delete happens inside the same request before the response, no stale window arises. The merged behavior is correct, and the two changes address different problems (caching vs orphan cleanup).",
+      "cost_usd": 0.010684,
       "timings": {
         "graph": 0.4,
-        "llm": 3.4
+        "llm": 3.7
       },
       "usage": {
         "input_tokens": 3502,
-        "output_tokens": 329
+        "output_tokens": 368
       }
     },
     {
@@ -1646,8 +1997,8 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4.9,
-      "confidence": 0.85,
+      "seconds": 4.8,
+      "confidence": 0.8,
       "category": null,
       "involved_symbols": [
         "src/utils/db/user/userUpdatePrisma.ts#userUpdatePrisma",
@@ -1655,15 +2006,15 @@
         "src/utils/db/user/userSetPasswordPrisma.ts#userSetPasswordPrisma",
         "src/utils/hashPasswords.ts#hashPassword"
       ],
-      "explanation": "The two changes use different paths to the same password update, so each hashes only its own writes. A hashes inside userUpdatePrisma, which only PUT /api/user calls. B adds a new endpoint (POST /api/user/password) that hashes in the controller and writes through userSetPasswordPrisma, which does not go through userUpdatePrisma. Nothing is double-hashed, and both paths store a proper hash. They solve different problems: A fixes PUT /api/user storing plain text, while B adds a separate change-password-with-verification feature. B's endpoint doesn't make A's fix redundant, because PUT /api/user still accepts a password field and still needs hashing. I see no concrete scenario where the merged code misbehaves or duplicates work.",
-      "cost_usd": 0.014442,
+      "explanation": "The two changes use separate paths. A hashes passwords inside userUpdatePrisma (used by PUT /api/user). B adds a new endpoint that hashes in the controller and writes via userSetPasswordPrisma, which bypasses userUpdatePrisma, so there is no double hashing. A's test removal of the 'known bug' test only matters for the PUT path, and B does not change that path. Intent-wise, B adds a distinct feature (changing the password with a current-password check), not a fix for the plain-text bug, so it doesn't duplicate A's fix. Both are correct together.",
+      "cost_usd": 0.013922,
       "timings": {
         "graph": 0.4,
-        "llm": 4
+        "llm": 4.1
       },
       "usage": {
         "input_tokens": 5231,
-        "output_tokens": 398
+        "output_tokens": 346
       }
     },
     {
@@ -1683,15 +2034,15 @@
         "createPasswordResetToken",
         "verifyPasswordResetToken"
       ],
-      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET across env files, README, authenticator, createUserToken and tests. Change B adds a separate RESET_TOKEN_SECRET env var and new helpers that never reference JWT_SECRET. The merged .env.test cleanly contains AUTH_JWT_SECRET plus RESET_TOKEN_SECRET. B's code and tests use only RESET_TOKEN_SECRET, so the rename does not affect them, and A's code does not touch the reset token secret. No runtime or intent conflict.",
-      "cost_usd": 0.013114,
+      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET in the login-token code (authenticator, createUserToken), tests, README and .env.test. Change B adds a separate RESET_TOKEN_SECRET env var and new reset-token helpers that never read JWT_SECRET. The two touch disjoint variables; the only overlap is .env.test, where A edits line 2 and B appends line 4, and the merged file has AUTH_JWT_SECRET plus RESET_TOKEN_SECRET, both of which are needed. B's tests use RESET_TOKEN_SECRET only. No concrete scenario of breakage or duplicated work.",
+      "cost_usd": 0.013404,
       "timings": {
         "graph": 0.4,
         "llm": 3.2
       },
       "usage": {
         "input_tokens": 5187,
-        "output_tokens": 274
+        "output_tokens": 303
       }
     },
     {
@@ -1701,23 +2052,24 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.9,
+      "seconds": 5.2,
       "confidence": 0.8,
-      "category": "intent",
+      "category": "runtime",
       "involved_symbols": [
         "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
         "src/controllers/articlesController/articlesList.ts#PAGE_SIZE",
-        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery"
+        "src/controllers/articlesController/articlesList.ts#parseArticleListQuery",
+        "src/controllers/articlesController/articlesList.ts#articlesList"
       ],
-      "explanation": "Change A lowers the default page size in articlesListPrisma from 20 to 10, so the plain /api/articles request now returns 10 articles. Change B adds a ?page=N parameter with its own hardcoded PAGE_SIZE = 20 in the controller. Both define the page size, in two places, with different values. In the merged code, /api/articles returns 10 articles by default, while /api/articles?page=1 returns 20 and page=2 starts at offset 20. A client that fetches the default list and then moves on to ?page=2 would skip articles 11-20. A's goal of a default page size of 10 is contradicted by B's separate constant of 20. Both existing tests still pass (A's test uses no page parameter; B's test uses page), so this goes unnoticed. B's PAGE_SIZE should derive from, or be consistent with, the same default.",
-      "cost_usd": 0.013008,
+      "explanation": "Change A lowers the default page size to 10 by changing the default of `limit` in `articlesListPrisma`, which only applies when the controller passes `limit` as undefined. Change B adds `?page=N`, which hard-codes a separate `PAGE_SIZE = 20` in the controller and passes it explicitly as `limit`. In the merged code, `GET /api/articles` with no params returns 10 articles, but `GET /api/articles?page=1` returns 20 and `?page=2` starts at offset 20. A client who sees the 10-item default list and then requests page=2 would skip articles 11-20. A's goal was to make the 'page size' 10 everywhere, but B introduced a second source of truth for page size (20) that is not updated, so the default page size and the `?page=` page size disagree. Each change's own tests pass, but the merged behavior is inconsistent.",
+      "cost_usd": 0.013338,
       "timings": {
         "graph": 0.4,
-        "llm": 4.2
+        "llm": 4.6
       },
       "usage": {
         "input_tokens": 4484,
-        "output_tokens": 404
+        "output_tokens": 437
       }
     },
     {
@@ -1727,22 +2079,22 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 3.7,
+      "seconds": 4,
       "confidence": 0.95,
       "category": null,
       "involved_symbols": [
         "src/controllers/articlesController/articlesCreate.ts#articlesCreate",
         "src/controllers/articlesController/articlesCreate.ts#MAX_TAGS"
       ],
-      "explanation": "Change A adds an info log after successful article creation; Change B adds an early 422 return for more than 10 tags before any creation happens. They are orthogonal: the log is only reached when the article is created, and rejected requests never reach it. Both tests remain valid (A's logging test uses no tags; B's tests don't depend on logging). No shared assumption is broken and they don't solve the same problem.",
-      "cost_usd": 0.009434,
+      "explanation": "Change A adds an info log after successful article creation; Change B adds an early 422 return when tagList exceeds 10. They are independent: the log only fires on the success path, and B's rejection returns before any article is created, so no log is emitted for rejected requests, which is correct behavior. Both sets of tests still hold in the merged code (A's test creates an article with no tags; B's tests don't depend on logging). No shared assumption is broken and they don't solve the same problem.",
+      "cost_usd": 0.009674,
       "timings": {
         "graph": 0.4,
-        "llm": 3
+        "llm": 3.3
       },
       "usage": {
         "input_tokens": 3607,
-        "output_tokens": 222
+        "output_tokens": 246
       }
     },
     {
@@ -1752,22 +2104,22 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4,
+      "seconds": 3.6,
       "confidence": 0.95,
       "category": null,
       "involved_symbols": [
-        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
-        "src/controllers/profileController/getProfileArticles.ts#getProfileArticles"
+        "articlesListPrisma",
+        "getProfileArticles"
       ],
-      "explanation": "Change A refactors the Prisma where-clause construction in articlesListPrisma. The old version passed authorUsername as undefined when absent (Prisma ignores undefined); the new version only sets the key when truthy. For B's call (authorUsername = username from route params, a non-empty string, with tag and favorited undefined), both versions produce { authorUsername: username }. B's limit/offset handling still works since the defaults apply when undefined is passed. The only behavioral difference is for an empty-string authorUsername, which B can't produce (route param is non-empty and the profile lookup already 404s). The two changes solve different problems and stay correct together.",
-      "cost_usd": 0.011088,
+      "explanation": "Change A refactors how the where clause is built in articlesListPrisma, but keeps the behavior the same for a defined author. The one difference is an empty-string value, which was previously passed to Prisma as a filter and is now skipped. Change B calls articlesListPrisma with a username taken from the route params, which is always a non-empty string (and it 404s before that if the user does not exist). So the author filter is applied identically before and after A. B's limit/offset handling passes undefined, which triggers the default parameters, unaffected by A. The two changes do not duplicate each other's work and stay correct together.",
+      "cost_usd": 0.010498,
       "timings": {
         "graph": 0.4,
-        "llm": 3.3
+        "llm": 2.9
       },
       "usage": {
         "input_tokens": 4019,
-        "output_tokens": 305
+        "output_tokens": 246
       }
     },
     {
@@ -1777,22 +2129,22 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 3.2,
+      "seconds": 320.8,
       "confidence": 0.97,
       "category": null,
       "involved_symbols": [
         "countComments",
         "countTagArticles"
       ],
-      "explanation": "Change A adds a comment-count endpoint under /api/articles/:slug/comments/count, while Change B adds an article-count endpoint under /api/tags/:tag/count. They use different routes, different controllers, and different tables apart from both reading the article table read-only. There is no shared state, no route collision (different routers and paths), and no duplicated purpose. Both are independent additive count endpoints and remain correct together.",
-      "cost_usd": 0.009782,
+      "explanation": "The two changes add unrelated count endpoints: one counts comments for an article slug under /api/articles/:slug/comments/count, the other counts articles for a tag under /api/tags/:tag/count. They live in different controllers and routers with distinct paths, and both only read from the article table without any shared state or mutated assumptions. No route collision, behavioral interaction, or duplicated intent exists.",
+      "cost_usd": 0.009712,
       "timings": {
         "graph": 0.4,
-        "llm": 2.5
+        "llm": 320.2
       },
       "usage": {
         "input_tokens": 3971,
-        "output_tokens": 184
+        "output_tokens": 177
       }
     },
     {
@@ -1802,22 +2154,21 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 3.8,
+      "seconds": 4,
       "confidence": 0.93,
       "category": null,
       "involved_symbols": [
-        "userUpdatePrisma",
-        "UpdateFields"
+        "userUpdatePrisma"
       ],
-      "explanation": "Change A only adds JSDoc comments to userUpdatePrisma, with no behavioral change. Change B adds trimming of bio and image inside the function body and an integration test. The JSDoc says 'Updates the given fields of a user' and the UpdateFields comment says 'Fields left out are kept'. B's trimming preserves that: when bio or image is undefined, `info.bio?.trim()` yields undefined, and Prisma treats undefined as 'leave unchanged', so omitted fields are still kept. The docs remain accurate, there is no runtime breakage, and the changes do not duplicate each other's intent.",
-      "cost_usd": 0.006392,
+      "explanation": "Change A only adds JSDoc comments to userUpdatePrisma and does not alter behavior. Change B adds trimming of bio and image inside the function body and a test. They merge cleanly and don't interact at runtime. The one wrinkle is that A's doc says 'Fields left out are kept', and B's `{ ...info, bio: info.bio?.trim() }` sets bio/image to undefined when omitted, which Prisma treats as 'do nothing', so the documented behavior still holds. The docs don't describe trimming, so they are incomplete but not contradictory, and no intent overlap exists since A is purely documentation.",
+      "cost_usd": 0.006342,
       "timings": {
         "graph": 0.4,
-        "llm": 3.1
+        "llm": 3.4
       },
       "usage": {
         "input_tokens": 1901,
-        "output_tokens": 259
+        "output_tokens": 254
       }
     },
     {
@@ -1827,8 +2178,8 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.2,
-      "confidence": 0.8,
+      "seconds": 5.2,
+      "confidence": 0.85,
       "category": "runtime",
       "involved_symbols": [
         "getTagCounts",
@@ -1837,15 +2188,15 @@
         "articlesListPrisma",
         "articleFeedPrisma"
       ],
-      "explanation": "Change A soft-deletes articles (sets deletedAt) and filters deleted articles out of the article get, list, and feed queries. Change B adds /api/tags/counts, which counts articles per tag via prisma.tag._count.article without filtering deletedAt. After merge, a soft-deleted article keeps its tag relations, so its tags are still counted: a tag used only by deleted articles would show a nonzero count (the count > 0 filter would not remove it), and counts for shared tags would be inflated. The test in B passes only because there is no deletion in it. This is a concrete runtime inconsistency: the tag counts endpoint reports hidden, deleted articles.",
-      "cost_usd": 0.014162,
+      "explanation": "A soft-deletes articles (sets deletedAt) and filters deleted ones out of the get/list/feed queries. B's new getTagCounts counts articles per tag via prisma.tag.findMany with _count of the article relation, without filtering deletedAt. After merge, a soft-deleted article still has its tag relations, so it still contributes to /api/tags/counts. Scenario: Alice creates article 'One' with tag 'y', then deletes it; the article is hidden from every other endpoint, but GET /api/tags/counts still reports {tag:'y', count:1} (the filter count > 0 does not help). Before A, hard delete removed the row and the count dropped, so B's code was correct alone; A breaks the assumption that existing article rows are live.",
+      "cost_usd": 0.014462,
       "timings": {
         "graph": 0.4,
-        "llm": 3.5
+        "llm": 4.5
       },
       "usage": {
         "input_tokens": 5566,
-        "output_tokens": 303
+        "output_tokens": 333
       }
     },
     {
@@ -1856,7 +2207,7 @@
       "predicted_conflict": true,
       "outcome": "true_positive",
       "seconds": 4.6,
-      "confidence": 0.85,
+      "confidence": 0.88,
       "category": "intent",
       "involved_symbols": [
         "src/utils/normalizeEmail.ts#normalizeEmail",
@@ -1865,15 +2216,15 @@
         "src/utils/db/user/userCreatePrisma.ts#userCreatePrisma",
         "src/utils/db/user/userGetEmailPrisma.ts#userGetEmailPrisma"
       ],
-      "explanation": "Both changes solve the same problem: making email handling case- and whitespace-insensitive. A normalizes in the controllers (register and login) via a new normalizeEmail helper; B normalizes inside the DB helpers (userCreatePrisma and userGetEmailPrisma) with inline trim().toLowerCase(). Merged, every email is normalized twice with two different implementations of the same logic. The result is idempotent, so behavior is correct, but the work is duplicated and one layer should be removed. The two new integration tests also cover essentially the same behavior.",
-      "cost_usd": 0.012918,
+      "explanation": "Both changes solve the same problem, making email handling case/whitespace-insensitive, in different layers. A adds a normalizeEmail util and applies it in the register and login controllers. B inlines trim().toLowerCase() inside userCreatePrisma and userGetEmailPrisma. Merged, every email is normalized twice (controller, then DB helper), and the normalization logic is duplicated in two places that could drift apart. The behavior is idempotent and harmless, but one of the two approaches should be removed. Both also add overlapping integration tests for the same scenario.",
+      "cost_usd": 0.012948,
       "timings": {
         "graph": 0.4,
         "llm": 3.9
       },
       "usage": {
         "input_tokens": 4669,
-        "output_tokens": 358
+        "output_tokens": 361
       }
     },
     {
@@ -1883,8 +2234,8 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 5,
-      "confidence": 0.8,
+      "seconds": 5.1,
+      "confidence": 0.72,
       "category": "runtime",
       "involved_symbols": [
         "articleUpdatePrisma",
@@ -1892,15 +2243,15 @@
         "recordViewPrisma",
         "RecentView"
       ],
-      "explanation": "Change A makes article slugs mutable on title change. Change B adds RecentView rows keyed by article slug, but RecentView has no foreign key to Article, so there is no cascade or update of its slug column. In the merged code, if Bob views 'old-title' (recording RecentView(bob, 'old-title')) and the author then renames the article to 'New Title', the article's slug becomes 'new-title' while the RecentView row still points at 'old-title'. recentArticlesPrisma looks up articles by those stored slugs, so the renamed article silently disappears from Bob's recent list; viewing it again under the new slug would add a separate entry. B's design relies on slug being a stable identifier (true before A, since the old code never changed slugs), and A breaks that assumption. Neither change misbehaves alone, so this is a runtime interaction conflict. It is mild, since the failure is silent staleness in a recent-views list, but concrete.",
-      "cost_usd": 0.016998,
+      "explanation": "Change A makes article slugs mutable on title change. Change B adds a RecentView table keyed by (username, slug) with no foreign key to Article (unlike Comment, which has onDelete: Cascade and references Article.slug, so comments follow a rename via ON UPDATE CASCADE). Before A, slugs never changed, so RecentView.slug always stayed valid for the life of an article. After A, renaming an article from 'old-title' to 'new-title' leaves RecentView rows pointing at 'old-title'. In recentArticlesPrisma, those rows are silently dropped via `bySlug.get(view.slug) ?? []`, so a user's recently viewed list loses renamed articles. Because the table has a cap of 10 rows, stale rows also consume slots in `take: KEEP`, crowding out valid entries. Also, if another article later takes the old slug, the stale view would wrongly point at it. This is a behavior neither change causes alone: B assumes slugs are stable identifiers, which A breaks.",
+      "cost_usd": 0.017308,
       "timings": {
         "graph": 0.4,
-        "llm": 4.4
+        "llm": 4.5
       },
       "usage": {
         "input_tokens": 6599,
-        "output_tokens": 380
+        "output_tokens": 411
       }
     },
     {
@@ -1910,22 +2261,22 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.5,
+      "seconds": 5.5,
       "confidence": 0.9,
       "category": "runtime",
       "involved_symbols": [
         "src/utils/db/article/articleListPrisma.ts#articlesListPrisma",
         "src/controllers/articlesController/articlesList.ts#articlesList"
       ],
-      "explanation": "After merging, the list query orders by createdAt (Change A) but the new ?after= cursor in Change B filters on updatedAt < cursor.updatedAt. The cursor assumes the list is sorted by updatedAt, so the filter and the ordering no longer agree. Concrete scenario: article X is created first and later edited, so its updatedAt is the newest; articles Y and Z are created after X. Listing by createdAt gives Z, Y, X. With ?limit=1&after=<Z>, the cursor is Z.updatedAt and the filter is updatedAt < Z.updatedAt; this excludes X (edited later) and Y, so pagination skips articles. If an older-created article was edited, it can also be skipped or duplicated across pages. B's own test (updatedAt pinned, createdAt left as creation time) would also break, but the merged result is a runtime pagination bug neither change causes alone.",
-      "cost_usd": 0.01534,
+      "explanation": "In the merged articlesListPrisma, ordering is by createdAt desc (Change A), but the new ?after= cursor filter still compares updatedAt < cursor.updatedAt (Change B). B's cursor logic assumes the list is ordered by updatedAt. Concrete scenario: articles One(created Jan 1), Two(Jan 2), Three(Jan 3); if One is edited so its updatedAt is newest, list order is Three, Two, One by createdAt. With ?after=two, cursor.updatedAt is Two's updated time, and One's updatedAt is later, so One is excluded even though it comes after Two in the list; articles with older updatedAt but newer createdAt (e.g. Three edited never but created later) could instead be returned again after the cursor. So pagination skips or repeats items. B's new test passes only because createdAt and updatedAt are pinned in the same order.",
+      "cost_usd": 0.0153,
       "timings": {
-        "graph": 0.4,
-        "llm": 3.8
+        "graph": 0.8,
+        "llm": 4.4
       },
       "usage": {
         "input_tokens": 5720,
-        "output_tokens": 390
+        "output_tokens": 386
       }
     },
     {
@@ -1935,24 +2286,24 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 4.2,
+      "seconds": 5,
       "confidence": 0.8,
-      "category": "runtime",
+      "category": "intent",
       "involved_symbols": [
         "userUpdateValidator",
         "userSetImage",
         "userUpdatePrisma",
         "src/routes/api/user.ts"
       ],
-      "explanation": "Change A adds an https-only rule for the image field, but only inside userUpdateValidator, which guards PUT /api/user. Change B adds a new endpoint PUT /api/user/image that bypasses that validator and writes the image directly via userUpdatePrisma. In the merged code, a user can set image to \"http://...\" or any arbitrary string through the new endpoint, defeating the rule A introduced (\"Require https images on user update\"). B's own test only checks https but its controller accepts any string. This is a concrete scenario where the intended invariant is violated by combining the two changes: the rule is enforced on one path to setting the image and not the other.",
-      "cost_usd": 0.010332,
+      "explanation": "Change A adds an https-only rule for the image field, but only in userUpdateValidator, which guards PUT /api/user. Change B adds a new endpoint PUT /api/user/image that writes the image directly through userUpdatePrisma, bypassing that validator. In the merged code, a client can set user.image to 'http://...' (or any string like 'javascript:...') via /api/user/image, so the invariant 'images must be https' that A intends is not enforced. B's test even uses an https URL but accepts any string. The rule A introduced is thus inconsistent across the two paths that set the image.",
+      "cost_usd": 0.010132,
       "timings": {
-        "graph": 0.4,
-        "llm": 3.5
+        "graph": 0.9,
+        "llm": 3.8
       },
       "usage": {
         "input_tokens": 3726,
-        "output_tokens": 288
+        "output_tokens": 268
       }
     },
     {
@@ -1962,23 +2313,203 @@
       "run": 3,
       "predicted_conflict": true,
       "outcome": "true_positive",
-      "seconds": 3.7,
-      "confidence": 0.8,
+      "seconds": 4.5,
+      "confidence": 0.85,
       "category": "intent",
       "involved_symbols": [
         "src/controllers/userController/userFavorites.ts#userFavorites",
         "src/controllers/articlesController/articlesList.ts#articlesList",
         "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
       ],
-      "explanation": "Both changes add a way for the current user to list the articles they have favorited. A adds a dedicated GET /api/user/favorites endpoint, while B adds a ?favorited=me shortcut to GET /api/articles. Both call the same articlesListPrisma with the current user's username as the favorited filter and render with articleViewer, and both ship near-identical integration tests asserting the same behavior. Nothing breaks at runtime, but the merged code exposes two endpoints for the same feature, so one of them is redundant and should be removed.",
-      "cost_usd": 0.013978,
+      "explanation": "Both changes add a way for the current user to list their own favorited articles: A adds a dedicated GET /api/user/favorites endpoint, while B adds ?favorited=me to the existing GET /api/articles endpoint. Both end up calling articlesListPrisma with the current user's username as the favorited filter, mapping through articleViewer, and returning the same response shape. Each ships a near-identical integration test (same setup, same expected result, same 401 behavior). The merged code exposes two redundant APIs for the same feature, so one of them should be removed. Runtime behavior is correct for each, but the duplication of intent is real.",
+      "cost_usd": 0.014278,
       "timings": {
-        "graph": 0.4,
-        "llm": 3
+        "graph": 0.6,
+        "llm": 3.5
       },
       "usage": {
         "input_tokens": 5544,
-        "output_tokens": 289
+        "output_tokens": 319
+      }
+    },
+    {
+      "id": "rw-035",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.9,
+      "confidence": 0.72,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/controllers/tagsController/getTag.ts#getTag"
+      ],
+      "explanation": "Change A makes tagsCreatePrisma store tag names trimmed and lowercase. Change B adds getTag, which does an exact-match lookup by tagName using the raw req.params.tag without normalizing it. In the merged code, tags are stored lowercase, but a request like GET /api/tags/Dragons (or any mixed-case form of a stored tag) will return 404 because the lookup is case-sensitive and does not apply the same normalization. B was written assuming tag names are stored as given, while A changes that assumption. B's own tests only use lowercase names, so they pass, but the merged endpoint behaves inconsistently with how tags are now normalized (a user who created an article with tag 'Dragons' would get 404 looking it up by 'Dragons').",
+      "cost_usd": 0.041228,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.1
+      },
+      "usage": {
+        "input_tokens": 18889,
+        "output_tokens": 345
+      }
+    },
+    {
+      "id": "rw-036",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.8,
+      "confidence": 0.96,
+      "category": null,
+      "involved_symbols": [
+        "createComment",
+        "commentCreatePrisma"
+      ],
+      "explanation": "Change A adds logger.debug/error calls to controllers and middleware (plus a tag lowercase change in tagsCreatePrisma). Change B only trims comment bodies in commentCreatePrisma. The only link is createComment calling commentCreatePrisma; A's edit to createComment is purely logging and does not touch the comment body or its handling. The two changes solve different problems and behave correctly together; B's new integration test should still pass since A doesn't alter comment content.",
+      "cost_usd": 0.038646,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.1
+      },
+      "usage": {
+        "input_tokens": 18293,
+        "output_tokens": 206
+      }
+    },
+    {
+      "id": "rw-037",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.2,
+      "confidence": 0.93,
+      "category": "runtime",
+      "involved_symbols": [
+        "slugfy",
+        "router.get(\"/:slug([a-z0-9-]+)\", auth.optionalAuthenticate, articles.articlesGet)",
+        "articles.articlesGet",
+        "articles.articlesCreate"
+      ],
+      "explanation": "Change A makes slugfy produce slugs with accented and non-Latin letters (e.g. 'crème-brûlée', 'привет-мир'). Change B restricts the GET /api/articles/:slug route to the pattern [a-z0-9-]+, assuming slugs only contain ASCII lowercase letters, digits and dashes. Once merged, any article created with a non-ASCII title gets a slug that the GET route will never match, so fetching it returns 404. Neither change alone breaks this: A alone serves the slugs fine, B alone matches ASCII-only slugs. B's new test passes only because 'Hello World' is ASCII, and A's tests only check the created slug, not retrieval. The other routes (PUT/DELETE /:slug) still accept them, so the API becomes inconsistent too.",
+      "cost_usd": 0.009202,
+      "timings": {
+        "graph": 0.4,
+        "llm": 4.5
+      },
+      "usage": {
+        "input_tokens": 2716,
+        "output_tokens": 377
+      }
+    },
+    {
+      "id": "rw-038",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.3,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "commentCreateValidator",
+        "articlesCreateValidator",
+        "MAX_COMMENT_CHARS"
+      ],
+      "explanation": "Change A adds a 1,000-character limit to comment bodies in commentCreateValidator; Change B adds a 20,000-character limit to article bodies in articlesCreateValidator. They touch different validators, different routes, different constants, and different tests. The only link is that both validators are used in routes/api/articles.ts, but on different endpoints (comments vs article creation). No shared state or assumptions are broken, and they do not solve the same problem.",
+      "cost_usd": 0.009604,
+      "timings": {
+        "graph": 0.5,
+        "llm": 2.4
+      },
+      "usage": {
+        "input_tokens": 3722,
+        "output_tokens": 216
+      }
+    },
+    {
+      "id": "rw-039",
+      "type": "intent",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 3.5,
+      "confidence": 0.8,
+      "category": "intent",
+      "involved_symbols": [
+        "articlesCreateValidator",
+        "articleCreatePrisma",
+        "MAX_TITLE_CHARS"
+      ],
+      "explanation": "Both changes impose a title length limit on article creation in different ways: A rejects titles over 100 characters in the create validator (400 error), while B silently truncates titles to 120 characters in the DB layer. The merged code has contradictory policies on the same problem (overly long titles). B's truncation is effectively dead code on the create path, since the validator rejects anything over 100 before the 120-char cut can apply; they also disagree on the limit (100 vs 120) and the behavior (reject vs truncate). Each change's own tests still pass, but one of the two approaches should be removed or reconciled, which is an intent conflict.",
+      "cost_usd": 0.007884,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.8
+      },
+      "usage": {
+        "input_tokens": 2577,
+        "output_tokens": 273
+      }
+    },
+    {
+      "id": "rw-040",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.6,
+      "confidence": 0.8,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/tag/tagsCreatePrisma.ts#tagsCreatePrisma",
+        "src/controllers/tagsController/getTag.ts#getTag",
+        "src/utils/db/article/articleListPrisma.ts#articlesListPrisma"
+      ],
+      "explanation": "A normalizes tag names to trimmed lowercase on write and lowercases the tag filter in the article list query, but it does not touch B's new getTag lookup. B's getTag does findUnique on the raw req.params.tag. After merge, GET /api/tags/React returns 404 even though a tag stored as 'react' exists, because lookup is case-sensitive while storage is now always lowercase. This is inconsistent with the list filter, which A made case-insensitive via toLowerCase. B's endpoint was written assuming tag names are looked up verbatim, and A changed the storage invariant. B's own tests use lowercase names so they pass, but a user passing a mixed-case tag (or with whitespace) gets a wrong 404 that neither change causes alone.",
+      "cost_usd": 0.011238,
+      "timings": {
+        "graph": 0.4,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 3749,
+        "output_tokens": 374
+      }
+    },
+    {
+      "id": "rw-041",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 3.4,
+      "confidence": 0.97,
+      "category": null,
+      "involved_symbols": [
+        "src/view/articleViewer.ts#articleViewer",
+        "src/utils/slugfy.ts#slugfy"
+      ],
+      "explanation": "Change A alters how tags are sorted in the article view (articleViewer), while Change B truncates slugs to 60 characters in slugfy. They touch unrelated code paths, with no shared symbols or data flow between them. The tests are independent too: one checks tag ordering, the other checks slug length. The tag sort doesn't use slugs, and slug truncation doesn't affect tag names.",
+      "cost_usd": 0.006502,
+      "timings": {
+        "graph": 0.4,
+        "llm": 2.7
+      },
+      "usage": {
+        "input_tokens": 2241,
+        "output_tokens": 202
       }
     }
   ]

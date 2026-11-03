@@ -22,6 +22,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { acquireDbLock } from "./lib/dbLock.mjs";
 
 const LOG_TAIL_LINES = 150;
 const MANIFEST_ORDER = [
@@ -466,6 +467,8 @@ function loadPairs() {
 const pairs = loadPairs();
 fs.mkdirSync(outDir, { recursive: true });
 ensureWorktree();
+// Every case runs tests against the database; hold it for the whole run.
+acquireDbLock("verify.mjs");
 
 // Read from the repo: the worktree may not have its dependencies installed yet.
 const versions = target.versions

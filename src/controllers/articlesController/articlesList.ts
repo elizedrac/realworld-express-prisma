@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ParsedQs } from "qs";
+import articleGetPrisma from "../../utils/db/article/articleGetPrisma";
 import articlesListPrisma from "../../utils/db/article/articleListPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
@@ -32,10 +33,19 @@ export default async function articlesList(
     req.query
   );
   const username = req.auth?.user?.username;
+  const after = req.query.after ? String(req.query.after) : undefined;
 
   try {
     // Get current user
     const currentUser = await userGetPrisma(username);
+
+    // ?after=<slug> continues the list after that article.
+    let before: Date | undefined;
+    if (after) {
+      const cursor = await articleGetPrisma(after);
+      if (!cursor) return res.sendStatus(404);
+      before = cursor.updatedAt;
+    }
 
     // Get the articles
     const articles = await articlesListPrisma(
@@ -43,7 +53,8 @@ export default async function articlesList(
       author,
       favorited,
       limit,
-      offset
+      offset,
+      before
     );
 
     // Create articles view

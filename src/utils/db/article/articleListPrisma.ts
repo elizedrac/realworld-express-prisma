@@ -5,13 +5,15 @@ export default async function articlesListPrisma(
   authorUsername?: string,
   favorited?: string,
   limit = 20,
-  offset = 0
+  offset = 0,
+  before?: Date
 ) {
   const articles = await prisma.article.findMany({
     where: {
       authorUsername,
       tagList: tag ? { some: { tagName: tag } } : undefined,
       favoritedBy: favorited ? { some: { username: favorited } } : undefined,
+      updatedAt: before ? { lt: before } : undefined,
     },
     take: limit,
     skip: offset,

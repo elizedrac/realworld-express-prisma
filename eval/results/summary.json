@@ -1,5 +1,5 @@
 {
-  "written_at": "2026-11-03T04:10:22.844Z",
+  "written_at": "2026-11-03T14:59:27.949Z",
   "target": "realworld-express-prisma",
   "versions": "v22.23.4\nVersion 4.9.4",
   "valid": 34,
@@ -175,11 +175,11 @@
     },
     {
       "id": "rw-022",
-      "type": "negative",
-      "observed": "none",
+      "type": "runtime",
+      "observed": "oracle_failure",
       "valid": true,
       "problems": [],
-      "verified_at": "2026-11-03T03:55:05.609Z"
+      "verified_at": "2026-11-03T14:59:27.848Z"
     },
     {
       "id": "rw-023",

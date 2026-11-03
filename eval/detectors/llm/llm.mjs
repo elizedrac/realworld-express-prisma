@@ -10,13 +10,20 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { buildGraph } from "./graph.mjs";
 
 export const MODEL = "claude-sonnet-5-5";
 // Claude Sonnet 5.5 first-party prices, USD per million tokens.
 const PRICE = { input: 2, output: 10 };
 const CONTEXT_LINES = 10;
+// Every input is capped, in characters.
 const MAX_DIFF_CHARS = 40_000;
+const MAX_GRAPH_CHARS = 30_000;
+const MAX_TEXT_CHARS = 4_000; // the task and each commit message
 const MAX_TOKENS = 4_000;
+// A request that takes longer is retried, so one hung call does not stall a case.
+const REQUEST_TIMEOUT_MS = 120_000;
+const MAX_RETRIES = 2;
 
 export const SYSTEM_PROMPT = `You review two sets of changes made at the same time to the same codebase:
 - Change A: a coding agent's work in progress.
@@ -29,7 +36,8 @@ They conflict if either:
 - runtime: the merged code behaves wrongly in a way neither change does alone,
   e.g. one change breaks an assumption the other relies on.
 - intent: both changes solve the same problem in different ways, so the
-  merged code duplicates or contradicts itself.
+  merged code duplicates or contradicts itself. This is a conflict even when
+  running the work twice is harmless: one of the two should be removed.
 
 They do not conflict if they touch related code but stay correct together.
 Most concurrent changes are fine. Only flag a conflict if you can describe a
@@ -74,12 +82,12 @@ function git(repo, args) {
 
 // Cut at the last full line under the cap, and say so, so the model knows it
 // is not seeing everything.
-function capped(text) {
-  if (text.length <= MAX_DIFF_CHARS) return { text, truncated: false };
-  const cut = text.slice(0, MAX_DIFF_CHARS);
-  const kept = cut.slice(0, cut.lastIndexOf("\n") + 1);
+function capped(text, max) {
+  if (text.length <= max) return { text, truncated: false };
+  const cut = text.slice(0, max);
+  const kept = cut.slice(0, cut.lastIndexOf("\n") + 1) || cut;
   return {
-    text: `${kept}[diff truncated: ${
+    text: `${kept}[truncated: ${
       text.length - kept.length
     } more characters not shown]\n`,
     truncated: true,
@@ -88,14 +96,18 @@ function capped(text) {
 
 function diff(repo, base, branch) {
   return capped(
-    git(repo, ["diff", `-U${CONTEXT_LINES}`, `${base}...${branch}`])
+    git(repo, ["diff", `-U${CONTEXT_LINES}`, `${base}...${branch}`]),
+    MAX_DIFF_CHARS
   );
 }
 
 function commitMessages(repo, base, branch) {
-  return git(repo, ["log", "--reverse", "--format=%B", `${base}..${branch}`])
-    .trim()
-    .replace(/\n{3,}/g, "\n\n");
+  return capped(
+    git(repo, ["log", "--reverse", "--format=%B", `${base}..${branch}`])
+      .trim()
+      .replace(/\n{3,}/g, "\n\n") + "\n",
+    MAX_TEXT_CHARS
+  );
 }
 
 function loadApiKey() {
@@ -109,33 +121,39 @@ function loadApiKey() {
     fail("ANTHROPIC_API_KEY is not set and eval/.env does not provide it");
 }
 
-// Builds the user message for the requested inputs.
+// Builds the user message for the requested inputs. Returns which inputs were
+// cut and how long the graph took.
 export function buildPrompt({ repo, base, a, b, task }, include) {
-  const diffA = diff(repo, base, a);
-  const diffB = diff(repo, base, b);
-  const parts = [
-    `<diff_a>\n${diffA.text}</diff_a>`,
-    `<diff_b>\n${diffB.text}</diff_b>`,
+  const inputs = [
+    ["diff_a", diff(repo, base, a)],
+    ["diff_b", diff(repo, base, b)],
   ];
+  let graphSeconds;
+  if (include.graph) {
+    const started = Date.now();
+    let graph;
+    try {
+      graph = buildGraph({ repo, base, a, b, depth: include.depth });
+    } catch (err) {
+      fail(`graph failed: ${err.message}`);
+    }
+    graphSeconds = Math.round((Date.now() - started) / 100) / 10;
+    inputs.push(["related_code", capped(graph, MAX_GRAPH_CHARS)]);
+  }
   if (include.intent) {
     if (!task) fail("this variant needs --task");
-    parts.push(
-      `<agent_task>\n${task}\n</agent_task>`,
-      `<commit_message_a>\n${commitMessages(
-        repo,
-        base,
-        a
-      )}\n</commit_message_a>`,
-      `<commit_message_b>\n${commitMessages(
-        repo,
-        base,
-        b
-      )}\n</commit_message_b>`
+    inputs.push(
+      ["agent_task", capped(`${task.trim()}\n`, MAX_TEXT_CHARS)],
+      ["commit_message_a", commitMessages(repo, base, a)],
+      ["commit_message_b", commitMessages(repo, base, b)]
     );
   }
   return {
-    text: parts.join("\n\n"),
-    truncated: diffA.truncated || diffB.truncated,
+    text: inputs
+      .map(([tag, { text }]) => `<${tag}>\n${text}</${tag}>`)
+      .join("\n\n"),
+    truncated: inputs.filter(([, v]) => v.truncated).map(([tag]) => tag),
+    graphSeconds,
   };
 }
 
@@ -156,7 +174,10 @@ export async function run(include) {
   loadApiKey();
 
   const prompt = buildPrompt(args, include);
-  const client = new Anthropic();
+  const client = new Anthropic({
+    timeout: REQUEST_TIMEOUT_MS,
+    maxRetries: MAX_RETRIES,
+  });
   const started = Date.now();
   const response = await client.messages.create({
     model: MODEL,
@@ -198,7 +219,10 @@ export async function run(include) {
         explanation: answer.explanation,
         cost_usd:
           (input_tokens * PRICE.input + output_tokens * PRICE.output) / 1e6,
-        timings: { llm: seconds },
+        timings:
+          prompt.graphSeconds === undefined
+            ? { llm: seconds }
+            : { graph: prompt.graphSeconds, llm: seconds },
         usage: { input_tokens, output_tokens },
         model: response.model,
         truncated: prompt.truncated,

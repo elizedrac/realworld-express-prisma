@@ -467,8 +467,9 @@ const pairs = loadPairs();
 fs.mkdirSync(outDir, { recursive: true });
 ensureWorktree();
 
+// Read from the repo: the worktree may not have its dependencies installed yet.
 const versions = target.versions
-  ? run(target.versions, workdir).output.trim()
+  ? run(target.versions, repo).output.trim()
   : null;
 const baseCache = new Map();
 const summary = [];

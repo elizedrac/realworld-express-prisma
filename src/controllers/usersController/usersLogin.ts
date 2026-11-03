@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import createUserToken from "../../utils/auth/createUserToken";
 import userGetEmailPrisma from "../../utils/db/user/userGetEmailPrisma";
 import { compareWithHash } from "../../utils/hashPasswords";
+import normalizeEmail from "../../utils/normalizeEmail";
 import userViewer from "../../view/userViewer";
 
 /**
@@ -14,7 +15,8 @@ export default async function userLogin(
   res: Response,
   next: NextFunction
 ) {
-  const { email, password } = req.body.user;
+  const { password } = req.body.user;
+  const email = normalizeEmail(req.body.user.email);
   try {
     // Get the user with given email
     const user = await userGetEmailPrisma(email);

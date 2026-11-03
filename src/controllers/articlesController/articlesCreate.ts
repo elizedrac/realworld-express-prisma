@@ -4,6 +4,7 @@ import { Request } from "express-jwt";
 import articleCreatePrisma from "../../utils/db/article/articleCreatePrisma";
 import tagsCreatePrisma from "../../utils/db/tag/tagsCreatePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
+import logger from "../../utils/logger";
 import articleViewer from "../../view/articleViewer";
 
 interface Article {
@@ -46,6 +47,7 @@ export default async function articlesCreate(
       tags,
       currentUser.username
     );
+    logger.info(`article ${article.slug} created by ${currentUser.username}`);
 
     // Create article view
     const articleView = articleViewer(article, currentUser);

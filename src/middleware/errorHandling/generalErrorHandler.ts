@@ -17,6 +17,7 @@ export default function generalErrorHandler(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction
 ) {
+  logger.debug("generalErrorHandler");
   // This is an unknown type of error.
   logger.error(`Unhandled error in generalErrorHandler`);
   logger.error(`${err.message}\n${err.name}\n${err.stack}`);

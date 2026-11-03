@@ -16,6 +16,7 @@ export default async function prismaErrorHandler(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("prismaErrorHandler");
   if (!(err instanceof PrismaClientKnownRequestError)) return next(err);
 
   logger.debug(`treating PrismaKnowRequestError with code ${err.code}`);

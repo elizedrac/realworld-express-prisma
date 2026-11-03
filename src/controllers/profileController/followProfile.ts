@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import userFollowProfilePrisma from "../../utils/db/user/userFollowProfilePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import profileViewer from "../../view/profileViewer";
+import logger from "../../utils/logger";
 
 /**
  * Profile controller that adds the username in the parameters to the current user followers list.
@@ -17,6 +18,7 @@ export default async function followProfile(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("followProfile");
   const username = req.params.username;
   const currentUsername = req.auth?.user?.username;
   try {
@@ -32,6 +34,7 @@ export default async function followProfile(
 
     return res.json({ profile: profileView });
   } catch (error) {
+    logger.error("followProfile failed", { error: error });
     return next(error);
   }
 }

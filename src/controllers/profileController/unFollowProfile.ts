@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import userUnFollowProfilePrisma from "../../utils/db/user/userUnFollowProfilePrisma";
 import profileViewer from "../../view/profileViewer";
+import logger from "../../utils/logger";
 
 /**
  * Profile controller that removes the username in the parameters to the current user followers list.
@@ -16,6 +17,7 @@ export default async function unFollowProfile(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("unFollowProfile");
   const username = req.params.username;
   const currentUsername = req.auth?.user?.username;
 
@@ -31,6 +33,7 @@ export default async function unFollowProfile(
     const profileView = profileViewer(profile, currentUser);
     return res.json({ profile: profileView });
   } catch (error) {
+    logger.error("unFollowProfile failed", { error: error });
     return next(error);
   }
 }

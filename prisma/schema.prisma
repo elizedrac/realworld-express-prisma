@@ -48,6 +48,14 @@ model Comment {
   articleSlug    String /// Article slug that this comment belongs to.
 }
 
+model RecentView {
+  username String /// User who viewed the article.
+  slug     String /// Slug of the viewed article.
+  viewedAt DateTime @default(now())
+
+  @@id([username, slug])
+}
+
 model Tag {
   tagName String    @id
   article Article[] /// List of articles that have this tag.

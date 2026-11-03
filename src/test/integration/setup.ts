@@ -7,7 +7,7 @@ logger.silent = true;
 // Every test starts from an empty database. CASCADE also clears the implicit many-to-many tables.
 beforeEach(async () => {
   await prisma.$executeRawUnsafe(
-    'TRUNCATE TABLE "Comment", "Article", "Tag", "User" RESTART IDENTITY CASCADE'
+    'TRUNCATE TABLE "RecentView", "Comment", "Article", "Tag", "User" RESTART IDENTITY CASCADE'
   );
 });
 

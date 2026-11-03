@@ -9,6 +9,7 @@ export default async function articlesListPrisma(
 ) {
   const articles = await prisma.article.findMany({
     where: {
+      deletedAt: null,
       authorUsername,
       tagList: tag ? { some: { tagName: tag } } : undefined,
       favoritedBy: favorited ? { some: { username: favorited } } : undefined,

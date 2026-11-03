@@ -1,8 +1,10 @@
 import prisma from "../prisma";
 
 export default async function articleDeletePrisma(slug: string) {
-  const article = await prisma.article.delete({
+  await prisma.comment.deleteMany({ where: { articleSlug: slug } });
+  const article = await prisma.article.update({
     where: { slug },
+    data: { deletedAt: new Date() },
     include: {
       author: { include: { followedBy: true } },
       tagList: true,

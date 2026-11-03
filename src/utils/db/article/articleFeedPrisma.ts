@@ -7,6 +7,7 @@ export default async function articleFeedPrisma(
   offset = 0
 ) {
   const articles = await prisma.article.findMany({
+    where: { deletedAt: null },
     include: {
       tagList: true,
       author: {

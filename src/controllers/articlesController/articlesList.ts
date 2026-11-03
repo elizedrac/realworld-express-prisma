@@ -17,7 +17,7 @@ function parseArticleListQuery(query: ParsedQs) {
 }
 
 /**
- * Article controller that must receive a request.
+ * Lists articles, filtered by the tag, author and favorited query parameters.
  * @param req Request with an optional jwt token verified
  * @param res Response
  * @param next NextFunction
@@ -28,10 +28,15 @@ export default async function articlesList(
   res: Response,
   next: NextFunction
 ) {
-  const { tag, author, favorited, limit, offset } = parseArticleListQuery(
-    req.query
-  );
+  const { tag, author, limit, offset } = parseArticleListQuery(req.query);
+  let { favorited } = parseArticleListQuery(req.query);
   const username = req.auth?.user?.username;
+
+  // ?favorited=me means the current user.
+  if (favorited === "me") {
+    if (!username) return res.sendStatus(401);
+    favorited = username;
+  }
 
   try {
     // Get current user

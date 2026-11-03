@@ -1,5 +1,6 @@
 import prisma from "../prisma";
 
+/** Fields of a user that can be changed. Fields left out are kept. */
 interface UpdateFields {
   email?: string;
   username?: string;
@@ -8,6 +9,12 @@ interface UpdateFields {
   bio?: string;
 }
 
+/**
+ * Updates the given fields of a user.
+ * @param username username of the user to update
+ * @param info fields to change
+ * @returns the updated user, or null when no username is given
+ */
 export default async function userUpdatePrisma(
   username: string,
   info: UpdateFields

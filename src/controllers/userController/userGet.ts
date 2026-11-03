@@ -5,7 +5,7 @@ import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import userViewer from "../../view/userViewer";
 
 /**
- * User controller that gets the current user based on the JWT given.
+ * Responds with the current user, identified by the JWT, and a fresh token.
  * @param req Request with an authenticated user on the auth property.
  * @param res Response
  * @param next NextFunction

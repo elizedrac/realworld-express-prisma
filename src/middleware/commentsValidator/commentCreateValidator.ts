@@ -1,6 +1,8 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 
+const MAX_COMMENT_CHARS = 1_000;
+
 /**
  * Middleware that validates the properties of the request for the comment creation controller.
  * @param req Request
@@ -27,6 +29,12 @@ export default function commentCreateValidator(
     return res.status(400).json({
       errors: {
         body: ["there must be a body string property in the comment object"],
+      },
+    });
+  if (body.length > MAX_COMMENT_CHARS)
+    return res.status(400).json({
+      errors: {
+        body: [`comment body must be at most ${MAX_COMMENT_CHARS} characters`],
       },
     });
   next();

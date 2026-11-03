@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import createUserToken from "../../utils/auth/createUserToken";
-import userGetEmailPrisma from "../../utils/db/user/userGetEmailPrisma";
+import userFindPrisma from "../../utils/db/user/userFindPrisma";
 import { compareWithHash } from "../../utils/hashPasswords";
 import userViewer from "../../view/userViewer";
 
@@ -17,7 +17,7 @@ export default async function userLogin(
   const { email, password } = req.body.user;
   try {
     // Get the user with given email
-    const user = await userGetEmailPrisma(email);
+    const user = email ? await userFindPrisma({ email }) : null;
     if (!user) return res.sendStatus(404);
 
     // Compare the user password given with the one stored

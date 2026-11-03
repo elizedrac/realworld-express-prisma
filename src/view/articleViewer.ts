@@ -15,7 +15,10 @@ export default function articleViewer(
     ? currentUser.favorites.some((value) => value.slug === article.slug)
     : false;
 
-  const tagListView = article.tagList.map((tag) => tag.tagName).sort();
+  // Sorted ignoring case, so "React" comes after "javascript".
+  const tagListView = article.tagList
+    .map((tag) => tag.tagName)
+    .sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
 
   const authorView = profileViewer(article.author, currentUser);
 

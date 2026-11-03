@@ -2,6 +2,8 @@ import { Tag } from "@prisma/client";
 import prisma from "../prisma";
 import slugfy from "../../slugfy";
 
+const MAX_TITLE_CHARS = 120;
+
 interface RequiredFields {
   title: string;
   description: string;
@@ -13,10 +15,13 @@ export default async function articleCreatePrisma(
   tagList: Tag[],
   authorUsername: string
 ) {
-  const slug = slugfy(info.title);
+  // Very long titles make unusable slugs, so they are cut when saved.
+  const title = info.title.slice(0, MAX_TITLE_CHARS);
+  const slug = slugfy(title);
   const article = await prisma.article.create({
     data: {
       ...info,
+      title,
       slug,
       authorUsername,
       tagList: { connect: tagList },

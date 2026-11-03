@@ -4,11 +4,13 @@ import prisma from "../prisma";
 export default async function commentDeletePrisma(
   slug: string,
   id: number,
-  user: User
+  user: User,
+  asModerator = false
 ) {
-  // See if user is the author of the comment it wants to delete
+  // See if user is the author of the comment it wants to delete; moderators
+  // may delete any comment.
   await prisma.comment.findFirstOrThrow({
-    where: { id, authorUsername: user.username },
+    where: asModerator ? { id } : { id, authorUsername: user.username },
     include: { author: true },
   });
 

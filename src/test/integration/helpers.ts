@@ -32,7 +32,7 @@ export interface TestUser {
  */
 export async function registerUser(username: string): Promise<TestUser> {
   const email = `${username}@mail.com`;
-  const password = `${username}-password`;
+  const password = `${username}-passw0rd`;
   const res = await api
     .post("/api/users")
     .send({ user: { username, email, password } })

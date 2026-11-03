@@ -33,6 +33,10 @@ export default async function userRegisterValidator(
     errors.body.push("password property in user can't be empty");
   } else if (typeof password != "string") {
     errors.body.push("password property in user must be a string");
+  } else if (password.length < 8 || !/[0-9]/.test(password)) {
+    errors.body.push(
+      "password must be at least 8 characters and contain a number"
+    );
   }
 
   if (!email) {

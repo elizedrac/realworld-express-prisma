@@ -8,7 +8,11 @@ describe("POST /api/users (register)", () => {
     const res = await api
       .post("/api/users")
       .send({
-        user: { username: "alice", email: "alice@mail.com", password: "pw" },
+        user: {
+          username: "alice",
+          email: "alice@mail.com",
+          password: "passw0rd",
+        },
       })
       .expect(201);
 
@@ -41,8 +45,8 @@ describe("POST /api/users (register)", () => {
     const stored = await prisma.user.findUniqueOrThrow({
       where: { username: "alice" },
     });
-    expect(stored.password).not.toBe("alice-password");
-    expect(bcrypt.compareSync("alice-password", stored.password)).toBe(true);
+    expect(stored.password).not.toBe("alice-passw0rd");
+    expect(bcrypt.compareSync("alice-passw0rd", stored.password)).toBe(true);
   });
 
   test("rejects a duplicate username with 422", async () => {
@@ -50,7 +54,11 @@ describe("POST /api/users (register)", () => {
     const res = await api
       .post("/api/users")
       .send({
-        user: { username: "alice", email: "other@mail.com", password: "pw" },
+        user: {
+          username: "alice",
+          email: "other@mail.com",
+          password: "passw0rd",
+        },
       })
       .expect(422);
     expect(res.body.errors[0]).toMatch(/username is not unique/);
@@ -61,7 +69,11 @@ describe("POST /api/users (register)", () => {
     const res = await api
       .post("/api/users")
       .send({
-        user: { username: "bob", email: "alice@mail.com", password: "pw" },
+        user: {
+          username: "bob",
+          email: "alice@mail.com",
+          password: "passw0rd",
+        },
       })
       .expect(422);
     expect(res.body.errors[0]).toMatch(/email is not unique/);

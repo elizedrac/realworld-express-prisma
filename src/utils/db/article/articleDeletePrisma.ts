@@ -9,5 +9,6 @@ export default async function articleDeletePrisma(slug: string) {
       _count: { select: { favoritedBy: true } },
     },
   });
+  await prisma.tag.deleteMany({ where: { article: { none: {} } } });
   return article;
 }

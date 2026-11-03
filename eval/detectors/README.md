@@ -31,6 +31,8 @@ copy (use a worktree), and must print one JSON object on stdout:
 - `cost_usd` is optional, for detectors that call a paid API.
 - `timings` is optional: seconds per stage, e.g.
   `{"merge": 0.1, "typecheck": 4.2}`.
+- `usage` is optional: token counts, e.g.
+  `{"input_tokens": 3309, "output_tokens": 322}`.
 
 A non-zero exit, a timeout or output that breaks this shape is scored as an
 error and counted as "no conflict".
@@ -39,6 +41,16 @@ error and counted as "no conflict".
 
 - `merge-check`: baseline, what CI catches. Merges B into A in its own worktree
   and runs the target's typecheck and tests; needs `--target`.
+- `llm-diff`: Claude Sonnet 5.5 given the two diffs.
+- `llm-diff-intent`: the same, plus the agent's task and both commit messages.
+
+The `llm-*` detectors share `llm/llm.mjs`, so they differ only in their inputs.
+They are a second stage: the prompt says the pair already merges, typechecks and
+passes tests, so run them with `--after merge-check`. Settings: thinking off
+(`between_tools`), effort `high`, 10 lines of diff context, each diff capped at
+40,000 characters (marked when cut), structured JSON output. They read
+`ANTHROPIC_API_KEY` from the environment or from `eval/.env` (gitignored).
+Install their dependency once with `npm install --prefix eval`.
 
 ## Scoring
 
@@ -47,7 +59,19 @@ node eval/score.mjs --repo . --cases eval/cases.jsonl --detector <name> [--detec
   --target eval/targets/realworld-express-prisma.json
 ```
 
+Second stage, three runs each (the first stage must be scored first):
+
+```sh
+node eval/score.mjs --repo . --cases eval/cases.jsonl --after merge-check --runs 3 \
+  --detector llm-diff --detector llm-diff-intent
+```
+
+With `--after`, a detector runs only on the cases the first stage did not flag,
+and the scorer also reports the whole pipeline on every case, adding up both
+stages' time and cost. With `--runs`, scores are pooled across runs and each run
+is also shown on its own.
+
 Per detector it prints recall, precision, category accuracy, true/false
 positives and negatives, results by case type, and the IDs of missed cases,
-false alarms and errors. Full per-case results go to
-`results/scores/<name>.json`.
+false alarms and errors, and total, median and max time per case. Full per-case
+results go to `results/scores/<name>.json`.

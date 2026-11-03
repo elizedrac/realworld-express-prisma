@@ -16,11 +16,16 @@
 // Usage:
 //   node score.mjs --repo <path> --cases <cases.jsonl> --detector <name> [--detector <name>]...
 //                  [--case <id>]... [--target <target.json>] [--timeout 900]
+//                  [--after <name>] [--runs 1]
 //
 // Options:
 //   --detectors-dir <dir> where detectors live (default: ./detectors next to this script)
 //   --out <dir>           where scores are written (default: ./results/scores)
 //   --target <file>       passed through to detectors that need the repo's commands
+//   --after <name>        second stage: run only on the cases <name> did not flag,
+//                         using its saved scores, and also score the whole
+//                         pipeline (<name>, then this detector) on every case
+//   --runs <n>            run each detector n times; scores are pooled across runs
 
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
@@ -39,6 +44,8 @@ const { values: args } = parseArgs({
     timeout: { type: "string", default: "900" },
     "detectors-dir": { type: "string" },
     out: { type: "string" },
+    after: { type: "string" },
+    runs: { type: "string", default: "1" },
   },
 });
 
@@ -51,6 +58,9 @@ if (!args.repo || !args.cases || !args.detector?.length)
   fail("--repo, --cases and at least one --detector are required");
 const timeoutSeconds = Number(args.timeout);
 if (!(timeoutSeconds > 0)) fail("--timeout must be a positive number");
+const runs = Number(args.runs);
+if (!Number.isInteger(runs) || runs < 1)
+  fail("--runs must be a positive integer");
 
 const evalDir = path.dirname(new URL(import.meta.url).pathname);
 const repo = path.resolve(args.repo);
@@ -69,6 +79,23 @@ let cases = fs
   .map((l) => JSON.parse(l));
 if (args.case?.length) cases = cases.filter((c) => args.case.includes(c.id));
 if (cases.length === 0) fail("no matching cases");
+
+// With --after, the first stage's saved rows decide which cases reach this one.
+let firstStage = null;
+if (args.after) {
+  const file = path.join(outDir, `${args.after}.json`);
+  if (!fs.existsSync(file))
+    fail(`no saved scores for ${args.after} at ${file}; score it first`);
+  const saved = JSON.parse(fs.readFileSync(file, "utf8"));
+  if ((saved.runs?.length ?? 1) !== 1)
+    fail(`${args.after} must be scored with a single run to be a first stage`);
+  firstStage = new Map(saved.rows.map((row) => [row.id, row]));
+  for (const c of cases) {
+    const row = firstStage.get(c.id);
+    if (!row) fail(`${args.after} has no saved result for ${c.id}`);
+    if (row.error) fail(`${args.after} errored on ${c.id}; rescore it first`);
+  }
+}
 
 for (const name of args.detector) {
   if (!fs.existsSync(path.join(detectorsDir, name, "detect.mjs")))
@@ -176,6 +203,7 @@ function summarize(rows) {
   }
 
   const caught = rows.filter((r) => r.outcome === "true_positive");
+  const seconds = rows.map((r) => r.seconds).sort((x, y) => x - y);
   const categoryCorrect = caught.filter((r) => r.category === r.type).length;
   const costs = rows.map((r) => r.cost_usd).filter((c) => c !== undefined);
 
@@ -189,15 +217,27 @@ function summarize(rows) {
     precision: ratio(tp, tp + fp),
     category_accuracy: ratio(categoryCorrect, caught.length),
     by_type: byType,
-    missed: rows.filter((r) => r.outcome === "false_negative").map((r) => r.id),
-    false_alarms: rows
-      .filter((r) => r.outcome === "false_positive")
-      .map((r) => r.id),
-    errored: rows.filter((r) => r.error).map((r) => r.id),
+    missed: ids(rows.filter((r) => r.outcome === "false_negative")),
+    false_alarms: ids(rows.filter((r) => r.outcome === "false_positive")),
+    errored: ids(rows.filter((r) => r.error)),
     total_seconds:
       Math.round(rows.reduce((s, r) => s + r.seconds, 0) * 10) / 10,
+    median_seconds: seconds.length
+      ? seconds[Math.floor((seconds.length - 1) / 2)]
+      : null,
+    max_seconds: seconds.length ? seconds.at(-1) : null,
     total_cost_usd: costs.length ? costs.reduce((s, c) => s + c, 0) : null,
   };
+}
+
+// Case IDs in order, each once; with several runs, "rw-011 x2" if it happened
+// in two of them.
+function ids(rows) {
+  const counts = new Map();
+  for (const row of rows) counts.set(row.id, (counts.get(row.id) ?? 0) + 1);
+  return [...counts]
+    .sort(([x], [y]) => x.localeCompare(y))
+    .map(([id, n]) => (n > 1 ? `${id} x${n}` : id));
 }
 
 function percent(value) {
@@ -224,7 +264,9 @@ function printSummary(name, s) {
     console.log(`   false alarms: ${s.false_alarms.join(", ")}`);
   if (s.errored.length) console.log(`   errored: ${s.errored.join(", ")}`);
   console.log(
-    `   time ${s.total_seconds}s${
+    `   time ${s.total_seconds}s total, ${s.median_seconds}s median, ${
+      s.max_seconds
+    }s max per case${
       s.total_cost_usd === null ? "" : `  cost $${s.total_cost_usd.toFixed(4)}`
     }`
   );
@@ -234,51 +276,107 @@ function printSummary(name, s) {
 
 fs.mkdirSync(outDir, { recursive: true });
 
+function scoreCase(name, testCase, run) {
+  const result = runDetector(name, testCase);
+  const predicted = result.answer?.conflict ?? false;
+  const row = {
+    id: testCase.id,
+    type: testCase.type,
+    label: testCase.label,
+    run,
+    predicted_conflict: predicted,
+    outcome: outcome(testCase, predicted),
+    seconds: result.seconds,
+  };
+  if (result.answer) {
+    Object.assign(row, {
+      confidence: result.answer.confidence,
+      category: result.answer.category ?? null,
+      involved_symbols: result.answer.involved_symbols,
+      explanation: result.answer.explanation,
+    });
+    for (const field of ["cost_usd", "timings", "usage"])
+      if (result.answer[field] !== undefined) row[field] = result.answer[field];
+  } else {
+    Object.assign(row, { error: result.error, stderr: result.stderrTail });
+  }
+  console.log(
+    `   ${testCase.id} [${testCase.type}] ${row.outcome}${
+      row.error ? ` (error: ${row.error})` : ""
+    }`
+  );
+  return row;
+}
+
+// One pipeline row per case: the first stage's answer if it flagged the case,
+// otherwise this stage's, with both stages' time and cost added up.
+function pipelineRows(stageRows) {
+  return stageRows.flatMap(({ run, rows }) => {
+    const byId = new Map(rows.map((row) => [row.id, row]));
+    return cases.map((c) => {
+      const first = firstStage.get(c.id);
+      const second = byId.get(c.id);
+      if (!second) return { ...first, run };
+      const cost = (first.cost_usd ?? 0) + (second.cost_usd ?? 0);
+      return {
+        ...second,
+        seconds: Math.round((first.seconds + second.seconds) * 10) / 10,
+        ...(first.cost_usd !== undefined || second.cost_usd !== undefined
+          ? { cost_usd: cost }
+          : {}),
+      };
+    });
+  });
+}
+
+const stageCases = firstStage
+  ? cases.filter((c) => !firstStage.get(c.id).predicted_conflict)
+  : cases;
+
 for (const name of args.detector) {
-  console.log(`\nRunning ${name} on ${cases.length} cases`);
-  const rows = [];
-  for (const testCase of cases) {
-    const result = runDetector(name, testCase);
-    const predicted = result.answer?.conflict ?? false;
-    const row = {
-      id: testCase.id,
-      type: testCase.type,
-      label: testCase.label,
-      predicted_conflict: predicted,
-      outcome: outcome(testCase, predicted),
-      seconds: result.seconds,
-    };
-    if (result.answer) {
-      Object.assign(row, {
-        confidence: result.answer.confidence,
-        category: result.answer.category ?? null,
-        involved_symbols: result.answer.involved_symbols,
-        explanation: result.answer.explanation,
-      });
-      if (result.answer.cost_usd !== undefined)
-        row.cost_usd = result.answer.cost_usd;
-      if (result.answer.timings) row.timings = result.answer.timings;
-    } else {
-      Object.assign(row, { error: result.error, stderr: result.stderrTail });
-    }
-    rows.push(row);
+  const perRun = [];
+  for (let run = 1; run <= runs; run++) {
     console.log(
-      `   ${testCase.id} [${testCase.type}] ${row.outcome}${
-        row.error ? ` (error: ${row.error})` : ""
-      }`
+      `\nRunning ${name} on ${stageCases.length} cases${
+        firstStage ? ` (those ${args.after} did not flag)` : ""
+      }${runs > 1 ? `, run ${run}/${runs}` : ""}`
     );
+    perRun.push({
+      run,
+      rows: stageCases.map((testCase) => scoreCase(name, testCase, run)),
+    });
+  }
+  const rows = perRun.flatMap((r) => r.rows);
+  const summary = summarize(rows);
+  printSummary(firstStage ? `${name} (stage 2 only)` : name, summary);
+  if (runs > 1) {
+    for (const r of perRun) {
+      const s = summarize(r.rows);
+      console.log(
+        `   run ${r.run}: recall ${percent(s.recall)}  precision ${percent(
+          s.precision
+        )}  FN ${s.false_negatives}  FP ${s.false_positives}`
+      );
+    }
   }
 
-  const summary = summarize(rows);
-  printSummary(name, summary);
+  let pipeline = null;
+  if (firstStage) {
+    pipeline = summarize(pipelineRows(perRun));
+    printSummary(`${args.after} -> ${name} (whole pipeline)`, pipeline);
+  }
+
   fs.writeFileSync(
     path.join(outDir, `${name}.json`),
     JSON.stringify(
       {
         detector: name,
         scored_at: new Date().toISOString(),
-        cases: cases.length,
+        after: args.after ?? null,
+        cases: stageCases.length,
+        runs: perRun.map((r) => ({ run: r.run, summary: summarize(r.rows) })),
         summary,
+        pipeline,
         rows,
       },
       null,

@@ -42,3 +42,6 @@ prisma/dev.db
 
 #Coverage
 coverage/
+
+# eval tooling
+/eval/node_modules

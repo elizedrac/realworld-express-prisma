@@ -61,7 +61,7 @@ function setup() {
   return { dir, detectors, cases, out: path.join(dir, "out") };
 }
 
-function runScore(env, detectorNames) {
+function runScore(env, detectorNames, extraArgs = []) {
   const res = spawnSync(
     process.execPath,
     [
@@ -75,6 +75,7 @@ function runScore(env, detectorNames) {
       "--out",
       env.out,
       ...detectorNames.flatMap((d) => ["--detector", d]),
+      ...extraArgs,
     ],
     { encoding: "utf8" }
   );
@@ -142,6 +143,49 @@ test("crashes and malformed output are errors that count as no conflict", () => 
     assert.equal(s.false_positives, 0);
     assert.deepEqual(s.missed, ["rw-001", "rw-002"]);
   }
+  fs.rmSync(env.dir, { recursive: true, force: true });
+});
+
+test("--after runs only on cases the first stage passed and scores the pipeline", () => {
+  const env = setup();
+  // picky flags rw-001 and rw-003, so only rw-002 and rw-017 reach stage 2.
+  assert.equal(runScore(env, ["picky"]).status, 0);
+  const res = runScore(
+    env,
+    ["never-conflict"],
+    ["--after", "picky", "--runs", "2"]
+  );
+  assert.equal(res.status, 0, res.stderr);
+  const saved = JSON.parse(
+    fs.readFileSync(path.join(env.out, "never-conflict.json"), "utf8")
+  );
+  assert.equal(saved.cases, 2);
+  assert.deepEqual([...new Set(saved.rows.map((r) => r.id))].sort(), [
+    "rw-002",
+    "rw-017",
+  ]);
+  assert.equal(saved.runs.length, 2);
+  for (const r of saved.runs) {
+    assert.equal(r.summary.false_negatives, 1);
+    assert.equal(r.summary.true_negatives, 1);
+  }
+  assert.deepEqual(saved.summary.missed, ["rw-002 x2"]);
+  // Pipeline per run: rw-001 TP and rw-003 FP from picky, then rw-002 FN and
+  // rw-017 TN from never-conflict; pooled over two runs.
+  assert.equal(saved.pipeline.true_positives, 2);
+  assert.equal(saved.pipeline.false_positives, 2);
+  assert.equal(saved.pipeline.false_negatives, 2);
+  assert.equal(saved.pipeline.true_negatives, 2);
+  // picky reports $0.50 per case; never-conflict reports no cost.
+  assert.equal(saved.pipeline.total_cost_usd, 4 * 0.5 * 2);
+  fs.rmSync(env.dir, { recursive: true, force: true });
+});
+
+test("--after refuses when the first stage has not been scored", () => {
+  const env = setup();
+  const res = runScore(env, ["never-conflict"], ["--after", "picky"]);
+  assert.equal(res.status, 2);
+  assert.match(res.stderr, /no saved scores for picky/);
   fs.rmSync(env.dir, { recursive: true, force: true });
 });
 

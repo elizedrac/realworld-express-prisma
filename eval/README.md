@@ -9,6 +9,7 @@ built on the `eval-base-v2` tag. Case branches do not contain this folder.
 - `targets/*.json`: how to set up, typecheck, test and run oracles for a target repo.
 - `verify.mjs`: checks every case and writes `results/`.
 - `detectors/<name>/`: candidate conflict detectors (see `detectors/README.md`).
+- `package.json`: the eval scripts' own dependencies (the Anthropic SDK), separate from the app's.
 - `score.mjs`: runs detectors on every case and reports recall, precision, misses and false alarms.
 - `replay.mjs`: testing only; pushes one side of a case to a scratch remote on a schedule, like a teammate.
 - `test/`: tests for the eval scripts.

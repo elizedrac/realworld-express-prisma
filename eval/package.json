@@ -1,0 +1,12 @@
+{
+  "name": "conflict-eval",
+  "private": true,
+  "type": "module",
+  "description": "Eval scripts for conflict detection. Separate from the app's dependencies.",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.4.0"
+  }
+}

@@ -26,9 +26,8 @@ describe("POST /api/users (register)", () => {
       res.body.user.token,
       process.env.JWT_SECRET as string
     );
-    expect(payload).toMatchObject({
-      user: { username: "alice", email: "alice@mail.com" },
-    });
+    expect(payload).toMatchObject({ user: { username: "alice" } });
+    expect(payload).not.toHaveProperty("user.email");
 
     await api
       .get("/api/user")

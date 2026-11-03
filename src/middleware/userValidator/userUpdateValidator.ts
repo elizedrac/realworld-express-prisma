@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ValidationError } from "../../utils/types";
+import logger from "../../utils/logger";
 
 /**
  * This function is a middleware that validates the user information in the request in order to log the user.
@@ -16,6 +17,7 @@ export default async function userUpdateValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("userUpdateValidator");
   const errors: ValidationError = {};
   errors.body = [];
 

@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import articleUpdatePrisma from "../../utils/db/article/articleUpdatePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 /**
  * Article controller that must receive a request with an authenticated user.
@@ -18,6 +19,7 @@ export default async function articlesUpdate(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesUpdate");
   const slug = req.params.slug;
   const { title, description, body } = req.body.article;
   const userName = req.auth?.user?.username;
@@ -38,6 +40,7 @@ export default async function articlesUpdate(
     const articleView = articleViewer(article, currentUser);
     return res.status(200).json({ article: articleView });
   } catch (error) {
+    logger.error("articlesUpdate failed", { error: error });
     return next(error);
   }
 }

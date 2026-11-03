@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ValidationError } from "../../utils/types";
+import logger from "../../utils/logger";
 
 /**
  * Middleware to validate request properties for articles listing controller.
@@ -14,6 +15,7 @@ export default async function articlesListValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesListValidator");
   const { tag, author, favorited, limit, offset } = req.query;
   const errors: ValidationError = {};
   errors.query = [];

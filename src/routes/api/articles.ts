@@ -48,6 +48,12 @@ router.post(
 
 router.get("/:slug/comments", auth.optionalAuthenticate, comments.getComments);
 
+router.get(
+  "/:slug/comments/latest",
+  auth.optionalAuthenticate,
+  comments.latestComment
+);
+
 router.delete(
   "/:slug/comments/:id([0-9]+)",
   auth.authenticate,

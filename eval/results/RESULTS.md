@@ -8,8 +8,7 @@ diff, and diffs ordered as in `detectors/README.md`.
 Scores are from the full run of 2026-11-03, with five cases rerun on
 2026-11-04 after the diff ordering changed their prompts (rw-021, rw-050,
 rw-051, and the new rw-052 and rw-053). Every other case's prompt is the same
-as in the full run. Per-case results are in `scores/`; the five reruns are not
-merged into those files yet.
+as in the full run. Per-case results are in `scores/`.
 
 ## Summary
 

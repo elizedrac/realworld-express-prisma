@@ -2,17 +2,17 @@
   "detector": "merge-check",
   "scored_at": "2026-11-04T00:22:52.842Z",
   "after": null,
-  "cases": 51,
+  "cases": 53,
   "runs": [
     {
       "run": 1,
       "summary": {
         "true_positives": 11,
-        "false_negatives": 23,
+        "false_negatives": 24,
         "false_positives": 0,
-        "true_negatives": 17,
+        "true_negatives": 18,
         "errors": 0,
-        "recall": 0.3235294117647059,
+        "recall": 0.3142857142857143,
         "precision": 1,
         "category_accuracy": 1,
         "by_type": {
@@ -25,15 +25,15 @@
             "correct": 4
           },
           "negative": {
-            "total": 17,
-            "correct": 17
+            "total": 18,
+            "correct": 18
           },
           "textual": {
             "total": 3,
             "correct": 3
           },
           "runtime": {
-            "total": 17,
+            "total": 18,
             "correct": 0
           },
           "intent": {
@@ -64,12 +64,13 @@
           "rw-046",
           "rw-047",
           "rw-048",
-          "rw-050"
+          "rw-050",
+          "rw-052"
         ],
         "false_alarms": [],
         "errored": [],
-        "total_seconds": 814.9,
-        "median_seconds": 18.2,
+        "total_seconds": 854.5,
+        "median_seconds": 18.3,
         "max_seconds": 20.5,
         "total_cost_usd": null
       }
@@ -77,11 +78,11 @@
   ],
   "summary": {
     "true_positives": 11,
-    "false_negatives": 23,
+    "false_negatives": 24,
     "false_positives": 0,
-    "true_negatives": 17,
+    "true_negatives": 18,
     "errors": 0,
-    "recall": 0.3235294117647059,
+    "recall": 0.3142857142857143,
     "precision": 1,
     "category_accuracy": 1,
     "by_type": {
@@ -94,15 +95,15 @@
         "correct": 4
       },
       "negative": {
-        "total": 17,
-        "correct": 17
+        "total": 18,
+        "correct": 18
       },
       "textual": {
         "total": 3,
         "correct": 3
       },
       "runtime": {
-        "total": 17,
+        "total": 18,
         "correct": 0
       },
       "intent": {
@@ -133,12 +134,13 @@
       "rw-046",
       "rw-047",
       "rw-048",
-      "rw-050"
+      "rw-050",
+      "rw-052"
     ],
     "false_alarms": [],
     "errored": [],
-    "total_seconds": 814.9,
-    "median_seconds": 18.2,
+    "total_seconds": 854.5,
+    "median_seconds": 18.3,
     "max_seconds": 20.5,
     "total_cost_usd": null
   },
@@ -519,7 +521,7 @@
       "run": 1,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 17.4,
+      "seconds": 19.7,
       "confidence": 0.5,
       "category": null,
       "involved_symbols": [],
@@ -527,8 +529,8 @@
       "timings": {
         "merge": 0,
         "setup": 0,
-        "typecheck": 1.1,
-        "tests": 16.1
+        "typecheck": 1.2,
+        "tests": 18.3
       }
     },
     {
@@ -1069,7 +1071,26 @@
       "run": 1,
       "predicted_conflict": false,
       "outcome": "false_negative",
-      "seconds": 17.4,
+      "seconds": 18.4,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0.1,
+        "setup": 0,
+        "typecheck": 1.4,
+        "tests": 16.7
+      }
+    },
+    {
+      "id": "rw-051",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 18.3,
       "confidence": 0.5,
       "category": null,
       "involved_symbols": [],
@@ -1078,11 +1099,30 @@
         "merge": 0,
         "setup": 0,
         "typecheck": 1.1,
-        "tests": 16.1
+        "tests": 17
       }
     },
     {
-      "id": "rw-051",
+      "id": "rw-052",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "false_negative",
+      "seconds": 18,
+      "confidence": 0.5,
+      "category": null,
+      "involved_symbols": [],
+      "explanation": "merges cleanly; typecheck and tests pass",
+      "timings": {
+        "merge": 0,
+        "setup": 0,
+        "typecheck": 1.2,
+        "tests": 16.6
+      }
+    },
+    {
+      "id": "rw-053",
       "type": "negative",
       "label": "no_conflict",
       "run": 1,
@@ -1097,7 +1137,7 @@
         "merge": 0,
         "setup": 0,
         "typecheck": 1.1,
-        "tests": 15.9
+        "tests": 15.8
       }
     }
   ]

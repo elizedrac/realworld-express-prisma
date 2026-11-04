@@ -2,27 +2,27 @@
   "detector": "llm-graph",
   "scored_at": "2026-11-04T00:47:56.341Z",
   "after": "merge-check",
-  "cases": 40,
+  "cases": 42,
   "runs": [
     {
       "run": 1,
       "summary": {
-        "true_positives": 21,
-        "false_negatives": 2,
+        "true_positives": 23,
+        "false_negatives": 1,
         "false_positives": 0,
-        "true_negatives": 17,
+        "true_negatives": 18,
         "errors": 0,
-        "recall": 0.9130434782608695,
+        "recall": 0.9583333333333334,
         "precision": 1,
-        "category_accuracy": 0.9523809523809523,
+        "category_accuracy": 0.9565217391304348,
         "by_type": {
           "negative": {
-            "total": 17,
-            "correct": 17
+            "total": 18,
+            "correct": 18
           },
           "runtime": {
-            "total": 17,
-            "correct": 15
+            "total": 18,
+            "correct": 17
           },
           "intent": {
             "total": 6,
@@ -30,111 +30,106 @@
           }
         },
         "missed": [
-          "rw-035",
-          "rw-050"
+          "rw-035"
         ],
         "false_alarms": [],
         "errored": [],
-        "total_seconds": 184.2,
-        "median_seconds": 4.4,
+        "total_seconds": 199.3,
+        "median_seconds": 4.5,
         "max_seconds": 7.8,
-        "total_cost_usd": 1.204148
+        "total_cost_usd": 1.5026700000000002
       }
     },
     {
       "run": 2,
       "summary": {
-        "true_positives": 22,
-        "false_negatives": 1,
+        "true_positives": 24,
+        "false_negatives": 0,
         "false_positives": 1,
-        "true_negatives": 16,
+        "true_negatives": 17,
         "errors": 0,
-        "recall": 0.9565217391304348,
-        "precision": 0.9565217391304348,
-        "category_accuracy": 0.9545454545454546,
+        "recall": 1,
+        "precision": 0.96,
+        "category_accuracy": 0.9583333333333334,
         "by_type": {
           "negative": {
-            "total": 17,
-            "correct": 16
+            "total": 18,
+            "correct": 17
           },
           "runtime": {
-            "total": 17,
-            "correct": 16
+            "total": 18,
+            "correct": 18
           },
           "intent": {
             "total": 6,
             "correct": 6
           }
         },
-        "missed": [
-          "rw-050"
-        ],
+        "missed": [],
         "false_alarms": [
           "rw-020"
         ],
         "errored": [],
-        "total_seconds": 180.3,
+        "total_seconds": 190.2,
         "median_seconds": 4.3,
         "max_seconds": 8.1,
-        "total_cost_usd": 1.2061879999999998
+        "total_cost_usd": 1.50592
       }
     },
     {
       "run": 3,
       "summary": {
-        "true_positives": 22,
-        "false_negatives": 1,
+        "true_positives": 24,
+        "false_negatives": 0,
         "false_positives": 1,
-        "true_negatives": 16,
+        "true_negatives": 17,
         "errors": 0,
-        "recall": 0.9565217391304348,
-        "precision": 0.9565217391304348,
-        "category_accuracy": 0.9545454545454546,
+        "recall": 1,
+        "precision": 0.96,
+        "category_accuracy": 0.9583333333333334,
         "by_type": {
           "negative": {
-            "total": 17,
-            "correct": 16
+            "total": 18,
+            "correct": 17
           },
           "runtime": {
-            "total": 17,
-            "correct": 16
+            "total": 18,
+            "correct": 18
           },
           "intent": {
             "total": 6,
             "correct": 6
           }
         },
-        "missed": [
-          "rw-050"
-        ],
+        "missed": [],
         "false_alarms": [
           "rw-020"
         ],
         "errored": [],
-        "total_seconds": 167.3,
-        "median_seconds": 4.1,
-        "max_seconds": 5.2,
-        "total_cost_usd": 1.2017280000000001
+        "total_seconds": 179.8,
+        "median_seconds": 4.2,
+        "max_seconds": 5.9,
+        "total_cost_usd": 1.5024299999999997
       }
     }
   ],
   "summary": {
-    "true_positives": 65,
-    "false_negatives": 4,
+    "true_positives": 71,
+    "false_negatives": 1,
     "false_positives": 2,
-    "true_negatives": 49,
+    "true_negatives": 52,
     "errors": 0,
-    "recall": 0.9420289855072463,
-    "precision": 0.9701492537313433,
-    "category_accuracy": 0.9538461538461539,
+    "recall": 0.9861111111111112,
+    "precision": 0.9726027397260274,
+    "category_accuracy": 0.9577464788732394,
     "by_type": {
       "negative": {
-        "total": 51,
-        "correct": 49
+        "total": 54,
+        "correct": 52
       },
       "runtime": {
-        "total": 51,
-        "correct": 47
+        "total": 54,
+        "correct": 53
       },
       "intent": {
         "total": 18,
@@ -142,27 +137,26 @@
       }
     },
     "missed": [
-      "rw-035",
-      "rw-050 x3"
+      "rw-035"
     ],
     "false_alarms": [
       "rw-020 x2"
     ],
     "errored": [],
-    "total_seconds": 531.8,
-    "median_seconds": 4.2,
+    "total_seconds": 569.3,
+    "median_seconds": 4.3,
     "max_seconds": 8.1,
-    "total_cost_usd": 3.6120639999999997
+    "total_cost_usd": 4.511019999999999
   },
   "pipeline": {
-    "true_positives": 98,
-    "false_negatives": 4,
+    "true_positives": 104,
+    "false_negatives": 1,
     "false_positives": 2,
-    "true_negatives": 49,
+    "true_negatives": 52,
     "errors": 0,
-    "recall": 0.9607843137254902,
-    "precision": 0.98,
-    "category_accuracy": 0.9693877551020408,
+    "recall": 0.9904761904761905,
+    "precision": 0.9811320754716981,
+    "category_accuracy": 0.9711538461538461,
     "by_type": {
       "test": {
         "total": 12,
@@ -173,16 +167,16 @@
         "correct": 12
       },
       "negative": {
-        "total": 51,
-        "correct": 49
+        "total": 54,
+        "correct": 52
       },
       "textual": {
         "total": 9,
         "correct": 9
       },
       "runtime": {
-        "total": 51,
-        "correct": 47
+        "total": 54,
+        "correct": 53
       },
       "intent": {
         "total": 18,
@@ -190,17 +184,16 @@
       }
     },
     "missed": [
-      "rw-035",
-      "rw-050 x3"
+      "rw-035"
     ],
     "false_alarms": [
       "rw-020 x2"
     ],
     "errored": [],
-    "total_seconds": 2976.5,
-    "median_seconds": 22.4,
+    "total_seconds": 3132.8,
+    "median_seconds": 22.6,
     "max_seconds": 27,
-    "total_cost_usd": 3.6120639999999997
+    "total_cost_usd": 4.511019999999999
   },
   "rows": [
     {
@@ -494,8 +487,8 @@
       "run": 1,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4,
-      "confidence": 0.95,
+      "seconds": 4.8,
+      "confidence": 0.93,
       "category": null,
       "involved_symbols": [
         "createUserToken",
@@ -504,15 +497,15 @@
         "createPasswordResetToken",
         "verifyPasswordResetToken"
       ],
-      "explanation": "Change A renames the env var JWT_SECRET to AUTH_JWT_SECRET across code, tests, README, and .env.test. Change B adds password reset tokens using a separate RESET_TOKEN_SECRET and adds that line to .env.test. The .env.test edits touch different lines and merge cleanly: the result has AUTH_JWT_SECRET, NODE_ENV, and RESET_TOKEN_SECRET. B's new code never references JWT_SECRET or AUTH_JWT_SECRET, and its tests only use RESET_TOKEN_SECRET, so the rename does not affect it. A's code does not touch RESET_TOKEN_SECRET. They solve different problems (login token secret rename vs. new reset token feature), so there is no duplicated intent and no runtime interaction.",
-      "cost_usd": 0.01384,
+      "explanation": "A renames the env var JWT_SECRET to AUTH_JWT_SECRET across code, tests, and .env.test. B adds a password reset token feature using a separate RESET_TOKEN_SECRET and adds that line to .env.test. The .env.test edits touch different lines and merge cleanly. B's code never reads JWT_SECRET (the reset test uses RESET_TOKEN_SECRET, which is untouched by A), so A's rename does not break B's assumptions. The merged .env.test has AUTH_JWT_SECRET, NODE_ENV, and RESET_TOKEN_SECRET, which satisfies both sets of code. The two changes do not duplicate each other's work.",
+      "cost_usd": 0.013496,
       "timings": {
         "graph": 0.4,
-        "llm": 3.4
+        "llm": 4.1
       },
       "usage": {
-        "input_tokens": 5160,
-        "output_tokens": 352
+        "input_tokens": 5183,
+        "output_tokens": 313
       }
     },
     {
@@ -1196,25 +1189,26 @@
       "type": "runtime",
       "label": "conflict",
       "run": 1,
-      "predicted_conflict": false,
-      "outcome": "false_negative",
-      "seconds": 5.6,
-      "confidence": 0.93,
-      "category": null,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.9,
+      "confidence": 0.95,
+      "category": "runtime",
       "involved_symbols": [
-        "src/controllers/commentsController/deleteComment.ts#deleteComment",
+        "src/utils/auth/createUserToken.ts#createUserToken",
         "src/utils/auth/isModerator.ts#isModerator",
+        "src/controllers/commentsController/deleteComment.ts#deleteComment",
         "src/utils/db/comment/commentDeletePrisma.ts#commentDeletePrisma"
       ],
-      "explanation": "Change A adds a standalone demo seed script (prisma/seed.ts) plus, per the related_code, logging statements (logger.debug/error) across controllers, validators and error handlers. Change B adds moderator-based comment deletion via isModerator, plus a new optional parameter to commentDeletePrisma. They touch deleteComment.ts in non-overlapping regions (logging vs. moderator check) and merge cleanly. Logging does not interact with moderator authorization. The seed script is independent of runtime code and doesn't depend on commentDeletePrisma behavior. No concrete scenario of wrong behavior or duplicated intent exists.",
-      "cost_usd": 0.153258,
+      "explanation": "Change A removes the email from the JWT payload in createUserToken (token now only contains {user:{username}}). Change B's isModerator reads req.auth?.user?.email from that token and relies on it being present (\"The email comes from the token, so no database lookup is needed\"). In the merged code the email is always undefined, so isModerator always returns false and moderators can never delete other users' comments. B's unit tests pass because they mock the request with an email, and existing tests don't cover the end-to-end path, so this passes tests but breaks the feature.",
+      "cost_usd": 0.150738,
       "timings": {
         "graph": 0.4,
-        "llm": 4.9
+        "llm": 4.2
       },
       "usage": {
-        "input_tokens": 74969,
-        "output_tokens": 332
+        "input_tokens": 73784,
+        "output_tokens": 317
       }
     },
     {
@@ -1224,23 +1218,75 @@
       "run": 1,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 3.9,
+      "seconds": 5.1,
       "confidence": 0.93,
       "category": null,
       "involved_symbols": [
-        "deleteComment",
+        "createUserToken",
         "isModerator",
+        "deleteComment",
         "commentDeletePrisma"
       ],
-      "explanation": "Change A is a seed script for demo content (plus logging additions in the controllers, per the merged deleteComment shown). Change B adds moderator-based comment deletion, touching deleteComment, isModerator and commentDeletePrisma. The logging calls in the merged deleteComment sit alongside B's moderator logic and don't interact with it. The seed script only creates users and articles, so it neither relies on nor breaks the moderator delete path.",
-      "cost_usd": 0.151958,
+      "explanation": "B adds moderator deletion: isModerator reads req.auth.user.username (explicitly relying on the username in the token, no DB lookup). A removes email from the token but keeps username, and adds logging to many files including deleteComment. Both changes to deleteComment merge cleanly (logger lines and isModerator call are in different spots). isModerator only uses username, which A's token still contains, so the moderator check still works. B's tests construct requests directly with email in the user object, which is unaffected. No contradiction or duplication between the logging/token-slimming work and the moderator feature.",
+      "cost_usd": 0.150068,
       "timings": {
         "graph": 0.4,
-        "llm": 3.2
+        "llm": 4.4
       },
       "usage": {
-        "input_tokens": 74964,
-        "output_tokens": 203
+        "input_tokens": 73779,
+        "output_tokens": 251
+      }
+    },
+    {
+      "id": "rw-052",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 1,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 6.2,
+      "confidence": 0.93,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/comment/commentsGetPrisma.ts#commentsGetPrisma",
+        "src/controllers/commentsController/latestComment.ts#latestComment"
+      ],
+      "explanation": "Change A modifies commentsGetPrisma to add orderBy createdAt desc (newest first). Change B's latestComment controller relies on commentsGetPrisma returning oldest first (comment says 'Comments come back oldest first') and takes the last element as the latest. After merge, comments are newest-first, so comments[length-1] is the oldest comment, not the latest. B's own integration test only creates one comment, so it passes either way, hiding the bug. With multiple comments the endpoint returns the oldest comment instead of the latest.",
+      "cost_usd": 0.151996,
+      "timings": {
+        "graph": 0.3,
+        "llm": 5.3
+      },
+      "usage": {
+        "input_tokens": 74638,
+        "output_tokens": 272
+      }
+    },
+    {
+      "id": "rw-053",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 1,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 7.6,
+      "confidence": 0.85,
+      "category": null,
+      "involved_symbols": [
+        "commentsGetPrisma",
+        "latestComment",
+        "getComments"
+      ],
+      "explanation": "A changes commentsGetPrisma to order by createdAt desc, while B's latestComment calls commentsGetPrisma and picks the max id via a full reduce, which is independent of ordering. So B's result is unaffected by A's reordering. B's new controller lacks logging, but that is cosmetic and not a conflict. A's other changes are logging additions. No concrete failing scenario or duplicated solution.",
+      "cost_usd": 0.15128,
+      "timings": {
+        "graph": 0.3,
+        "llm": 6.6
+      },
+      "usage": {
+        "input_tokens": 74685,
+        "output_tokens": 191
       }
     },
     {
@@ -1534,25 +1580,25 @@
       "run": 2,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4.2,
+      "seconds": 3.8,
       "confidence": 0.93,
       "category": null,
       "involved_symbols": [
+        ".env.test",
         "createUserToken",
         "authenticate",
-        "optionalAuthenticate",
         "createPasswordResetToken",
         "verifyPasswordResetToken"
       ],
-      "explanation": "Change A renames the env var JWT_SECRET to AUTH_JWT_SECRET across source, tests, README and .env.test. Change B adds a new RESET_TOKEN_SECRET to .env.test and new password-reset token code that uses only RESET_TOKEN_SECRET, never JWT_SECRET. The two .env.test edits touch different lines and merge cleanly, leaving AUTH_JWT_SECRET, NODE_ENV, DATABASE_URL and RESET_TOKEN_SECRET all defined. B's new code and tests don't reference the renamed variable, and A's changes don't touch the reset secret. No concrete runtime breakage or duplicated intent.",
-      "cost_usd": 0.01345,
+      "explanation": "A renames the JWT_SECRET env var to AUTH_JWT_SECRET in the authenticator, createUserToken, tests, and .env.test. B adds a new RESET_TOKEN_SECRET env var and a new password reset token module, and adds one line to .env.test. B's code does not reference JWT_SECRET anywhere. The .env.test edits touch different lines and merge cleanly: the merged file has AUTH_JWT_SECRET and RESET_TOKEN_SECRET, and both sides' code reads the variables it expects. B's new tests use only RESET_TOKEN_SECRET. The two changes serve different purposes and do not duplicate or contradict each other.",
+      "cost_usd": 0.013406,
       "timings": {
         "graph": 0.4,
-        "llm": 3.6
+        "llm": 3.1
       },
       "usage": {
-        "input_tokens": 5160,
-        "output_tokens": 313
+        "input_tokens": 5183,
+        "output_tokens": 304
       }
     },
     {
@@ -2236,25 +2282,26 @@
       "type": "runtime",
       "label": "conflict",
       "run": 2,
-      "predicted_conflict": false,
-      "outcome": "false_negative",
-      "seconds": 5.1,
-      "confidence": 0.93,
-      "category": null,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5,
+      "confidence": 0.95,
+      "category": "runtime",
       "involved_symbols": [
-        "src/controllers/commentsController/deleteComment.ts#deleteComment",
+        "src/utils/auth/createUserToken.ts#createUserToken",
         "src/utils/auth/isModerator.ts#isModerator",
+        "src/controllers/commentsController/deleteComment.ts#deleteComment",
         "src/utils/db/comment/commentDeletePrisma.ts#commentDeletePrisma"
       ],
-      "explanation": "Change A adds a standalone seed script (prisma/seed.ts) plus, per the related-code listing, logger.debug/error calls across many controllers and middleware. Change B adds moderator-based comment deletion (isModerator, an asModerator flag in commentDeletePrisma, and the deleteComment controller wiring). The two touch deleteComment only at the logging level: A's logger calls and B's isModerator call combine cleanly in the merged function. The seed script does not interact with deletion or the moderator logic, and nothing in either change breaks an assumption the other relies on or solves the same problem a second way.",
-      "cost_usd": 0.153108,
+      "explanation": "Change A removes the email from the JWT payload in createUserToken (token now only has user.username). Change B's isModerator reads the email from req.auth.user.email, documented as 'comes from the token, so no database lookup is needed'. After merge, tokens no longer contain email, so isModerator always returns false and moderators can never delete other users' comments; B's feature silently breaks. B's own isModerator unit test passes because it builds a fake request with email, so existing tests do not catch it. A's test change asserts email is absent from the token, confirming the incompatibility.",
+      "cost_usd": 0.150808,
       "timings": {
-        "graph": 0.4,
-        "llm": 4.4
+        "graph": 0.6,
+        "llm": 4
       },
       "usage": {
-        "input_tokens": 74969,
-        "output_tokens": 317
+        "input_tokens": 73784,
+        "output_tokens": 324
       }
     },
     {
@@ -2264,23 +2311,75 @@
       "run": 2,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4,
+      "seconds": 4.7,
       "confidence": 0.93,
       "category": null,
       "involved_symbols": [
-        "deleteComment",
-        "commentDeletePrisma",
-        "isModerator"
+        "src/controllers/commentsController/deleteComment.ts#deleteComment",
+        "src/utils/auth/isModerator.ts#isModerator",
+        "src/utils/auth/createUserToken.ts#createUserToken",
+        "src/utils/db/comment/commentDeletePrisma.ts#commentDeletePrisma"
       ],
-      "explanation": "Change A is a database seed script plus logging added across controllers, middleware and utilities; in deleteComment it only adds logger.debug and logger.error calls. Change B adds moderator-based comment deletion through isModerator and a new asModerator parameter on commentDeletePrisma. The merged deleteComment keeps B's isModerator(req) call and A's logging, and the two do not interact. The seed script creates plain users and articles, and nothing in it touches moderation or comment deletion.",
-      "cost_usd": 0.152108,
+      "explanation": "B's isModerator reads only req.auth.user.username, which A's createUserToken change (dropping email from the token) leaves intact. B's isModerator.test.ts passes objects with email directly into the request, so it is unaffected by A's token change. A's logging edits to deleteComment merge cleanly with B's moderator logic; they are orthogonal. Any pre-existing tokens containing email still work, and new tokens carry the username that isModerator needs. No runtime or intent conflict found.",
+      "cost_usd": 0.150568,
       "timings": {
         "graph": 0.4,
-        "llm": 3.3
+        "llm": 4
       },
       "usage": {
-        "input_tokens": 74964,
-        "output_tokens": 218
+        "input_tokens": 73779,
+        "output_tokens": 301
+      }
+    },
+    {
+      "id": "rw-052",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 2,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 4.8,
+      "confidence": 0.95,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/comment/commentsGetPrisma.ts#commentsGetPrisma",
+        "src/controllers/commentsController/latestComment.ts#latestComment"
+      ],
+      "explanation": "Change A modifies commentsGetPrisma to add orderBy createdAt desc, so comments are now returned newest first. Change B's latestComment controller relies on the old oldest-first ordering (its comment says 'Comments come back oldest first') and picks comments[comments.length - 1] as the latest. After merging, that element is the oldest comment, not the newest. The endpoint therefore returns the wrong comment whenever an article has more than one comment. B's own integration test only creates a single comment, so it still passes.",
+      "cost_usd": 0.151916,
+      "timings": {
+        "graph": 0.3,
+        "llm": 3.9
+      },
+      "usage": {
+        "input_tokens": 74638,
+        "output_tokens": 264
+      }
+    },
+    {
+      "id": "rw-053",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 2,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 4.9,
+      "confidence": 0.88,
+      "category": null,
+      "involved_symbols": [
+        "commentsGetPrisma",
+        "latestComment",
+        "getComments"
+      ],
+      "explanation": "Change A modifies commentsGetPrisma to order comments by createdAt descending (alongside logging additions). Change B's latestComment controller calls commentsGetPrisma and picks the latest comment via a reduce on the highest id, which is independent of the order of the returned list. So the new ordering does not break B's logic; it still returns the max-id comment. B's route is new and doesn't collide with the existing comments routes. The logging additions in A don't interact with B's new controller. No concrete scenario of wrong behavior or duplicated intent.",
+      "cost_usd": 0.1517,
+      "timings": {
+        "graph": 0.3,
+        "llm": 4
+      },
+      "usage": {
+        "input_tokens": 74685,
+        "output_tokens": 233
       }
     },
     {
@@ -2574,7 +2673,7 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4.6,
+      "seconds": 4,
       "confidence": 0.95,
       "category": null,
       "involved_symbols": [
@@ -2584,15 +2683,15 @@
         "createPasswordResetToken",
         "verifyPasswordResetToken"
       ],
-      "explanation": "Change A renames the JWT_SECRET env var to AUTH_JWT_SECRET in the authenticator, createUserToken, tests, README and .env.test. Change B adds a password reset token module using a separate RESET_TOKEN_SECRET and adds that var to .env.test. The .env.test edits touch different lines and merge cleanly: the file ends up with AUTH_JWT_SECRET and RESET_TOKEN_SECRET, and no code in B reads JWT_SECRET. B's tests only use RESET_TOKEN_SECRET, which is still defined. The two changes are independent, with no shared runtime assumption broken and no overlapping intent.",
-      "cost_usd": 0.01335,
+      "explanation": "Change A renames JWT_SECRET to AUTH_JWT_SECRET across code, .env.test, tests and README. Change B adds a password-reset token module that uses a separate RESET_TOKEN_SECRET and adds only that line to .env.test, leaving JWT_SECRET untouched. The .env.test merge is clean textually: the merged file has AUTH_JWT_SECRET, RESET_TOKEN_SECRET, DATABASE_URL, and NODE_ENV. B's code and tests only use RESET_TOKEN_SECRET and never reference JWT_SECRET, and A's code never touches RESET_TOKEN_SECRET. There is no shared assumption broken and no duplicated purpose.",
+      "cost_usd": 0.013606,
       "timings": {
         "graph": 0.4,
-        "llm": 3.9
+        "llm": 3.4
       },
       "usage": {
-        "input_tokens": 5160,
-        "output_tokens": 303
+        "input_tokens": 5183,
+        "output_tokens": 324
       }
     },
     {
@@ -3277,25 +3376,26 @@
       "type": "runtime",
       "label": "conflict",
       "run": 3,
-      "predicted_conflict": false,
-      "outcome": "false_negative",
-      "seconds": 4.8,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.7,
       "confidence": 0.93,
-      "category": null,
+      "category": "runtime",
       "involved_symbols": [
-        "src/controllers/commentsController/deleteComment.ts#deleteComment",
+        "src/utils/auth/createUserToken.ts#createUserToken",
         "src/utils/auth/isModerator.ts#isModerator",
+        "src/controllers/commentsController/deleteComment.ts#deleteComment",
         "src/utils/db/comment/commentDeletePrisma.ts#commentDeletePrisma"
       ],
-      "explanation": "Change A adds a standalone dev seed script and (per the related code) logging statements across controllers; Change B adds moderator-based comment deletion touching deleteComment, isModerator, and commentDeletePrisma. The only shared file is deleteComment.ts, where A's logger additions and B's isModerator call merge cleanly and compose correctly. The seed script does not interact with the moderator logic at runtime, and the two changes do not solve the same problem.",
-      "cost_usd": 0.152598,
+      "explanation": "Change A narrows the JWT payload in createUserToken to only {username}, dropping email, with the rationale that handlers look the user up by username anyway. Change B's isModerator reads req.auth.user.email from the token (documented as 'no database lookup is needed') and returns false when email is missing. After merge, every newly issued token lacks email, so isModerator always returns false and the moderator branch in deleteComment/commentDeletePrisma is dead for new tokens. Moderators cannot delete others' comments (they get a not-found/500 error instead). B's isModerator tests construct requests manually with email, so they still pass, and A's token test updated to assert email absent passes, so existing tests do not catch this.",
+      "cost_usd": 0.151288,
       "timings": {
         "graph": 0.4,
-        "llm": 4.1
+        "llm": 5
       },
       "usage": {
-        "input_tokens": 74969,
-        "output_tokens": 266
+        "input_tokens": 73784,
+        "output_tokens": 372
       }
     },
     {
@@ -3305,23 +3405,74 @@
       "run": 3,
       "predicted_conflict": false,
       "outcome": "true_negative",
-      "seconds": 4,
-      "confidence": 0.95,
+      "seconds": 5.3,
+      "confidence": 0.9,
       "category": null,
       "involved_symbols": [
-        "deleteComment",
-        "commentDeletePrisma",
-        "isModerator"
+        "src/utils/auth/createUserToken.ts#createUserToken",
+        "src/utils/auth/isModerator.ts#isModerator",
+        "src/controllers/commentsController/deleteComment.ts#deleteComment",
+        "src/utils/db/comment/commentDeletePrisma.ts#commentDeletePrisma"
       ],
-      "explanation": "Change A is a seed script for demo data plus logger additions in controllers/middleware. Change B adds a moderator-delete feature through isModerator and commentDeletePrisma. They overlap only in deleteComment.ts, where A adds logger.debug and logger.error lines and B changes the commentDeletePrisma call. Merged, deleteComment is correct: logging wraps the moderator-aware delete, and the seed script is independent of the moderator logic. No concrete scenario of wrong behavior or duplicated intent.",
-      "cost_usd": 0.152238,
+      "explanation": "B's isModerator reads username from the token (req.auth.user.username) and its tests build tokens with email, but A's createUserToken only drops the email from the token payload. isModerator uses only username, which A keeps in the token, so moderator checks still work. B's isModerator test constructs fake requests directly and does not use createUserToken, so it still passes. The deleteComment edits from A (logging) and B (isModerator argument) merge cleanly and are compatible. No duplicated intent or runtime breakage found.",
+      "cost_usd": 0.150618,
       "timings": {
         "graph": 0.4,
-        "llm": 3.4
+        "llm": 4.7
       },
       "usage": {
-        "input_tokens": 74964,
-        "output_tokens": 231
+        "input_tokens": 73779,
+        "output_tokens": 306
+      }
+    },
+    {
+      "id": "rw-052",
+      "type": "runtime",
+      "label": "conflict",
+      "run": 3,
+      "predicted_conflict": true,
+      "outcome": "true_positive",
+      "seconds": 5.9,
+      "confidence": 0.95,
+      "category": "runtime",
+      "involved_symbols": [
+        "src/utils/db/comment/commentsGetPrisma.ts#commentsGetPrisma",
+        "src/controllers/commentsController/latestComment.ts#latestComment"
+      ],
+      "explanation": "Change A modifies commentsGetPrisma to add orderBy createdAt desc (newest first). Change B's latestComment controller depends on commentsGetPrisma returning oldest-first (its comment says 'Comments come back oldest first') and picks comments[comments.length - 1] as the latest. After merge, that element is actually the oldest comment, so GET /:slug/comments/latest returns the oldest comment whenever there are multiple comments. The existing integration test only creates one comment, so it passes despite the bug.",
+      "cost_usd": 0.151946,
+      "timings": {
+        "graph": 0.3,
+        "llm": 5.1
+      },
+      "usage": {
+        "input_tokens": 74638,
+        "output_tokens": 267
+      }
+    },
+    {
+      "id": "rw-053",
+      "type": "negative",
+      "label": "no_conflict",
+      "run": 3,
+      "predicted_conflict": false,
+      "outcome": "true_negative",
+      "seconds": 5,
+      "confidence": 0.85,
+      "category": null,
+      "involved_symbols": [
+        "commentsGetPrisma",
+        "latestComment"
+      ],
+      "explanation": "A changes commentsGetPrisma to order by createdAt desc, and B's latestComment independently computes the latest comment via reduce on the highest id over the same query. The reduce is order-independent, so B's controller stays correct whether the ordering is asc, desc, or none. A's other changes are logging and a large test file, which don't interact with B's code. Both changes are correct together, and they don't solve the same problem in different ways, since A's ordering change is separate from B's feature.",
+      "cost_usd": 0.15143,
+      "timings": {
+        "graph": 0.3,
+        "llm": 4.1
+      },
+      "usage": {
+        "input_tokens": 74685,
+        "output_tokens": 206
       }
     }
   ]

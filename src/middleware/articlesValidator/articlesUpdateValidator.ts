@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ValidationError } from "../../utils/types";
+import logger from "../../utils/logger";
 
 /**
  * Middleware to validate request properties for articles update controller.
@@ -14,6 +15,7 @@ export default async function articlesUpdateValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesUpdateValidator");
   const errors: ValidationError = {};
   errors.body = [];
   if (!req.body) {

@@ -53,6 +53,8 @@ error and counted as "no conflict".
 - `llm-graph2`, `llm-graph2-intent`: the same two, with the graph walked two
   steps out from each change instead of one. Declarations used by more than 10
   others are not walked through, or every change would meet every other.
+  They did no better than one step in early runs and are no longer scored;
+  their files in `results/scores/` are from an older 22-case run.
 
 The `llm-*` detectors share `llm/llm.mjs`, so they differ only in their inputs.
 They are a second stage: the prompt says the pair already merges, typechecks and
@@ -91,9 +93,13 @@ Second stage, three runs each (the first stage must be scored first):
 
 ```sh
 node eval/score.mjs --repo . --cases eval/cases.jsonl --after merge-check --runs 3 \
-  --detector llm-diff --detector llm-diff-intent --detector llm-graph --detector llm-graph-intent \
-  --detector llm-graph2 --detector llm-graph2-intent
+  --detector llm-diff --detector llm-diff-intent --detector llm-graph --detector llm-graph-intent
 ```
+
+That run makes about 500 API calls and cost about $13 on 51 cases. To check a
+change cheaply, score one detector, one run, or only the affected cases
+(`--case <id>`, repeatable) with `--out` pointing elsewhere, so the saved
+scores are not overwritten.
 
 With `--after`, a detector runs only on the cases the first stage did not flag,
 and the scorer also reports the whole pipeline on every case, adding up both

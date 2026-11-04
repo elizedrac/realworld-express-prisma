@@ -40,7 +40,9 @@ error and counted as "no conflict".
 ## Detectors
 
 - `merge-check`: baseline, what CI catches. Merges B into A in its own worktree
-  and runs the target's typecheck and tests; needs `--target`.
+  and runs the target's typecheck and tests; needs `--target`. A test run that
+  times out, or where no test gets to run (say the database is down), is an
+  error rather than a conflict.
 - `llm-diff`: Claude Sonnet 5.5 given the two diffs.
 - `llm-diff-intent`: the same, plus the agent's task and both commit messages.
 - `llm-graph`: the two diffs plus a ts-morph graph (`llm/graph.mjs`) of the
@@ -54,10 +56,12 @@ error and counted as "no conflict".
 
 The `llm-*` detectors share `llm/llm.mjs`, so they differ only in their inputs.
 They are a second stage: the prompt says the pair already merges, typechecks and
-passes tests, so run them with `--after merge-check`. Settings: thinking off
+passes tests, so run them with `--after merge-check`. The prompt treats the
+task and commit messages as hints that may be incomplete or wrong, and says to
+trust the code when they disagree. Settings: thinking off
 (`between_tools`), effort `high`, 10 lines of diff context, structured JSON
 output, a 120 s request timeout with 2 retries. Every input is capped, and marked
-when cut: each diff at 40,000 characters, the graph at 30,000 (each declaration
+when cut: each diff at 150,000 characters, the graph at 30,000 (each declaration
 in it at 3,000, at most 40 links), and the task and each commit message at
 4,000. They read
 `ANTHROPIC_API_KEY` from the environment or from `eval/.env` (gitignored).

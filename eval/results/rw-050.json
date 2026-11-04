@@ -1,0 +1,186 @@
+{
+  "id": "rw-050",
+  "type": "runtime",
+  "label": "conflict",
+  "verified_at": "2026-11-03T23:13:46.193Z",
+  "target": "realworld-express-prisma",
+  "versions": "v22.23.4\nVersion 4.9.4",
+  "base": "eval-base-v2",
+  "branch_a": "rw-050-a",
+  "branch_b": "rw-050-b",
+  "oracle_applies_to": [
+    "b"
+  ],
+  "observed": {
+    "manifests_as": "oracle_failure",
+    "manifests": [
+      "oracle_failure"
+    ],
+    "failing_tests": [],
+    "failing_oracle_tests": [
+      "a moderator deletes another user's comment"
+    ]
+  },
+  "verdict": {
+    "valid": true,
+    "problems": []
+  },
+  "steps": {
+    "base": {
+      "sha": "2a68e58e65507036a5653c8a2d200d86ca985092",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "a": {
+      "sha": "e0f21573d67ca492914dde9184b9a92c4a76f634",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 17.3,
+        "total": 240,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true
+    },
+    "b": {
+      "sha": "590430c3cf8a65e603e7443ce7fa8057c6c1baf0",
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.1
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.3,
+        "total": 243,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 2.9,
+        "total": 1,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      }
+    },
+    "merged": {
+      "textual_conflict": false,
+      "setup": {
+        "skipped": true,
+        "ok": true,
+        "seconds": 0,
+        "steps": [
+          {
+            "run": "npm ci --prefer-offline --no-audit --no-fund --loglevel=error",
+            "skipped": true
+          },
+          {
+            "run": "npx prisma generate",
+            "skipped": true
+          }
+        ]
+      },
+      "typecheck": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 1.2
+      },
+      "test": {
+        "ok": true,
+        "exit": 0,
+        "seconds": 16.7,
+        "total": 243,
+        "failed_count": 0,
+        "failed_suites": 0,
+        "failed": []
+      },
+      "ok": true,
+      "oracle": {
+        "ok": false,
+        "exit": 1,
+        "seconds": 2.9,
+        "total": 1,
+        "failed_count": 1,
+        "failed_suites": 1,
+        "failed": [
+          {
+            "file": "src/test/integration/__oracle__/moderatorDeletesAnyComment.int.test.ts",
+            "test": "a moderator deletes another user's comment",
+            "message": "Error: expected 200 \"OK\", got 422 \"Unprocessable Entity\"\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/moderatorDeletesAnyComment.int.test.ts:13:6\n    at Generator.next (<anonymous>)\n    at fulfilled (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/src/test/integration/__oracle__/moderatorDeletesAnyComment.int.test.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n----\n    at Test._assertStatus (/private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:309:14)\n    at /private/var/folders/9t/7y9s9j_924l0gcv68dr2t8sw0000gn/T/conflict-verify/realworld-express-prisma/node_modules/supertest/lib/test.js:365:13"
+          }
+        ]
+      }
+    }
+  }
+}

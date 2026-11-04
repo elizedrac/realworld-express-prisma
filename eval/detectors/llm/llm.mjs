@@ -17,7 +17,7 @@ export const MODEL = "claude-sonnet-5-5";
 const PRICE = { input: 2, output: 10 };
 const CONTEXT_LINES = 10;
 // Every input is capped, in characters.
-const MAX_DIFF_CHARS = 40_000;
+const MAX_DIFF_CHARS = 150_000;
 const MAX_GRAPH_CHARS = 30_000;
 const MAX_TEXT_CHARS = 4_000; // the task and each commit message
 const MAX_TOKENS = 4_000;

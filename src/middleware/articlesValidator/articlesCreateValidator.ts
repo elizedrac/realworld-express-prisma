@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
 import { ValidationError } from "../../utils/types";
+import logger from "../../utils/logger";
 
 /**
  * Middleware to validate input for article creation controller.
@@ -14,6 +15,7 @@ export default async function articlesCreateValidator(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesCreateValidator");
   const errors: ValidationError = {};
   errors.body = [];
 

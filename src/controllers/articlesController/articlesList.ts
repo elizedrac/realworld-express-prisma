@@ -4,6 +4,7 @@ import { ParsedQs } from "qs";
 import articlesListPrisma from "../../utils/db/article/articleListPrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 function parseArticleListQuery(query: ParsedQs) {
   let { tag, author, favorited } = query;
@@ -28,6 +29,7 @@ export default async function articlesList(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesList");
   const { tag, author, favorited, limit, offset } = parseArticleListQuery(
     req.query
   );
@@ -56,6 +58,7 @@ export default async function articlesList(
       articlesCount: articlesListView.length,
     });
   } catch (error) {
+    logger.error("articlesList failed", { error: error });
     return next(error);
   }
 }

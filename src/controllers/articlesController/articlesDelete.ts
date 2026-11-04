@@ -3,6 +3,7 @@ import { Request } from "express-jwt";
 import articleDeletePrisma from "../../utils/db/article/articleDeletePrisma";
 import userGetPrisma from "../../utils/db/user/userGetPrisma";
 import articleViewer from "../../view/articleViewer";
+import logger from "../../utils/logger";
 
 /**
  * Article controller that must receive a request with an authenticated user.
@@ -17,6 +18,7 @@ export default async function articlesDelete(
   res: Response,
   next: NextFunction
 ) {
+  logger.debug("articlesDelete");
   const slug = req.params.slug;
   const userName = req.auth?.user?.username;
 
@@ -32,6 +34,7 @@ export default async function articlesDelete(
     const articleView = articleViewer(article, currentUser);
     return res.status(200).json({ article: articleView });
   } catch (error) {
+    logger.error("articlesDelete failed", { error: error });
     return next(error);
   }
 }

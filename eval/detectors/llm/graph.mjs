@@ -42,7 +42,7 @@ const isSource = (p) =>
   !p.includes("/test/");
 
 // Reads every source file in a tree with one `git cat-file --batch`.
-function readTree(repo, tree) {
+function readTree(repo, tree, include = isSource) {
   const paths = gitText(repo, [
     "ls-tree",
     "-r",
@@ -52,7 +52,7 @@ function readTree(repo, tree) {
     ROOT,
   ])
     .split("\n")
-    .filter(isSource);
+    .filter((p) => p && include(p));
   const res = git(
     repo,
     ["cat-file", "--batch"],
@@ -218,6 +218,86 @@ function edges(project) {
   return { uses, byKey: new Map([...byNode.values()].map((s) => [s.key, s])) };
 }
 
+function mergedTreeOf(repo, base, a, b) {
+  const merge = git(repo, [
+    "merge-tree",
+    "--write-tree",
+    `--merge-base=${base}`,
+    a,
+    b,
+  ]);
+  if (merge.status !== 0)
+    throw new Error(`A and B do not merge cleanly:\n${merge.stdout}`);
+  return merge.stdout.toString().split("\n")[0];
+}
+
+const changedFiles = (repo, base, branch) =>
+  gitText(repo, ["diff", "--name-only", `${base}...${branch}`, "--"])
+    .split("\n")
+    .filter(Boolean);
+
+// Ranks the files each side changed by how related they are to the other
+// side's changes: 0 if the other side changed the same file, 1 if it imports
+// or is imported by a file the other side changed, 2 otherwise. Imports are
+// read from the merged code (tests included), looking through index.ts files
+// that only re-export.
+export function fileRanks({ repo, base, a, b }) {
+  const project = load(
+    readTree(repo, mergedTreeOf(repo, base, a, b), (p) => p.endsWith(".ts"))
+  );
+  // imports: file -> files it imports or re-exports; importers: the reverse.
+  const imports = new Map();
+  const importers = new Map();
+  const add = (map, from, to) => {
+    if (!map.has(from)) map.set(from, new Set());
+    map.get(from).add(to);
+  };
+  const barrels = new Set();
+  for (const sf of project.getSourceFiles()) {
+    const decls = [...sf.getImportDeclarations(), ...sf.getExportDeclarations()];
+    for (const d of decls) {
+      const target = d.getModuleSpecifierSourceFile();
+      if (!target) continue;
+      add(imports, pathOf(sf), pathOf(target));
+      add(importers, pathOf(target), pathOf(sf));
+    }
+    const sts = sf.getStatements();
+    if (sts.length && sts.every((st) => Node.isExportDeclaration(st)))
+      barrels.add(pathOf(sf));
+  }
+  // A barrel passes an import through: importing it counts as importing what
+  // it re-exports. Two files re-exported by the same barrel are not linked.
+  const neighbors = (p) => {
+    const out = new Set();
+    for (const n of imports.get(p) ?? []) {
+      out.add(n);
+      if (barrels.has(n)) for (const m of imports.get(n) ?? []) out.add(m);
+    }
+    for (const n of importers.get(p) ?? []) {
+      out.add(n);
+      if (barrels.has(n)) for (const m of importers.get(n) ?? []) out.add(m);
+    }
+    out.delete(p);
+    return out;
+  };
+  const rank = (mine, theirs) => {
+    const theirSet = new Set(theirs);
+    return new Map(
+      mine.map((p) => [
+        p,
+        theirSet.has(p)
+          ? 0
+          : [...neighbors(p)].some((n) => theirSet.has(n))
+          ? 1
+          : 2,
+      ])
+    );
+  };
+  const filesA = changedFiles(repo, base, a);
+  const filesB = changedFiles(repo, base, b);
+  return { a: rank(filesA, filesB), b: rank(filesB, filesA) };
+}
+
 function cut(text, max) {
   if (text.length <= max) return text;
   return `${text.slice(0, max)}\n// [${
@@ -228,16 +308,7 @@ function cut(text, max) {
 // Builds the <related_code> text for a case. Returns plain text; the caller
 // caps its total size.
 export function buildGraph({ repo, base, a, b, depth = 1 }) {
-  const merge = git(repo, [
-    "merge-tree",
-    "--write-tree",
-    `--merge-base=${base}`,
-    a,
-    b,
-  ]);
-  if (merge.status !== 0)
-    throw new Error(`A and B do not merge cleanly:\n${merge.stdout}`);
-  const mergedTree = merge.stdout.toString().split("\n")[0];
+  const mergedTree = mergedTreeOf(repo, base, a, b);
 
   const baseProject = load(readTree(repo, base));
   const changedA = changedKeys(

@@ -63,7 +63,20 @@ trust the code when they disagree. Settings: thinking off
 output, a 120 s request timeout with 2 retries. Every input is capped, and marked
 when cut: each diff at 150,000 characters, the graph at 30,000 (each declaration
 in it at 3,000, at most 40 links), and the task and each commit message at
-4,000. They read
+4,000.
+
+Each diff is ordered so the cap cuts the least useful parts first:
+
+- Lockfiles, docs (`*.md`, `docs/`), seed data, fixtures, snapshots and build
+  output go last. A note at the top of the diff names them and their sizes, so
+  the model knows they changed even when they are cut.
+- If the rest is still over the cap, its files are ordered by how related they
+  are to the other side (`fileRanks` in `llm/graph.mjs`): files the other side
+  also changed, then files that import or are imported by the other side's
+  changed files (looking through `index.ts` files that only re-export), then
+  the rest. A note at the top says so. Diffs that fit keep git's path order.
+
+They read
 `ANTHROPIC_API_KEY` from the environment or from `eval/.env` (gitignored).
 Install their dependency once with `npm install --prefix eval`.
 

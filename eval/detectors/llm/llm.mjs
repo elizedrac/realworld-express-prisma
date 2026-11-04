@@ -10,7 +10,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { buildGraph } from "./graph.mjs";
+import { buildGraph, fileRanks } from "./graph.mjs";
 
 export const MODEL = "claude-sonnet-5-5";
 // Claude Sonnet 5.5 first-party prices, USD per million tokens.
@@ -100,9 +100,64 @@ function capped(text, max) {
   };
 }
 
-function diff(repo, base, branch) {
+// Files that rarely matter for a conflict (lockfiles, docs, seed data,
+// fixtures, snapshots, build output) go last, so the cap cuts them first. They
+// are named up front, so the model knows they changed even if they are cut.
+const LATE_FILES = [
+  /(^|\/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$/,
+  /\.(md|snap)$/i,
+  /\.min\.js$/,
+  /(^|\/)(docs|fixtures?|__fixtures__|__snapshots__|dist|build)\//,
+  /(^|\/)seeds?(\.[^/]+)?$/,
+  /(^|\/)seeds?\//,
+];
+
+// When a side's code does not fit under the cap, its files are ordered by how
+// related they are to the other side (graph.mjs fileRanks), so the cap cuts
+// the least related ones. Diffs that fit keep git's path order.
+function diff(repo, base, branch, ranks) {
+  const range = `${base}...${branch}`;
+  const args = ["diff", `-U${CONTEXT_LINES}`, range, "--"];
+  const show = (files) =>
+    files.length
+      ? git(repo, [...args, ...files.map((file) => `:(literal)${file}`)])
+      : "";
+  const files = git(repo, ["diff", "--name-only", range, "--"])
+    .split("\n")
+    .filter(Boolean);
+  const isLate = (file) => LATE_FILES.some((re) => re.test(file));
+  const late = files.filter(isLate);
+  const code = files.filter((file) => !isLate(file));
+
+  const notes = [];
+  let body = late.length ? show(code) : git(repo, args);
+  if (body.length > MAX_DIFF_CHARS) {
+    let rank;
+    try {
+      rank = ranks();
+    } catch {
+      // No ranking (say the merge has conflicts): keep path order.
+    }
+    if (rank) {
+      body = [0, 1, 2]
+        .map((r) => show(code.filter((file) => (rank.get(file) ?? 2) === r)))
+        .join("");
+      notes.push(
+        "[files ordered by how related they are to the other side: files it also changed, then files that import or are imported by its changed files, then the rest]"
+      );
+    }
+  }
+  if (late.length) {
+    const parts = late.map((file) => show([file]));
+    notes.push(
+      `[moved to the end as lower priority: ${late
+        .map((file, i) => `${file} (${parts[i].length} characters)`)
+        .join(", ")}]`
+    );
+    body += parts.join("");
+  }
   return capped(
-    git(repo, ["diff", `-U${CONTEXT_LINES}`, `${base}...${branch}`]),
+    notes.map((note) => `${note}\n`).join("") + body,
     MAX_DIFF_CHARS
   );
 }
@@ -130,9 +185,11 @@ function loadApiKey() {
 // Builds the user message for the requested inputs. Returns which inputs were
 // cut and how long the graph took.
 export function buildPrompt({ repo, base, a, b, task }, include) {
+  let ranks;
+  const ranksOf = (side) => () => (ranks ??= fileRanks({ repo, base, a, b }))[side];
   const inputs = [
-    ["diff_a", diff(repo, base, a)],
-    ["diff_b", diff(repo, base, b)],
+    ["diff_a", diff(repo, base, a, ranksOf("a"))],
+    ["diff_b", diff(repo, base, b, ranksOf("b"))],
   ];
   let graphSeconds;
   if (include.graph) {

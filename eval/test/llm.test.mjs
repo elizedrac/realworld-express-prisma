@@ -4,7 +4,7 @@
 import assert from "node:assert/strict";
 import path from "node:path";
 import { test } from "node:test";
-import { buildGraph } from "../detectors/llm/graph.mjs";
+import { buildGraph, fileRanks } from "../detectors/llm/graph.mjs";
 import { buildPrompt } from "../detectors/llm/llm.mjs";
 
 const repo = path.resolve(
@@ -34,6 +34,49 @@ test("graph links B's caller to the function A changed", () => {
 test("graph links two sides through a database table", () => {
   // rw-029: A renames slugs on update; B reads articles by stored slug.
   assert.match(buildGraph(refs("rw-029")), /both touch db:article/);
+});
+
+test("low-priority files go to the end of the diff, named up front", () => {
+  // rw-050: A's 160k seed file would push its token change past the cap.
+  const { text, truncated } = buildPrompt(refs("rw-050"), {
+    graph: false,
+    intent: false,
+  });
+  const diffA = text.match(/<diff_a>\n([\s\S]*?)<\/diff_a>/)[1];
+  assert.match(
+    diffA,
+    /^\[moved to the end as lower priority: prisma\/seed\.ts \(\d+ characters\)\]\n/
+  );
+  const token = diffA.indexOf("email stays out");
+  const seed = diffA.indexOf("diff --git a/prisma/seed.ts");
+  assert.ok(token > 0 && (seed === -1 || token < seed));
+  assert.deepEqual(truncated, ["diff_a"]);
+
+  // Without such files the diff is unchanged.
+  const plain = buildPrompt(refs("rw-030"), { graph: false, intent: false });
+  assert.doesNotMatch(plain.text, /moved to the end/);
+});
+
+test("an oversized diff puts files linked to the other side first", () => {
+  // rw-052: A's comment order change is past the cap in path order, but B's
+  // new controller imports commentsGetPrisma.
+  const { text } = buildPrompt(refs("rw-052"), { graph: false, intent: false });
+  const diffA = text.match(/<diff_a>\n([\s\S]*?)<\/diff_a>/)[1];
+  assert.match(diffA, /^\[files ordered by how related they are/);
+  assert.ok(diffA.includes('orderBy: { createdAt: "desc" }'));
+
+  // rw-042: same file ranks 0, and files that are only re-exported by the
+  // same index.ts as B's file are not linked to it.
+  const ranks = fileRanks(refs("rw-042"));
+  assert.equal(
+    ranks.a.get("src/controllers/commentsController/deleteComment.ts"),
+    0
+  );
+  assert.equal(
+    ranks.a.get("src/controllers/commentsController/createComment.ts"),
+    2
+  );
+  assert.equal(ranks.b.get("src/utils/db/comment/commentDeletePrisma.ts"), 1);
 });
 
 test("graph says so when the sides do not connect", () => {

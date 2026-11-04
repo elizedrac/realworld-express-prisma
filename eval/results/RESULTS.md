@@ -55,14 +55,44 @@ right on every run for every detector.
   llm-diff-intent also believed misleading commit messages in rw-045 and
   rw-049. At 150k, every detector gets all four right. The prompt line saying
   messages may be wrong made no measurable difference on its own.
-- **rw-050 is the open gap.** A adds a 160k-character seed file that comes
-  first in its diff, so an unannounced token change falls past the cap, and
-  nothing in the code links it to B's change. Collapsing repetitive hunks,
-  ordering files by how related they are to B, or graph nodes for data passed
-  through the token are the candidate fixes.
+- **rw-050 was the open gap, and diff ordering closed it.** A adds a
+  160k-character seed file that comes first in its diff, so an unannounced
+  token change fell past the cap. See the next section.
 - **Limits:** one small repo, with cases written by us to test specific
   weaknesses; the numbers say how the detectors compare, not how often they
   will be right in production. Three runs per case is enough to see flaky cases
   (rw-020, rw-040) but not to rank detectors that differ by one run. The test
   database stalled twice during scoring; merge-check now reports that as an
   error, and both times the cases were rescored.
+
+## Since this run: diff ordering
+
+Two changes to how each diff is built (see `detectors/README.md`). They were
+scored only on the cases they change, not in a full rescore, so the tables
+above are from before them.
+
+- **Low-priority files last.** Lockfiles, docs, seed data, fixtures and build
+  output go to the end of the diff. Only rw-001, rw-021, rw-050 and rw-051 have
+  such files; every other prompt is unchanged. rw-050 is now caught by all four
+  LLM detectors on 3 of 3 runs, and rw-021 and rw-051 stay correct.
+- **Related files first when the code is over the cap.** Files the other side
+  also changed go first, then files linked to its changes by imports. New case
+  rw-052 tests it: A's 197k diff hides an unannounced comment order change at
+  196k, and B's new controller imports the function A changed. rw-053 is its
+  negative twin.
+
+| Detector | rw-052, path order | rw-052, ranked | rw-053 false alarms |
+| --- | ---: | ---: | ---: |
+| llm-diff | 0/3 | 3/3 | 0 |
+| llm-diff-intent | 0/3 | 3/3 | 0 |
+| llm-graph | 0/3 | 3/3 | 0 |
+| llm-graph-intent | 2/3 | 3/3 | 0 |
+
+Even the graph detectors, whose graph already shows the merged
+`commentsGetPrisma`, mostly missed rw-052 when the diff was cut; with the
+change near the top of the diff, every detector catches it.
+
+The ranking does not help when the two sides connect only through data, like
+the token field in rw-050 (fixed only because the seed file moved) or password
+hashing in rw-044: nothing imports across, so those files rank as unrelated.
+Graph nodes for shared data would cover that.

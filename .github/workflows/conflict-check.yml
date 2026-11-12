@@ -1,0 +1,109 @@
+# Checks a pull request for conflicts with the branch it merges into, including
+# ones git and the tests do not catch (eval/ci/check.mjs). Posts the answer as
+# a PR comment and fails the job when it finds a conflict.
+#
+# Can also be run by hand on any two branches (Actions tab > Run workflow),
+# for example an eval case: a = rw-042-a, b = rw-042-b.
+#
+# Needs the repository secret ANTHROPIC_API_KEY.
+name: Conflict check
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      a:
+        description: Branch being checked (side A)
+        required: true
+      b:
+        description: Branch it might conflict with (side B)
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: conflict-check-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install the check's dependencies
+        run: npm ci --prefix eval --no-audit --no-fund
+
+      - name: Start the test database
+        run: docker compose up -d --wait db-test
+
+      - name: Pick the two sides
+        id: sides
+        env:
+          INPUT_A: ${{ inputs.a }}
+          INPUT_B: ${{ inputs.b }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PR_BASE: ${{ github.base_ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ -n "$PR_NUMBER" ]; then
+            # The head of a PR from a fork is not among the fetched branches.
+            git fetch --quiet origin "pull/$PR_NUMBER/head"
+            echo "a=$PR_HEAD" >> "$GITHUB_OUTPUT"
+            echo "b=origin/$PR_BASE" >> "$GITHUB_OUTPUT"
+            printf '%s\n\n%s\n' "$PR_TITLE" "$PR_BODY" > "$RUNNER_TEMP/task.txt"
+          else
+            echo "a=origin/$INPUT_A" >> "$GITHUB_OUTPUT"
+            echo "b=origin/$INPUT_B" >> "$GITHUB_OUTPUT"
+            : > "$RUNNER_TEMP/task.txt"
+          fi
+
+      - name: Check for conflicts
+        id: check
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SIDE_A: ${{ steps.sides.outputs.a }}
+          SIDE_B: ${{ steps.sides.outputs.b }}
+        run: |
+          set +e
+          node eval/ci/check.mjs \
+            --a "$SIDE_A" --b "$SIDE_B" \
+            --task "$(cat "$RUNNER_TEMP/task.txt")" \
+            --target eval/targets/realworld-express-prisma.json \
+            --summary "$RUNNER_TEMP/summary.md" \
+            > "$RUNNER_TEMP/answer.json"
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/answer.json"
+          if [ -f "$RUNNER_TEMP/summary.md" ]; then
+            cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Comment on the pull request
+        if: github.event_name == 'pull_request' && steps.check.outputs.code != '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" \
+            --body-file "$RUNNER_TEMP/summary.md" --edit-last --create-if-none
+
+      - name: Fail on a conflict or a failed check
+        if: steps.check.outputs.code != '0'
+        env:
+          CODE: ${{ steps.check.outputs.code }}
+        run: |
+          if [ "$CODE" = "1" ]; then echo "::error::Conflict found"; else echo "::error::The check failed to run"; fi
+          exit 1

@@ -116,8 +116,10 @@ function ensureWorktree() {
   const known = gitOk("worktree list --porcelain")
     .split("\n")
     .some((line) => line === `worktree ${workdir}`);
-  if (known && fs.existsSync(workdir)) return;
+  // The OS can clear part of a temp dir, leaving files but no .git link.
+  if (known && fs.existsSync(path.join(workdir, ".git"))) return;
   if (known) gitOk("worktree prune");
+  fs.rmSync(workdir, { recursive: true, force: true });
   fs.mkdirSync(path.dirname(workdir), { recursive: true });
   gitOk(`worktree add --detach "${workdir}" HEAD`);
 }
